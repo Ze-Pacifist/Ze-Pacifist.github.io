@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Require on </title>
+    <link>/tags/require/</link>
+    <description>Recent content in Require on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 28 Feb 2024 14:01:06 +0000</lastBuildDate>
+    <atom:link href="/tags/require/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Required Notes - bi0sCTF 2024</title>
+      <link>/posts/requirednotes-bi0sctf2024/</link>
+      <pubDate>Wed, 28 Feb 2024 14:01:06 +0000</pubDate>
+      <guid>/posts/requirednotes-bi0sctf2024/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;tl;dr&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.code-intelligence.com/blog/cve-protobufjs-prototype-pollution-cve-2023-36665&#34; target=&#34;_blank&#34;&gt;prototype pollution&lt;/a&gt; in protobufjs&lt;/li&gt;&#xA;&lt;li&gt;Require gadget to &amp;ldquo;map&amp;rdquo; Healthcheck note to attacker note&lt;/li&gt;&#xA;&lt;li&gt;Bypass _pathCache checks by using relativeResolveCache[relResolveCacheIdentifier] which is not deleted upon clearing cache&lt;/li&gt;&#xA;&lt;li&gt;User object tag to leak admin note id character by character with ssleaks.&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Required - HxpCTF 2022</title>
+      <link>/posts/required-hxpctf2022/</link>
+      <pubDate>Fri, 24 Mar 2023 14:51:15 +0000</pubDate>
+      <guid>/posts/required-hxpctf2022/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;tl;dr&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;nodejs require() shenanigans&lt;/li&gt;&#xA;&lt;li&gt;prototype pollution hell&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+  </channel>
+</rss>

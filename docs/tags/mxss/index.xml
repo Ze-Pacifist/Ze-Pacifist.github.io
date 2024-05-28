@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MXSS on </title>
+    <link>/tags/mxss/</link>
+    <description>Recent content in MXSS on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 16 Oct 2023 17:09:06 +0000</lastBuildDate>
+    <atom:link href="/tags/mxss/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Awesomenotes II - Hack.lu CTF 2023</title>
+      <link>/posts/awesomenotes2-hackluctf2023/</link>
+      <pubDate>Mon, 16 Oct 2023 17:09:06 +0000</pubDate>
+      <guid>/posts/awesomenotes2-hackluctf2023/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;tl;dr&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;XSS + HTML sanitization library &lt;a href=&#34;https://github.com/rust-ammonia/ammonia/tree/master&#34; target=&#34;_blank&#34;&gt;(ammonia)&lt;/a&gt; bypass&lt;/li&gt;&#xA;&lt;li&gt;Namespace confusion in ammonia using custom allowed extra tags(math &amp;amp; style)&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+  </channel>
+</rss>

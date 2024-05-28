@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Php on </title>
+    <link>/tags/php/</link>
+    <description>Recent content in Php on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 22 Mar 2022 13:40:25 +0000</lastBuildDate>
+    <atom:link href="/tags/php/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Gitfile Explorer - Zer0pts 2022</title>
+      <link>/posts/gitfileexplorer-zer0pts2022/</link>
+      <pubDate>Tue, 22 Mar 2022 13:40:25 +0000</pubDate>
+      <guid>/posts/gitfileexplorer-zer0pts2022/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;tl;dr&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Bypass preg_match, read flag&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+  </channel>
+</rss>

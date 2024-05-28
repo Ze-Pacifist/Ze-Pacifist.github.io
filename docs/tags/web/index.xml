@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Web on </title>
+    <link>/tags/web/</link>
+    <description>Recent content in Web on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 28 Feb 2024 14:01:06 +0000</lastBuildDate>
+    <atom:link href="/tags/web/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Required Notes - bi0sCTF 2024</title>
+      <link>/posts/requirednotes-bi0sctf2024/</link>
+      <pubDate>Wed, 28 Feb 2024 14:01:06 +0000</pubDate>
+      <guid>/posts/requirednotes-bi0sctf2024/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;tl;dr&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.code-intelligence.com/blog/cve-protobufjs-prototype-pollution-cve-2023-36665&#34; target=&#34;_blank&#34;&gt;prototype pollution&lt;/a&gt; in protobufjs&lt;/li&gt;&#xA;&lt;li&gt;Require gadget to &amp;ldquo;map&amp;rdquo; Healthcheck note to attacker note&lt;/li&gt;&#xA;&lt;li&gt;Bypass _pathCache checks by using relativeResolveCache[relResolveCacheIdentifier] which is not deleted upon clearing cache&lt;/li&gt;&#xA;&lt;li&gt;User object tag to leak admin note id character by character with ssleaks.&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Awesomenotes II - Hack.lu CTF 2023</title>
+      <link>/posts/awesomenotes2-hackluctf2023/</link>
+      <pubDate>Mon, 16 Oct 2023 17:09:06 +0000</pubDate>
+      <guid>/posts/awesomenotes2-hackluctf2023/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;tl;dr&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;XSS + HTML sanitization library &lt;a href=&#34;https://github.com/rust-ammonia/ammonia/tree/master&#34; target=&#34;_blank&#34;&gt;(ammonia)&lt;/a&gt; bypass&lt;/li&gt;&#xA;&lt;li&gt;Namespace confusion in ammonia using custom allowed extra tags(math &amp;amp; style)&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Memo Drive - Linectf 2022</title>
+      <link>/posts/memodrive-linectf2022/</link>
+      <pubDate>Tue, 29 Mar 2022 16:55:28 -0400</pubDate>
+      <guid>/posts/memodrive-linectf2022/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;tl;dr&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;url parse bug&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Gitfile Explorer - Zer0pts 2022</title>
+      <link>/posts/gitfileexplorer-zer0pts2022/</link>
+      <pubDate>Tue, 22 Mar 2022 13:40:25 +0000</pubDate>
+      <guid>/posts/gitfileexplorer-zer0pts2022/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;tl;dr&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Bypass preg_match, read flag&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+  </channel>
+</rss>

