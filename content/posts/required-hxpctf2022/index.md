@@ -65,7 +65,7 @@ Module.prototype.require = function(id) {
 };
 ```
 
-Here we can see the definition of the require function which calls Module._load. That is where the process begins.
+Here we can see the definition of the require function which calls Module.\_load. That is where the process begins.
 
 [https://github.com/nodejs/node/blob/beb0520af74ed20c3d48a1b4f6ca8a89664976c6/lib/internal/modules/cjs/loader.js#L777](https://github.com/nodejs/node/blob/beb0520af74ed20c3d48a1b4f6ca8a89664976c6/lib/internal/modules/cjs/loader.js#L777)
 
@@ -81,9 +81,9 @@ Here we see a new cache, `Module._pathCache`
 
 Another thing to note is that here is where the function call to `trySelf` exists which is where the prototype pollution gadget exists. [https://github.com/nodejs/node/blob/beb0520af74ed20c3d48a1b4f6ca8a89664976c6/lib/internal/modules/cjs/loader.js#L942](https://github.com/nodejs/node/blob/beb0520af74ed20c3d48a1b4f6ca8a89664976c6/lib/internal/modules/cjs/loader.js#L942)
 
-Again, checks are done on _pathCache and another function `Module._findPath()` is called. [https://github.com/nodejs/node/blob/beb0520af74ed20c3d48a1b4f6ca8a89664976c6/lib/internal/modules/cjs/loader.js#L511](https://github.com/nodejs/node/blob/beb0520af74ed20c3d48a1b4f6ca8a89664976c6/lib/internal/modules/cjs/loader.js#L511)
+Again, checks are done on \_pathCache and another function `Module._findPath()` is called. [https://github.com/nodejs/node/blob/beb0520af74ed20c3d48a1b4f6ca8a89664976c6/lib/internal/modules/cjs/loader.js#L511](https://github.com/nodejs/node/blob/beb0520af74ed20c3d48a1b4f6ca8a89664976c6/lib/internal/modules/cjs/loader.js#L511)
 
-This is the function where the actual file from the file system is loaded but only if it does not exists in _pathCache.
+This is the function where the actual file from the file system is loaded but only if it does not exists in \_pathCache.
 
 ### Cache collision’s
 
@@ -143,7 +143,7 @@ Since 434 is not in pathCache, `Module._findPath` is called which adds 753→434
 
 If 753 exists in relativeResolveCache and 434 exists in require.cache, 753 cannot be further mapped to anything else.
 
-But if 753 exists in relattiveResolveCache and 434 is not in require.cache, the mapping of 753 can be changed further and it overwrites _pathCache also. This situation arises especially when `require('./556')` is called which clears the entire require.cache due to which 434 is deleted.
+But if 753 exists in relattiveResolveCache and 434 is not in require.cache, the mapping of 753 can be changed further and it overwrites \_pathCache also. This situation arises especially when `require('./556')` is called which clears the entire require.cache due to which 434 is deleted.
 
 Another corner case exists when lets say for example we clear require.cache and 434 no longer exists in require.cache but the mapping 753→434 exists in relativeResolveCache.
 
@@ -153,7 +153,7 @@ This makes it such that 753’s mapping cannot be changed again since 753→434 
 
 ---
 
-Looking at the bigger picture, we can conclude that relativeResolveCache+require.cache has the highest priority, then comes the prototype, then the _pathCache and finally the actual file.
+Looking at the bigger picture, we can conclude that relativeResolveCache+require.cache has the highest priority, then comes the prototype, then the \_pathCache and finally the actual file.
 
 The way the cache works can be simulated using python using the following (ugly) code and it will spit out the files loaded/the operations called in correct order along with correct arguments.
 

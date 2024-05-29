@@ -24,6 +24,7 @@ Random default passwords like “password” or “password123” does not seem 
 
 This suggests the presence of a backup file which the admin forgot to remove and we can download it by navigating to /login.php.bak
 
+```php
     <?php
 
     require_once(__DIR__  . "/config.php");
@@ -43,6 +44,7 @@ This suggests the presence of a backup file which the admin forgot to remove and
             $msg = 'Wrong username or password.';
         }
     }
+```
 
 This filereveals that we would have to do an SQL injection attack to bypass the login. As we have the SQL query used to retrieve the username and password from the database, crafting a payload becomes much easier.
 
@@ -52,7 +54,7 @@ The LIKE Operator, as given in [w3schools](https://www.w3schools.com/sql/sql_lik
 
 * The percent sign (%) represents zero, one, or multiple characters
 
-* The underscore sign (_) represents one, single character.
+* The underscore sign (\_) represents one, single character.
 
 Using admin as username and “%”*(which represents the entire password which we do not know)* as password, we are able to solve the first part of the challenge.
 
@@ -65,11 +67,11 @@ Using admin as username and “%”*(which represents the entire password which 
 
 ![](https://cdn-images-1.medium.com/max/2000/1*i7Dkab_iwY7GIhJgzKJSyg.png)
 
-Here, we are provided with the same login page but to get the flag, we have to extract the admin password. This was a pretty interesting challenge and if it was a normal SQL injection, it could be done using the “UNION SELECT” operator but in this case, the presence of wildcards- ‘%’ and ‘_’ with the “LIKE” operator makes it easy for us.
+Here, we are provided with the same login page but to get the flag, we have to extract the admin password. This was a pretty interesting challenge and if it was a normal SQL injection, it could be done using the “UNION SELECT” operator but in this case, the presence of wildcards- ‘%’ and ‘\_’ with the “LIKE” operator makes it easy for us.
 
 As mentioned above, the ‘%’ wildcard can be used to denote multiple characters which is why we were able to bypass the login with just one ‘%’ sign. The ‘_’ only denotes single characters. So, if were to try just one ‘_’, we would not be able to bypass the login. But this behaviour is useful to us as we can find out the number of characters in the password.
 
-Using username:admin and password:__________(10 ‘_’), we are able to bypass login, indicating that the password has 10 characters.
+Using username:admin and password:`__________`(10 ‘\_’), we are able to bypass login, indicating that the password has 10 characters.
 
 ### Extracting the password
 
@@ -79,6 +81,7 @@ If, for example, the password was “password”, using “p_________”(p and 9
 
 I wrote the following python script to automate the process.
 
+```py
     import requests
     from string import printable
 
@@ -103,6 +106,7 @@ I wrote the following python script to automate the process.
 
     print(flag)
     #Hero{s3cur3p@ss}
+```
 
 This returns the following output
 

