@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cloud on </title>
+    <link>/tags/cloud/</link>
+    <description>Recent content in Cloud on </description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 18 May 2025 19:05:22 +0530</lastBuildDate>
+    <atom:link href="/tags/cloud/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Midnight Sun CTF 2025 Quals - Hackchan, Shot Host</title>
+      <link>/posts/midnight-sun2025/</link>
+      <pubDate>Sun, 18 May 2025 19:05:22 +0530</pubDate>
+      <guid>/posts/midnight-sun2025/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;tl;dr&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Writeup for &amp;ldquo;Hackchan&amp;rdquo; and &amp;ldquo;Shot Host&amp;rdquo; from MidnightSun CTF Quals.&lt;/li&gt;&#xA;&lt;li&gt;Hackchan - html injection -&amp;gt; meta redirect -&amp;gt; CSRF -&amp;gt; Race Condition&lt;/li&gt;&#xA;&lt;li&gt;Shot Host - Use lambda function to sign &lt;code&gt;x-amz-copy-source&lt;/code&gt; header into S3 pre-signed URL to copy png containing flag.&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+  </channel>
+</rss>

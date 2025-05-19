@@ -2,7 +2,7 @@
 title = 'Awesomenotes II - Hack.lu CTF 2023'
 date = 2023-10-16 17:09:06
 draft = false
-tags = ["Web","mXSS"]
+tags = ["web","mXSS"]
 +++
 
 **tl;dr**

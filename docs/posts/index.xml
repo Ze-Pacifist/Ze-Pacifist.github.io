@@ -4,10 +4,17 @@
     <title>Posts on </title>
     <link>/posts/</link>
     <description>Recent content in Posts on </description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 28 Feb 2024 14:01:06 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 18 May 2025 19:05:22 +0530</lastBuildDate>
     <atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Midnight Sun CTF 2025 Quals - Hackchan, Shot Host</title>
+      <link>/posts/midnight-sun2025/</link>
+      <pubDate>Sun, 18 May 2025 19:05:22 +0530</pubDate>
+      <guid>/posts/midnight-sun2025/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;tl;dr&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Writeup for &amp;ldquo;Hackchan&amp;rdquo; and &amp;ldquo;Shot Host&amp;rdquo; from MidnightSun CTF Quals.&lt;/li&gt;&#xA;&lt;li&gt;Hackchan - html injection -&amp;gt; meta redirect -&amp;gt; CSRF -&amp;gt; Race Condition&lt;/li&gt;&#xA;&lt;li&gt;Shot Host - Use lambda function to sign &lt;code&gt;x-amz-copy-source&lt;/code&gt; header into S3 pre-signed URL to copy png containing flag.&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
     <item>
       <title>Required Notes - bi0sCTF 2024</title>
       <link>/posts/requirednotes-bi0sctf2024/</link>

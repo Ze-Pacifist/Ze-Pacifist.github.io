@@ -2,7 +2,7 @@
 title = 'Required Notes - bi0sCTF 2024'
 date = 2024-02-28 14:01:06
 draft = false
-tags = ["Web","nodejs","require","prototype pollution"]
+tags = ["web","nodejs","require","prototype pollution"]
 +++
 
 

