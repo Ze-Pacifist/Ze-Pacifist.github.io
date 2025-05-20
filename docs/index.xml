@@ -6,8 +6,15 @@
     <description>Recent content on </description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 18 May 2025 19:05:22 +0530</lastBuildDate>
+    <lastBuildDate>Sun, 18 May 2025 19:05:35 +0530</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AlpacaHack CTF Round 11(Web)</title>
+      <link>/posts/round11-alpacahack2025/</link>
+      <pubDate>Sun, 18 May 2025 19:05:35 +0530</pubDate>
+      <guid>/posts/round11-alpacahack2025/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;tl;dr&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Writeup for Jackpot and Redirector from AlpacaHack Round 11(Web)&lt;/li&gt;&#xA;&lt;li&gt;Jackpot - Use Unicode characters to send multiple 7&amp;rsquo;s as candidates to get flag&lt;/li&gt;&#xA;&lt;li&gt;Redirector - Open redirect -&amp;gt; filter bypass -&amp;gt; xss&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
     <item>
       <title>Midnight Sun CTF 2025 Quals - Hackchan, Shot Host</title>
       <link>/posts/midnight-sun2025/</link>
