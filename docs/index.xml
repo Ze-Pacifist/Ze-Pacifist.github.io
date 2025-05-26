@@ -6,8 +6,15 @@
     <description>Recent content on </description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 18 May 2025 19:05:35 +0530</lastBuildDate>
+    <lastBuildDate>Sun, 25 May 2025 13:00:08 +0530</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Mission - NahamCon 2025 CTF</title>
+      <link>/posts/themission-nahamcon2025ctf/</link>
+      <pubDate>Sun, 25 May 2025 13:00:08 +0530</pubDate>
+      <guid>/posts/themission-nahamcon2025ctf/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;tl;dr&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Writeup for all challenges from &amp;ldquo;The Mission&amp;rdquo; - NahamCon 2025 CTF&lt;/li&gt;&#xA;&lt;li&gt;Flag1 - Found in &lt;code&gt;robots.txt&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;Flag2 - Java SpringBoot API actuator + WAF bypass using URL encoding&lt;/li&gt;&#xA;&lt;li&gt;Flag3 - Use actuator heapdump to reconstruct Authorization header to get token for &lt;code&gt;/internal-dash&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;Flag4 - Graphql introspection to reveal Queries -&amp;gt; use &lt;code&gt;users&lt;/code&gt; query list all users id, email and usernames&lt;/li&gt;&#xA;&lt;li&gt;Flag5 - Path traversal in internal-dash api&amp;rsquo;s to reveal internal api&amp;rsquo;s and change status of reports&lt;/li&gt;&#xA;&lt;li&gt;Flag6 - Convince the chatbot to reveal the flag.&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
     <item>
       <title>AlpacaHack CTF Round 11(Web)</title>
       <link>/posts/round11-alpacahack2025/</link>

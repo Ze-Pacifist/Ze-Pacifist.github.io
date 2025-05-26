@@ -2,6 +2,7 @@
 title = 'Hands on Cloud Pentesting: Zero to Hero with 0$'
 date = 2025-05-16T15:31:23+05:30
 draft = true
+series = "Hands on Cloud Pentesting"
 tags = ["cloud","pentesting","aws"]
 +++
 

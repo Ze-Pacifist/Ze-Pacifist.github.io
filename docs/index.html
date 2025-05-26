@@ -74,7 +74,7 @@
 <meta property="og:url" content="/" />
 
 
-<meta property="og:updated_time" content="2025-05-18T19:05:35&#43;05:30" />
+<meta property="og:updated_time" content="2025-05-25T13:00:08&#43;05:30" />
 
 
 <link rel="sitemap" type="application/xml" title="Sitemap" href='/sitemap.xml' />
@@ -241,6 +241,10 @@
                 
                         
                 
+                        
+                
+                        
+                
             
         
         
@@ -261,15 +265,15 @@
                         </li>
                         
                             <li class="bullet">
+                                <a href="/posts/themission-nahamcon2025ctf/">The Mission - NahamCon 2025 CTF</a>
+                            </li>
+                        
+                            <li class="bullet">
                                 <a href="/posts/round11-alpacahack2025/">AlpacaHack CTF Round 11(Web)</a>
                             </li>
                         
                             <li class="bullet">
                                 <a href="/posts/midnight-sun2025/">Midnight Sun CTF 2025 Quals - Hackchan, Shot Host</a>
-                            </li>
-                        
-                            <li class="bullet">
-                                <a href="/posts/requirednotes-bi0sctf2024/">Required Notes - bi0sCTF 2024</a>
                             </li>
                         
                     
@@ -280,6 +284,10 @@
                 
             
                 
+                
+                        
+                
+                        
                 
                         
                 
@@ -378,6 +386,73 @@ powered by <a target="_blank" href="https://gohugo.io">Hugo</a> | themed with <a
     <article class="post">
         <div class="info">
   <h1 class="post-title">
+    <a href="/posts/themission-nahamcon2025ctf/">The Mission - NahamCon 2025 CTF</a>
+  </h1>
+
+  <div class="headline">
+    <div>
+      
+      
+      <time datetime=" 2025-05-25T13:00:08&#43;0530" class="post-date">
+        May 25, 2025
+      </time>
+      
+      <span> - </span>
+      <span class="reading-time">
+        
+          
+        
+
+        <span>7 mins read</span>
+      </span>
+    </div>
+
+    
+    <ul class="tags">
+      
+      <li class="tag-web">
+        <a href="/tags/web">web</a>
+      </li>
+      
+      <li class="tag-graphql">
+        <a href="/tags/graphql">graphql</a>
+      </li>
+      
+      <li class="tag-api">
+        <a href="/tags/api">api</a>
+      </li>
+      
+    </ul>
+    
+  </div>
+
+  
+  
+
+  
+</div>
+
+        
+        <p><strong>tl;dr</strong></p>
+<ul>
+<li>Writeup for all challenges from &ldquo;The Mission&rdquo; - NahamCon 2025 CTF</li>
+<li>Flag1 - Found in <code>robots.txt</code></li>
+<li>Flag2 - Java SpringBoot API actuator + WAF bypass using URL encoding</li>
+<li>Flag3 - Use actuator heapdump to reconstruct Authorization header to get token for <code>/internal-dash</code></li>
+<li>Flag4 - Graphql introspection to reveal Queries -&gt; use <code>users</code> query list all users id, email and usernames</li>
+<li>Flag5 - Path traversal in internal-dash api&rsquo;s to reveal internal api&rsquo;s and change status of reports</li>
+<li>Flag6 - Convince the chatbot to reveal the flag.</li>
+</ul>
+        
+        <div class="read-more-link">
+            <a href="/posts/themission-nahamcon2025ctf/">Read More…</a>
+        </div>
+        
+        
+    </article>
+    <article class="post">
+        <div class="info">
+  <h1 class="post-title">
     <a href="/posts/round11-alpacahack2025/">AlpacaHack CTF Round 11(Web)</a>
   </h1>
 
@@ -395,7 +470,7 @@ powered by <a target="_blank" href="https://gohugo.io">Hugo</a> | themed with <a
           
         
 
-        <span>7 mins read</span>
+        <span>8 mins read</span>
       </span>
     </div>
 
@@ -909,53 +984,28 @@ powered by <a target="_blank" href="https://gohugo.io">Hugo</a> | themed with <a
         
         
     </article>
-    <article class="post">
-        <div class="info">
-  <h1 class="post-title">
-    <a href="/posts/e.tree-htbcyberapocalypse2021/">E.tree - HTB Cyber Apocalypse 2021</a>
-  </h1>
+</div>
 
-  <div class="headline">
-    <div>
-      
-      
-      <time datetime=" 2021-04-24T11:11:30-0400" class="post-date">
-        April 24, 2021
-      </time>
-      
-      <span> - </span>
-      <span class="reading-time">
-        
-          
-        
 
-        <span>7 mins read</span>
-      </span>
-    </div>
+<hr>
+<div class="footer">
+<nav id="page-nav">
 
     
-  </div>
+    
+    
+    <span class="page-number current">1</span>
+    
+    
+    
+    <a href="/page/2/">2</a>
+    
+    
 
-  
-  
-
-  
+    
+    <a href="/page/2/" rel="next" class="extend next"> Next &raquo;</a>
+    
 </div>
-
-        
-        <p><strong>tl;dr</strong></p>
-<ul>
-<li>X-Path injection</li>
-</ul>
-        
-        <div class="read-more-link">
-            <a href="/posts/e.tree-htbcyberapocalypse2021/">Read More…</a>
-        </div>
-        
-        
-    </article>
-</div>
-
 
 
             </main>
