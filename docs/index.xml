@@ -6,14 +6,28 @@
     <description>Recent content on </description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 25 May 2025 13:00:08 +0530</lastBuildDate>
+    <lastBuildDate>Sat, 07 Jun 2025 18:50:02 +0530</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hands on Cloud Pentesting: 2 - Cloudgoat iam_privesc_by_key_rotation</title>
+      <link>/posts/cloud-security-2/</link>
+      <pubDate>Sat, 07 Jun 2025 18:50:02 +0530</pubDate>
+      <guid>/posts/cloud-security-2/</guid>
+      <description></description>
+    </item>
     <item>
       <title>The Mission - NahamCon 2025 CTF</title>
       <link>/posts/themission-nahamcon2025ctf/</link>
       <pubDate>Sun, 25 May 2025 13:00:08 +0530</pubDate>
       <guid>/posts/themission-nahamcon2025ctf/</guid>
       <description>&lt;p&gt;&lt;strong&gt;tl;dr&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Writeup for all challenges from &amp;ldquo;The Mission&amp;rdquo; - NahamCon 2025 CTF&lt;/li&gt;&#xA;&lt;li&gt;Flag1 - Found in &lt;code&gt;robots.txt&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;Flag2 - Java SpringBoot API actuator + WAF bypass using URL encoding&lt;/li&gt;&#xA;&lt;li&gt;Flag3 - Use actuator heapdump to reconstruct Authorization header to get token for &lt;code&gt;/internal-dash&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;Flag4 - Graphql introspection to reveal Queries -&amp;gt; use &lt;code&gt;users&lt;/code&gt; query list all users id, email and usernames&lt;/li&gt;&#xA;&lt;li&gt;Flag5 - Path traversal in internal-dash api&amp;rsquo;s to reveal internal api&amp;rsquo;s and change status of reports&lt;/li&gt;&#xA;&lt;li&gt;Flag6 - Convince the chatbot to reveal the flag.&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Hands on Cloud Pentesting: 1 - Cloudgoat sns_secrets</title>
+      <link>/posts/cloud-security-1/</link>
+      <pubDate>Tue, 20 May 2025 18:57:25 +0530</pubDate>
+      <guid>/posts/cloud-security-1/</guid>
+      <description></description>
     </item>
     <item>
       <title>AlpacaHack CTF Round 11(Web)</title>
@@ -28,6 +42,13 @@
       <pubDate>Sun, 18 May 2025 19:05:22 +0530</pubDate>
       <guid>/posts/midnight-sun2025/</guid>
       <description>&lt;p&gt;&lt;strong&gt;tl;dr&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Writeup for &amp;ldquo;Hackchan&amp;rdquo; and &amp;ldquo;Shot Host&amp;rdquo; from MidnightSun CTF Quals.&lt;/li&gt;&#xA;&lt;li&gt;Hackchan - html injection -&amp;gt; meta redirect -&amp;gt; CSRF -&amp;gt; Race Condition&lt;/li&gt;&#xA;&lt;li&gt;Shot Host - Use lambda function to sign &lt;code&gt;x-amz-copy-source&lt;/code&gt; header into S3 pre-signed URL to copy png containing flag.&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Hands on Cloud Pentesting: 0 to Hero with 0$</title>
+      <link>/posts/cloud-security-0/</link>
+      <pubDate>Fri, 16 May 2025 15:31:23 +0530</pubDate>
+      <guid>/posts/cloud-security-0/</guid>
+      <description></description>
     </item>
     <item>
       <title>Required Notes - bi0sCTF 2024</title>
