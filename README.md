@@ -31,7 +31,7 @@ This is a code block.
 ## Details
 dropdown menu like thing
 ```md
-{{</* details summary="A detail dropdown" */>}}
+{{< details summary="A detail dropdown" >}}
 Markdown content
-{{</* /details */>}}
+{{< /details >}}
 ```

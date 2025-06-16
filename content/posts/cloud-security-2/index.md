@@ -25,7 +25,7 @@ cloudgoat create iam_privesc_by_key_rotation
 ```
 We start off with the provided AWS access key and secret key by configuring a new profile using AWS CLI.
 ![configure creds](image-2.png)
-We are now a user called "manager_cgidxwnp5b4tkv". Trying out the usual IAM enumeration commands, we can find our that we are allowed to perform various actions such as list user, roles, view policies etc. Lets check them out one by one. The first thing we can check is the list of users that are present since the scenario requires some privilege escalation.
+We are now a user called "manager_cgidxwnp5b4tkv". Trying out the usual IAM enumeration commands, we find that we are allowed to perform various actions such as list user, roles, view policies etc. Lets check them out one by one. The first thing we can check is the list of users that are present, since the scenario requires some privilege escalation.
 ```bash
 aws iam list-users --profile acc-manager
 {
@@ -61,7 +61,7 @@ aws iam list-users --profile acc-manager
     ]
 }
 ```
-Here we can see 3 IAM Users `manager_cgidxwnp5b4tkv`(which is our current user), `developer_cgidxwnp5b4tkv` and `admin_cgidxwnp5b4tkv`.
+Here we can see 3 IAM Users - `manager_cgidxwnp5b4tkv`(which is our current user), `developer_cgidxwnp5b4tkv` and `admin_cgidxwnp5b4tkv`.
 
 Next lets check out the list of roles.
 ```bash
@@ -160,7 +160,7 @@ Most AWS testing requires the skill off reading and understanding AWS policies. 
 
 The "Who" in this case, or rather the "Principal", is not mentioned here since this is an inline policy that is only there for the user "manager_cgidxwnp5b4tkv" so the policy only applies to this user.
 
-"What" we can do, or the "Action", is defined as 2 separate "what's". The first set "Allows" us to `iam:DeactivateMFADevice`,`iam:GetMFADevice` etc on the Resource - all users and mfa devices, if the condition - [resource has tag](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag) = developer, is true. This means that we can do actions like `iam:CreateAccessKey` if the resource has the tag `developer` set. The second set "Allows" us to create and delete virtual mfa devices.
+"What" we can do, or the "Action", is defined as 2 separate "what's". The first set "Allows" us to `iam:DeactivateMFADevice`,`iam:GetMFADevice` etc on the Resource - all users and mfa devices, if the condition - [resource has tag](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag) - developer, is set to true. This means that we can do actions like `iam:CreateAccessKey` if the resource has the tag `developer=true` set. The second set "Allows" us to create and delete virtual mfa devices which will come in handy later on.
 {{< /details >}}
 The [iam:CreateAccessKey](https://hackingthe.cloud/aws/exploitation/iam_privilege_escalation/#iamcreateaccesskey) permission stands out as we can use it to create an access key for any other user, provided the condition is met.
 
@@ -191,7 +191,7 @@ aws iam get-user-policy --user-name manager_cgidxwnp5b4tkv --policy-name TagReso
     }
 }
 ```
-This policy allows us to tag or untag any resource. Using this, we can tag any user with the `developer` tag and hence meet the above condition to CreateAccess Key. Now that we can escalate privileges to any user, lets check out what the `admin_cgidxwnp5b4tkv` user is allowed to do.
+This policy allows us to tag or untag any resource. Using this, we can tag any user with the `developer=true` tag and hence meet the above condition to CreateAccess Key. Now that we can escalate privileges to any user, lets check out what the `admin_cgidxwnp5b4tkv` user is allowed to do.
 ![admin user inline policy](image-5.png)
 The admin user has another policy called `AssumeRoles`. Lets see what that does:
 ```bash
@@ -216,6 +216,8 @@ This shows that the admin user is allowed to Assume the role of `cg_secretsmanag
 ![tag admin user](image-6.png)
 ```bash
 aws iam tag-user --user-name admin_cgidxwnp5b4tkv --tags Key=developer,Value=true --profile acc-manager
+
+aws iam create-access-key --user-name admin_cgidxwnp5b4tkv --profile acc-manager
 ```
 First we tag the admin user with developer key and value set to true but then when we try to create access key it fails because there are already 2 access keys for the admin user. We can list the access keys and then delete one of them using the following commands:
 ```bash

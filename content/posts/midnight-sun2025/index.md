@@ -16,7 +16,7 @@ tags = ["web","csrf","cloud"]
 
 # Introduction
 
-This is a writeup for two of the challenges that I worked on during the [Midnight Sun CTF 2025 Quals](https://play.midnightsunctf.com/challenges) - Hackchan and Shot Host. I'll be walking through my approach towards the challenges during the CTF and also try to cover various solutions shared other players in the [discord server](https://discord.gg/xMuRxub4CX) post CTF.
+This is a writeup for two of the challenges that I worked on during the [Midnight Sun CTF 2025 Quals](https://play.midnightsunctf.com/challenges) - Hackchan and Shot Host. I'll be walking through my approach towards the challenges during the CTF and also try to cover various solutions shared by other players in the [discord server](https://discord.gg/xMuRxub4CX) post CTF.
 
 ## Hackchan
 **Challenge points**: 200

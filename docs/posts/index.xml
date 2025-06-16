@@ -6,8 +6,36 @@
     <description>Recent content in Posts on </description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 07 Jun 2025 18:50:02 +0530</lastBuildDate>
+    <lastBuildDate>Sat, 14 Jun 2025 12:52:05 +0530</lastBuildDate>
     <atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SmileyCTF 2025 - Sculpture Revenge, dry-ice-n-co</title>
+      <link>/posts/smileyctf-2025/</link>
+      <pubDate>Sat, 14 Jun 2025 12:52:05 +0530</pubDate>
+      <guid>/posts/smileyctf-2025/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;tl;dr&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Writeup for &amp;ldquo;Sculpture Revenge&amp;rdquo; and &amp;ldquo;dry-ice-n-co&amp;rdquo; from SmileyCTF 2025.&lt;/li&gt;&#xA;&lt;li&gt;Sculpture Revenge - Use &lt;code&gt;jseval&lt;/code&gt; in skulpt to execute javascript code and get XSS.&lt;/li&gt;&#xA;&lt;li&gt;dry-ice-n-co - Exploit logic bugs to increase balance amount and buy flag product.&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Hands on Cloud Pentesting: 5 - Cloudgoat lambda_privesc</title>
+      <link>/posts/cloud-security-5/</link>
+      <pubDate>Fri, 13 Jun 2025 16:59:57 +0530</pubDate>
+      <guid>/posts/cloud-security-5/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hands on Cloud Pentesting: 4 - Cloudgoat iam_privesc_by_rollback</title>
+      <link>/posts/cloud-security-4/</link>
+      <pubDate>Thu, 12 Jun 2025 16:09:27 +0530</pubDate>
+      <guid>/posts/cloud-security-4/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hands on Cloud Pentesting: 3 - flaws.cloud</title>
+      <link>/posts/cloud-security-3/</link>
+      <pubDate>Mon, 09 Jun 2025 15:47:20 +0530</pubDate>
+      <guid>/posts/cloud-security-3/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Hands on Cloud Pentesting: 2 - Cloudgoat iam_privesc_by_key_rotation</title>
       <link>/posts/cloud-security-2/</link>

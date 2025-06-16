@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Xss on </title>
+    <link>/tags/xss/</link>
+    <description>Recent content in Xss on </description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 14 Jun 2025 12:52:05 +0530</lastBuildDate>
+    <atom:link href="/tags/xss/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SmileyCTF 2025 - Sculpture Revenge, dry-ice-n-co</title>
+      <link>/posts/smileyctf-2025/</link>
+      <pubDate>Sat, 14 Jun 2025 12:52:05 +0530</pubDate>
+      <guid>/posts/smileyctf-2025/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;tl;dr&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Writeup for &amp;ldquo;Sculpture Revenge&amp;rdquo; and &amp;ldquo;dry-ice-n-co&amp;rdquo; from SmileyCTF 2025.&lt;/li&gt;&#xA;&lt;li&gt;Sculpture Revenge - Use &lt;code&gt;jseval&lt;/code&gt; in skulpt to execute javascript code and get XSS.&lt;/li&gt;&#xA;&lt;li&gt;dry-ice-n-co - Exploit logic bugs to increase balance amount and buy flag product.&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+  </channel>
+</rss>

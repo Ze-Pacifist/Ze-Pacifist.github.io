@@ -6,8 +6,15 @@
     <description>Recent content in Web on </description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 25 May 2025 13:00:08 +0530</lastBuildDate>
+    <lastBuildDate>Sat, 14 Jun 2025 12:52:05 +0530</lastBuildDate>
     <atom:link href="/tags/web/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SmileyCTF 2025 - Sculpture Revenge, dry-ice-n-co</title>
+      <link>/posts/smileyctf-2025/</link>
+      <pubDate>Sat, 14 Jun 2025 12:52:05 +0530</pubDate>
+      <guid>/posts/smileyctf-2025/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;tl;dr&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Writeup for &amp;ldquo;Sculpture Revenge&amp;rdquo; and &amp;ldquo;dry-ice-n-co&amp;rdquo; from SmileyCTF 2025.&lt;/li&gt;&#xA;&lt;li&gt;Sculpture Revenge - Use &lt;code&gt;jseval&lt;/code&gt; in skulpt to execute javascript code and get XSS.&lt;/li&gt;&#xA;&lt;li&gt;dry-ice-n-co - Exploit logic bugs to increase balance amount and buy flag product.&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
     <item>
       <title>The Mission - NahamCon 2025 CTF</title>
       <link>/posts/themission-nahamcon2025ctf/</link>
