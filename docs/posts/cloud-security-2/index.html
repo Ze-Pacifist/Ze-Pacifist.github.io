@@ -277,15 +277,15 @@
                         </li>
                         
                             <li class="bullet">
+                                <a href="/posts/cloud-security-6/">Hands on Cloud Pentesting: 6 - Cloudgoat sqs_flag_shop</a>
+                            </li>
+                        
+                            <li class="bullet">
                                 <a href="/posts/smileyctf-2025/">SmileyCTF 2025 - Sculpture Revenge, dry-ice-n-co</a>
                             </li>
                         
                             <li class="bullet">
                                 <a href="/posts/cloud-security-5/">Hands on Cloud Pentesting: 5 - Cloudgoat lambda_privesc</a>
-                            </li>
-                        
-                            <li class="bullet">
-                                <a href="/posts/cloud-security-4/">Hands on Cloud Pentesting: 4 - Cloudgoat iam_privesc_by_rollback</a>
                             </li>
                         
                     
@@ -470,14 +470,14 @@ We are now a user called &ldquo;manager_cgidxwnp5b4tkv&rdquo;. Trying out the us
 </span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;Path&#34;</span>: <span style="color:#e6db74">&#34;/&#34;</span>,
 </span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;UserName&#34;</span>: <span style="color:#e6db74">&#34;admin_cgidxwnp5b4tkv&#34;</span>,
 </span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;UserId&#34;</span>: <span style="color:#e6db74">&#34;AIDASA4MJEJACD6ISH2Q6&#34;</span>,
-</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;Arn&#34;</span>: <span style="color:#e6db74">&#34;arn:aws:iam::139343766080:user/admin_cgidxwnp5b4tkv&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;Arn&#34;</span>: <span style="color:#e6db74">&#34;arn:aws:iam::1234567890:user/admin_cgidxwnp5b4tkv&#34;</span>,
 </span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;CreateDate&#34;</span>: <span style="color:#e6db74">&#34;2025-06-07T13:25:00Z&#34;</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>,
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;Path&#34;</span>: <span style="color:#e6db74">&#34;/&#34;</span>,
 </span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;UserName&#34;</span>: <span style="color:#e6db74">&#34;developer_cgidxwnp5b4tkv&#34;</span>,
 </span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;UserId&#34;</span>: <span style="color:#e6db74">&#34;AIDASA4MJEJAKYON365RY&#34;</span>,
-</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;Arn&#34;</span>: <span style="color:#e6db74">&#34;arn:aws:iam::139343766080:user/developer_cgidxwnp5b4tkv&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;Arn&#34;</span>: <span style="color:#e6db74">&#34;arn:aws:iam::1234567890:user/developer_cgidxwnp5b4tkv&#34;</span>,
 </span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;CreateDate&#34;</span>: <span style="color:#e6db74">&#34;2025-06-07T13:25:00Z&#34;</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>,
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">{</span>   <span style="color:#75715e"># Ignore this, its my cloudgoat manager user</span>
@@ -491,7 +491,7 @@ We are now a user called &ldquo;manager_cgidxwnp5b4tkv&rdquo;. Trying out the us
 </span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;Path&#34;</span>: <span style="color:#e6db74">&#34;/&#34;</span>,
 </span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;UserName&#34;</span>: <span style="color:#e6db74">&#34;manager_cgidxwnp5b4tkv&#34;</span>,
 </span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;UserId&#34;</span>: <span style="color:#e6db74">&#34;AIDASA4MJEJAIXQQO6QDX&#34;</span>,
-</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;Arn&#34;</span>: <span style="color:#e6db74">&#34;arn:aws:iam::139343766080:user/manager_cgidxwnp5b4tkv&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;Arn&#34;</span>: <span style="color:#e6db74">&#34;arn:aws:iam::1234567890:user/manager_cgidxwnp5b4tkv&#34;</span>,
 </span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;CreateDate&#34;</span>: <span style="color:#e6db74">&#34;2025-06-07T13:25:00Z&#34;</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">]</span>
@@ -506,7 +506,7 @@ We are now a user called &ldquo;manager_cgidxwnp5b4tkv&rdquo;. Trying out the us
 </span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;Path&#34;</span>: <span style="color:#e6db74">&#34;/&#34;</span>,
 </span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;RoleName&#34;</span>: <span style="color:#e6db74">&#34;cg_secretsmanager_cgidxwnp5b4tkv&#34;</span>,
 </span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;RoleId&#34;</span>: <span style="color:#e6db74">&#34;AROASA4MJEJACMEMRYWPK&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;Arn&#34;</span>: <span style="color:#e6db74">&#34;arn:aws:iam::139343766080:role/cg_secretsmanager_cgidxwnp5b4tkv&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;Arn&#34;</span>: <span style="color:#e6db74">&#34;arn:aws:iam::1234567890:role/cg_secretsmanager_cgidxwnp5b4tkv&#34;</span>,
 </span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;CreateDate&#34;</span>: <span style="color:#e6db74">&#34;2025-06-07T13:25:04Z&#34;</span>,
 </span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;AssumeRolePolicyDocument&#34;</span>: <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;Version&#34;</span>: <span style="color:#e6db74">&#34;2012-10-17&#34;</span>,
@@ -514,7 +514,7 @@ We are now a user called &ldquo;manager_cgidxwnp5b4tkv&rdquo;. Trying out the us
 </span></span><span style="display:flex;"><span>            <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;Effect&#34;</span>: <span style="color:#e6db74">&#34;Allow&#34;</span>,
 </span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;Principal&#34;</span>: <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#34;AWS&#34;</span>: <span style="color:#e6db74">&#34;arn:aws:iam::139343766080:root&#34;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#34;AWS&#34;</span>: <span style="color:#e6db74">&#34;arn:aws:iam::1234567890:root&#34;</span>
 </span></span><span style="display:flex;"><span>                <span style="color:#f92672">}</span>,
 </span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;Action&#34;</span>: <span style="color:#e6db74">&#34;sts:AssumeRole&#34;</span>,
 </span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;Condition&#34;</span>: <span style="color:#f92672">{</span>
@@ -564,8 +564,8 @@ The attached user policy is <a href="https://docs.aws.amazon.com/aws-managed-pol
 </span></span><span style="display:flex;"><span>                <span style="color:#f92672">}</span>,
 </span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;Effect&#34;</span>: <span style="color:#e6db74">&#34;Allow&#34;</span>,
 </span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;Resource&#34;</span>: <span style="color:#f92672">[</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#34;arn:aws:iam::139343766080:user/*&#34;</span>,
-</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#34;arn:aws:iam::139343766080:mfa/*&#34;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#34;arn:aws:iam::1234567890:user/*&#34;</span>,
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#34;arn:aws:iam::1234567890:mfa/*&#34;</span>
 </span></span><span style="display:flex;"><span>                <span style="color:#f92672">]</span>,
 </span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;Sid&#34;</span>: <span style="color:#e6db74">&#34;SelfManageAccess&#34;</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>,
@@ -575,7 +575,7 @@ The attached user policy is <a href="https://docs.aws.amazon.com/aws-managed-pol
 </span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#34;iam:CreateVirtualMFADevice&#34;</span>
 </span></span><span style="display:flex;"><span>                <span style="color:#f92672">]</span>,
 </span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;Effect&#34;</span>: <span style="color:#e6db74">&#34;Allow&#34;</span>,
-</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;Resource&#34;</span>: <span style="color:#e6db74">&#34;arn:aws:iam::139343766080:mfa/*&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;Resource&#34;</span>: <span style="color:#e6db74">&#34;arn:aws:iam::1234567890:mfa/*&#34;</span>,
 </span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;Sid&#34;</span>: <span style="color:#e6db74">&#34;CreateMFA&#34;</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">]</span>
@@ -631,7 +631,7 @@ The admin user has another policy called <code>AssumeRoles</code>. Lets see what
 </span></span><span style="display:flex;"><span>            <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;Action&#34;</span>: <span style="color:#e6db74">&#34;sts:AssumeRole&#34;</span>,
 </span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;Effect&#34;</span>: <span style="color:#e6db74">&#34;Allow&#34;</span>,
-</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;Resource&#34;</span>: <span style="color:#e6db74">&#34;arn:aws:iam::139343766080:role/cg_secretsmanager_cgidxwnp5b4tkv&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;Resource&#34;</span>: <span style="color:#e6db74">&#34;arn:aws:iam::1234567890:role/cg_secretsmanager_cgidxwnp5b4tkv&#34;</span>,
 </span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;Sid&#34;</span>: <span style="color:#e6db74">&#34;AssumeRole&#34;</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">]</span>
@@ -666,7 +666,7 @@ The admin user has another policy called <code>AssumeRoles</code>. Lets see what
 <img src="image-1.png" alt="assume role man page">
 We have to add the serial number and token code to the assume code command as per the man page.
 <img src="image-9.png" alt="assumed new role"></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>aws sts assume-role --role-arn &lt;<span style="color:#e6db74">&#34;arn:aws:iam::139343766080:role/cg_secretsmanager_cgidxwnp5b4tkv&#34;</span>&gt; --role-session-name testadmin --profile acc-admin --serial-number &lt;serial_number_of_virtual_mfa_device&gt; --token-code &lt;auth_code&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>aws sts assume-role --role-arn &lt;<span style="color:#e6db74">&#34;arn:aws:iam::1234567890:role/cg_secretsmanager_cgidxwnp5b4tkv&#34;</span>&gt; --role-session-name testadmin --profile acc-admin --serial-number &lt;serial_number_of_virtual_mfa_device&gt; --token-code &lt;auth_code&gt;
 </span></span></code></pre></div><p>This gives us an Access key id, secret key and a Session Token.
 <img src="image-10.png" alt="configure session token">
 Once we configure the new profile, we can now use the secrests manager to list and get the secret/flag.</p>
@@ -691,6 +691,13 @@ Once we configure the new profile, we can now use the secrests manager to list a
         <ul class="series">
             
             
+            
+            <li>
+                June 18, 2025 -
+                
+                    <a href="/posts/cloud-security-6/">Hands on Cloud Pentesting: 6 - Cloudgoat sqs_flag_shop</a>
+                
+            </li>
             
             <li>
                 June 13, 2025 -

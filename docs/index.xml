@@ -6,8 +6,15 @@
     <description>Recent content on </description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 14 Jun 2025 12:52:05 +0530</lastBuildDate>
+    <lastBuildDate>Wed, 18 Jun 2025 12:17:36 +0530</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hands on Cloud Pentesting: 6 - Cloudgoat sqs_flag_shop</title>
+      <link>/posts/cloud-security-6/</link>
+      <pubDate>Wed, 18 Jun 2025 12:17:36 +0530</pubDate>
+      <guid>/posts/cloud-security-6/</guid>
+      <description></description>
+    </item>
     <item>
       <title>SmileyCTF 2025 - Sculpture Revenge, dry-ice-n-co</title>
       <link>/posts/smileyctf-2025/</link>

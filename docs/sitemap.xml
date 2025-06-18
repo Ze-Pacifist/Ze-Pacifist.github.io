@@ -3,18 +3,33 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/</loc>
-    <lastmod>2025-06-14T12:52:05+05:30</lastmod>
+    <lastmod>2025-06-18T12:17:36+05:30</lastmod>
+  </url><url>
+    <loc>/tags/aws/</loc>
+    <lastmod>2025-06-18T12:17:36+05:30</lastmod>
+  </url><url>
+    <loc>/tags/cloud/</loc>
+    <lastmod>2025-06-18T12:17:36+05:30</lastmod>
+  </url><url>
+    <loc>/series/hands-on-cloud-pentesting/</loc>
+    <lastmod>2025-06-18T12:17:36+05:30</lastmod>
+  </url><url>
+    <loc>/posts/cloud-security-6/</loc>
+    <lastmod>2025-06-18T12:17:36+05:30</lastmod>
+  </url><url>
+    <loc>/posts/</loc>
+    <lastmod>2025-06-18T12:17:36+05:30</lastmod>
+  </url><url>
+    <loc>/series/</loc>
+    <lastmod>2025-06-18T12:17:36+05:30</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2025-06-18T12:17:36+05:30</lastmod>
   </url><url>
     <loc>/tags/java/</loc>
     <lastmod>2025-06-14T12:52:05+05:30</lastmod>
   </url><url>
-    <loc>/posts/</loc>
-    <lastmod>2025-06-14T12:52:05+05:30</lastmod>
-  </url><url>
     <loc>/posts/smileyctf-2025/</loc>
-    <lastmod>2025-06-14T12:52:05+05:30</lastmod>
-  </url><url>
-    <loc>/tags/</loc>
     <lastmod>2025-06-14T12:52:05+05:30</lastmod>
   </url><url>
     <loc>/tags/web/</loc>
@@ -23,19 +38,7 @@
     <loc>/tags/xss/</loc>
     <lastmod>2025-06-14T12:52:05+05:30</lastmod>
   </url><url>
-    <loc>/tags/aws/</loc>
-    <lastmod>2025-06-13T16:59:57+05:30</lastmod>
-  </url><url>
-    <loc>/tags/cloud/</loc>
-    <lastmod>2025-06-13T16:59:57+05:30</lastmod>
-  </url><url>
-    <loc>/series/hands-on-cloud-pentesting/</loc>
-    <lastmod>2025-06-13T16:59:57+05:30</lastmod>
-  </url><url>
     <loc>/posts/cloud-security-5/</loc>
-    <lastmod>2025-06-13T16:59:57+05:30</lastmod>
-  </url><url>
-    <loc>/series/</loc>
     <lastmod>2025-06-13T16:59:57+05:30</lastmod>
   </url><url>
     <loc>/posts/cloud-security-4/</loc>

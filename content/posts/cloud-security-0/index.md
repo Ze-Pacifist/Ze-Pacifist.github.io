@@ -118,7 +118,7 @@ This gives us the following details about a running application
 {
     "Applications": [
         {
-            "ApplicationArn": "arn:aws:elasticbeanstalk:us-east-1:139343766080:application/cgidwkroiranyq-app",
+            "ApplicationArn": "arn:aws:elasticbeanstalk:us-east-1:1234567890:application/cgidwkroiranyq-app",
             "ApplicationName": "cgidwkroiranyq-app",
             "Description": "Elastic Beanstalk application for insecure secrets scenario",
             "DateCreated": "2025-05-28T11:00:51.988Z",
@@ -169,7 +169,7 @@ aws elasticbeanstalk describe-environments --profile beanstalk-low-priv --region
                 "Version": "1.0"
             },
             "EnvironmentLinks": [],
-            "EnvironmentArn": "arn:aws:elasticbeanstalk:us-east-1:139343766080:environment/cgidwkroiranyq-app/cgidwkroiranyq-env"
+            "EnvironmentArn": "arn:aws:elasticbeanstalk:us-east-1:1234567890:environment/cgidwkroiranyq-app/cgidwkroiranyq-env"
         }
     ]
 }
@@ -198,11 +198,11 @@ We find a [custom managed policy](https://docs.aws.amazon.com/IAM/latest/UserGui
 
 Using the following command, we can see that v1 is the default policy version being used
 ```bash
-aws iam get-policy --profile beanstalk-mid-priv --policy-arn "arn:aws:iam::139343766080:policy/cgidwkroiranyq_secondary_policy"
+aws iam get-policy --profile beanstalk-mid-priv --policy-arn "arn:aws:iam::1234567890:policy/cgidwkroiranyq_secondary_policy"
 ```
 We can get the policy with the follwing command
 ```bash
-aws iam get-policy-version --profile beanstalk-mid-priv --policy-arn "arn:aws:iam::139343766080:policy/cgidwkroiranyq_secondary_policy" --version-id v1
+aws iam get-policy-version --profile beanstalk-mid-priv --policy-arn "arn:aws:iam::1234567890:policy/cgidwkroiranyq_secondary_policy" --version-id v1
 ```
 ```json
 {
