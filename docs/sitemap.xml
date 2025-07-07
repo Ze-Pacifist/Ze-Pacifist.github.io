@@ -3,39 +3,54 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/</loc>
-    <lastmod>2025-06-18T12:17:36+05:30</lastmod>
+    <lastmod>2025-07-05T13:06:03+05:30</lastmod>
   </url><url>
-    <loc>/tags/aws/</loc>
-    <lastmod>2025-06-18T12:17:36+05:30</lastmod>
-  </url><url>
-    <loc>/tags/cloud/</loc>
-    <lastmod>2025-06-18T12:17:36+05:30</lastmod>
-  </url><url>
-    <loc>/series/hands-on-cloud-pentesting/</loc>
-    <lastmod>2025-06-18T12:17:36+05:30</lastmod>
-  </url><url>
-    <loc>/posts/cloud-security-6/</loc>
-    <lastmod>2025-06-18T12:17:36+05:30</lastmod>
+    <loc>/tags/php/</loc>
+    <lastmod>2025-07-05T13:06:03+05:30</lastmod>
   </url><url>
     <loc>/posts/</loc>
-    <lastmod>2025-06-18T12:17:36+05:30</lastmod>
+    <lastmod>2025-07-05T13:06:03+05:30</lastmod>
   </url><url>
-    <loc>/series/</loc>
-    <lastmod>2025-06-18T12:17:36+05:30</lastmod>
+    <loc>/posts/r3ctf-2025/</loc>
+    <lastmod>2025-07-05T13:06:03+05:30</lastmod>
   </url><url>
     <loc>/tags/</loc>
+    <lastmod>2025-07-05T13:06:03+05:30</lastmod>
+  </url><url>
+    <loc>/tags/web/</loc>
+    <lastmod>2025-07-05T13:06:03+05:30</lastmod>
+  </url><url>
+    <loc>/tags/xss/</loc>
+    <lastmod>2025-07-05T13:06:03+05:30</lastmod>
+  </url><url>
+    <loc>/tags/aws/</loc>
+    <lastmod>2025-07-02T18:56:23+05:30</lastmod>
+  </url><url>
+    <loc>/tags/cloud/</loc>
+    <lastmod>2025-07-02T18:56:23+05:30</lastmod>
+  </url><url>
+    <loc>/series/hands-on-cloud-pentesting/</loc>
+    <lastmod>2025-07-02T18:56:23+05:30</lastmod>
+  </url><url>
+    <loc>/posts/cloud-security-9/</loc>
+    <lastmod>2025-07-02T18:56:23+05:30</lastmod>
+  </url><url>
+    <loc>/series/</loc>
+    <lastmod>2025-07-02T18:56:23+05:30</lastmod>
+  </url><url>
+    <loc>/posts/cloud-security-8/</loc>
+    <lastmod>2025-06-24T16:01:44+05:30</lastmod>
+  </url><url>
+    <loc>/posts/cloud-security-7/</loc>
+    <lastmod>2025-06-20T12:00:52+05:30</lastmod>
+  </url><url>
+    <loc>/posts/cloud-security-6/</loc>
     <lastmod>2025-06-18T12:17:36+05:30</lastmod>
   </url><url>
     <loc>/tags/java/</loc>
     <lastmod>2025-06-14T12:52:05+05:30</lastmod>
   </url><url>
     <loc>/posts/smileyctf-2025/</loc>
-    <lastmod>2025-06-14T12:52:05+05:30</lastmod>
-  </url><url>
-    <loc>/tags/web/</loc>
-    <lastmod>2025-06-14T12:52:05+05:30</lastmod>
-  </url><url>
-    <loc>/tags/xss/</loc>
     <lastmod>2025-06-14T12:52:05+05:30</lastmod>
   </url><url>
     <loc>/posts/cloud-security-5/</loc>
@@ -117,9 +132,6 @@
     <lastmod>2022-03-29T16:55:28-04:00</lastmod>
   </url><url>
     <loc>/posts/gitfileexplorer-zer0pts2022/</loc>
-    <lastmod>2022-03-22T13:40:25+00:00</lastmod>
-  </url><url>
-    <loc>/tags/php/</loc>
     <lastmod>2022-03-22T13:40:25+00:00</lastmod>
   </url><url>
     <loc>/tags/ocr/</loc>

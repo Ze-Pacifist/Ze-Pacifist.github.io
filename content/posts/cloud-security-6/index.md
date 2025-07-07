@@ -20,7 +20,7 @@ Buy FLAG successfully on the shop site
 ### Solution
 Start the scenario using the following command
 ```bash
-cloudgoat.py create sqs_flag_shop
+cloudgoat create sqs_flag_shop
 ```
 {{< details summary="Look out for email from AWS for free credits" >}}
 I got an email a month back with the subject "Share your feedback with AWS and receive USD 25 AWS credit" which included a survey and after filling that, a month later I received USD 25 AWS credit which is visible at Billing and Cost Management -> Credits. Since this series has a focus on learning AWS pentesting for free I will still include the pricings for the labs I complete (if any) and alternate ways to avoid the cost but having a cushion of USD 25 will be more than enough in case of any lab having small costs associated with it.

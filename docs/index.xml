@@ -6,8 +6,36 @@
     <description>Recent content on </description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 18 Jun 2025 12:17:36 +0530</lastBuildDate>
+    <lastBuildDate>Sat, 05 Jul 2025 13:06:03 +0530</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>R3CTF 2025 - Evalgelist, Silent Profit</title>
+      <link>/posts/r3ctf-2025/</link>
+      <pubDate>Sat, 05 Jul 2025 13:06:03 +0530</pubDate>
+      <guid>/posts/r3ctf-2025/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;tl;dr&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Writeup for &amp;ldquo;Evalgelist&amp;rdquo; and &amp;ldquo;Silent Profit&amp;rdquo; from R3CTF 2025&lt;/li&gt;&#xA;&lt;li&gt;Evalgelist - PHP eval filter bypass using &lt;code&gt;include&lt;/code&gt; and heredoc string.&lt;/li&gt;&#xA;&lt;li&gt;Silent Profit - XSS through PHP unserialize error - Creation of dynamic property Exception.&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Hands on Cloud Pentesting: 9 - Cloudgoat vulnerable_lambda</title>
+      <link>/posts/cloud-security-9/</link>
+      <pubDate>Wed, 02 Jul 2025 18:56:23 +0530</pubDate>
+      <guid>/posts/cloud-security-9/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hands on Cloud Pentesting: 8 - Cloudgoat rce_web_app</title>
+      <link>/posts/cloud-security-8/</link>
+      <pubDate>Tue, 24 Jun 2025 16:01:44 +0530</pubDate>
+      <guid>/posts/cloud-security-8/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hands on Cloud Pentesting: 7 - Cloudgoat vulnerable_cognito</title>
+      <link>/posts/cloud-security-7/</link>
+      <pubDate>Fri, 20 Jun 2025 12:00:52 +0530</pubDate>
+      <guid>/posts/cloud-security-7/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Hands on Cloud Pentesting: 6 - Cloudgoat sqs_flag_shop</title>
       <link>/posts/cloud-security-6/</link>

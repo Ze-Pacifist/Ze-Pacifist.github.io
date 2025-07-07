@@ -17,7 +17,7 @@ tags = ["web","nodejs","require","prototype pollution"]
 
 **Challenge points**: 998
 **No. of solves**: 3
-**Solved by**: [Z_Pacifist](https://twitter.com/ZePacifist)
+**Challenge Author**: [Z_Pacifist](https://twitter.com/ZePacifist)
 
 ## Challenge Description
 

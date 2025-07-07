@@ -6,8 +6,15 @@
     <description>Recent content in Php on </description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 22 Mar 2022 13:40:25 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 05 Jul 2025 13:06:03 +0530</lastBuildDate>
     <atom:link href="/tags/php/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>R3CTF 2025 - Evalgelist, Silent Profit</title>
+      <link>/posts/r3ctf-2025/</link>
+      <pubDate>Sat, 05 Jul 2025 13:06:03 +0530</pubDate>
+      <guid>/posts/r3ctf-2025/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;tl;dr&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Writeup for &amp;ldquo;Evalgelist&amp;rdquo; and &amp;ldquo;Silent Profit&amp;rdquo; from R3CTF 2025&lt;/li&gt;&#xA;&lt;li&gt;Evalgelist - PHP eval filter bypass using &lt;code&gt;include&lt;/code&gt; and heredoc string.&lt;/li&gt;&#xA;&lt;li&gt;Silent Profit - XSS through PHP unserialize error - Creation of dynamic property Exception.&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
     <item>
       <title>Gitfile Explorer - Zer0pts 2022</title>
       <link>/posts/gitfileexplorer-zer0pts2022/</link>
