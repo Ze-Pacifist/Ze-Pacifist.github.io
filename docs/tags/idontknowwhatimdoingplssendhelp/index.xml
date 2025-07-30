@@ -6,8 +6,15 @@
     <description>Recent content in Idontknowwhatimdoingplssendhelp on </description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 24 Mar 2023 14:51:15 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 28 Jul 2025 20:31:18 +0530</lastBuildDate>
     <atom:link href="/tags/idontknowwhatimdoingplssendhelp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>UIUCTF 2025 - Shipping Bay, Upload, Upload, and Away</title>
+      <link>/posts/uiuctf-2025/</link>
+      <pubDate>Mon, 28 Jul 2025 20:31:18 +0530</pubDate>
+      <guid>/posts/uiuctf-2025/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;tl;dr&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Writeup for &amp;ldquo;Shipping Bay&amp;rdquo; and &amp;ldquo;Upload, Upload, and Away&amp;rdquo; from UIUCTF 2025&lt;/li&gt;&#xA;&lt;li&gt;Shipping Bay - utilize Unmarshal unicode parsing behaviour to bypass &lt;code&gt;supply_type&lt;/code&gt; check&lt;/li&gt;&#xA;&lt;li&gt;Upload, Upload, and Away - Leak flag using compile time error caused with Template Literal Type&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
     <item>
       <title>Required - HxpCTF 2022</title>
       <link>/posts/required-hxpctf2022/</link>

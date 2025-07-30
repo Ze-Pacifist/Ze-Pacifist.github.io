@@ -6,8 +6,22 @@
     <description>Recent content on </description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 05 Jul 2025 13:06:03 +0530</lastBuildDate>
+    <lastBuildDate>Mon, 28 Jul 2025 20:31:18 +0530</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>UIUCTF 2025 - Shipping Bay, Upload, Upload, and Away</title>
+      <link>/posts/uiuctf-2025/</link>
+      <pubDate>Mon, 28 Jul 2025 20:31:18 +0530</pubDate>
+      <guid>/posts/uiuctf-2025/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;tl;dr&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Writeup for &amp;ldquo;Shipping Bay&amp;rdquo; and &amp;ldquo;Upload, Upload, and Away&amp;rdquo; from UIUCTF 2025&lt;/li&gt;&#xA;&lt;li&gt;Shipping Bay - utilize Unmarshal unicode parsing behaviour to bypass &lt;code&gt;supply_type&lt;/code&gt; check&lt;/li&gt;&#xA;&lt;li&gt;Upload, Upload, and Away - Leak flag using compile time error caused with Template Literal Type&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Hands on Cloud Pentesting: 10 - Cloudgoat cloud_breach_s3</title>
+      <link>/posts/cloud-security-10/</link>
+      <pubDate>Mon, 14 Jul 2025 20:29:12 +0530</pubDate>
+      <guid>/posts/cloud-security-10/</guid>
+      <description></description>
+    </item>
     <item>
       <title>R3CTF 2025 - Evalgelist, Silent Profit</title>
       <link>/posts/r3ctf-2025/</link>

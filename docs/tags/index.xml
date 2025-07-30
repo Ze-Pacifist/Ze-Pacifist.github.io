@@ -6,8 +6,36 @@
     <description>Recent content in Tags on </description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 05 Jul 2025 13:06:03 +0530</lastBuildDate>
+    <lastBuildDate>Mon, 28 Jul 2025 20:31:18 +0530</lastBuildDate>
     <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Idontknowwhatimdoingplssendhelp</title>
+      <link>/tags/idontknowwhatimdoingplssendhelp/</link>
+      <pubDate>Mon, 28 Jul 2025 20:31:18 +0530</pubDate>
+      <guid>/tags/idontknowwhatimdoingplssendhelp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Web</title>
+      <link>/tags/web/</link>
+      <pubDate>Mon, 28 Jul 2025 20:31:18 +0530</pubDate>
+      <guid>/tags/web/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Aws</title>
+      <link>/tags/aws/</link>
+      <pubDate>Mon, 14 Jul 2025 20:29:12 +0530</pubDate>
+      <guid>/tags/aws/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cloud</title>
+      <link>/tags/cloud/</link>
+      <pubDate>Mon, 14 Jul 2025 20:29:12 +0530</pubDate>
+      <guid>/tags/cloud/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Php</title>
       <link>/tags/php/</link>
@@ -16,31 +44,10 @@
       <description></description>
     </item>
     <item>
-      <title>Web</title>
-      <link>/tags/web/</link>
-      <pubDate>Sat, 05 Jul 2025 13:06:03 +0530</pubDate>
-      <guid>/tags/web/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Xss</title>
       <link>/tags/xss/</link>
       <pubDate>Sat, 05 Jul 2025 13:06:03 +0530</pubDate>
       <guid>/tags/xss/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Aws</title>
-      <link>/tags/aws/</link>
-      <pubDate>Wed, 02 Jul 2025 18:56:23 +0530</pubDate>
-      <guid>/tags/aws/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Cloud</title>
-      <link>/tags/cloud/</link>
-      <pubDate>Wed, 02 Jul 2025 18:56:23 +0530</pubDate>
-      <guid>/tags/cloud/</guid>
       <description></description>
     </item>
     <item>
@@ -104,13 +111,6 @@
       <link>/tags/mxss/</link>
       <pubDate>Mon, 16 Oct 2023 17:09:06 +0000</pubDate>
       <guid>/tags/mxss/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Idontknowwhatimdoingplssendhelp</title>
-      <link>/tags/idontknowwhatimdoingplssendhelp/</link>
-      <pubDate>Fri, 24 Mar 2023 14:51:15 +0000</pubDate>
-      <guid>/tags/idontknowwhatimdoingplssendhelp/</guid>
       <description></description>
     </item>
     <item>
